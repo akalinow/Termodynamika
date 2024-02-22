@@ -1,0 +1,195 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[polish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{polski}
+\usepackage[T1]{fontenc}
+\usepackage{indentfirst}
+\usepackage{wrapfig}    % for wrapping figures, tables
+
+\frenchspacing
+
+\usepackage{amsmath}
+%\usepackage{physics}
+%\usepackage{bm}
+\usepackage{gensymb}
+%\usepackage{hepnames}
+\usepackage{epsfig}
+\usepackage{graphics}
+\usepackage[shortlabels]{enumitem}
+%\usepackage{xspace}
+%\xspaceaddexceptions{[]\{\}}
+
+%
+%
+%fixpagesize
+\pagestyle{empty}
+\addtolength{\textwidth}{6cm}
+\addtolength{\textheight}{4cm}
+\addtolength{\evensidemargin}{-3cm}
+\addtolength{\oddsidemargin}{-3cm}
+\addtolength{\topmargin}{-2cm}
+\parindent=0cm
+
+
+%
+%
+%small distance in list/item/enum for enumitem package
+\setlist[itemize,enumerate]{topsep=0em}
+\setlist{noitemsep}
+
+%print zadanie #
+\newcounter{zadanie}\newcommand{\zadanie}[1][]{\addtocounter{zadanie}{1} ~\\  {\bf \emph{Zadanie \arabic{zadanie} #1 }} \\}
+\newcounter{zaddom}\newcommand{\zaddom}[1][]{\addtocounter{zaddom}{1} ~\\  {\bf \emph{Zadanie domowe \arabic{zaddom} #1 }} \\}
+%\renewcommand{\zadanie}[1][]{\pagebreak  ~\\  {\bf \emph{Zadanie }} \\} \addtolength{\topmargin}{-2cm}
+
+\newcommand{\dbar}{{\mkern3mu\mathchar'26\mkern-12mu d}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}           % End of preamble and beginning of text.
+
+\begin{centering}
+\bf{\Large{Termodynamika z elementami fizyki statystycznej}}\\
+Tydzień 4  (23 marca 2023)\\[3mm]
+Równanie stanu, rozwinięcia wirialne, parametry krytyczne \\ 
+\end{centering} 
+\vspace{5mm}
+
+\zadanie
+Pokaż, że: \[ 
+\left(\frac{\partial p}{\partial T}\right)_V \cdot
+\left(\frac{\partial T}{\partial V}\right)_p \cdot
+\left(\frac{\partial V}{\partial p}\right)_T = -1 
+\]
+
+\zadanie
+Pokaż, że $\gamma=p\beta\kappa$, gdzie $p$ - ciśnienie, 
+$\gamma$ - współczynnik rozszerzalności temperaturowej,
+$\beta$ - współczynnik temperaturowej zmiany ciśnienia, 
+$\kappa$ - współczynnik ściśliwości izotermicznej. 
+Wynik sprawdź dla gazu doskonałego (korzystając z wyników z poprzednich ćwiczeń).\\
+
+{\it Wskazówka:} Skorzystaj z wyniku poprzedniego zadania.\\
+
+
+\zadanie
+Rozpatrzmy rtęć wypełniającą zbiornik w warunkach normalnych. 
+Jak zmieni się ciśnienie wywierane na ścianki przy ogrzaniu o 100\degree C?
+Znajdź wynik, wiedząc że 
+$\gamma=181\cdot 10^{-6}$\,K$^{-1}$, $\kappa= 3.82\cdot 10^{-11}$\,Pa$^{-1}$ słabo zależą od
+temperatury i można je przyjąć jako stałe.\\
+
+
+\zadanie
+Znaleźć równanie stanu gazu, jeżeli znane są następujące fakty:
+\begin{enumerate}
+\item w temperaturze $T$ i ciśnieniu $p=1$ spełniony jest związek
+$\gamma V = R,$
+\item w temperaturze $T$ i dowolnym ciśnieniu $p$ słuszny jest wzór $\kappa V = \frac{RT}{p^2}-\frac{2a}{p^3},$
+gdzie $a$ jest pewną znaną stałą,
+\item $\lim_{p\rightarrow\infty}V=V_0,$
+\end{enumerate}
+przy czym $\gamma=\frac{1}{V}\left(\frac{\partial V}{\partial T}\right)_p$ to współczynnik rozszerzalności temperaturowej, a
+\mbox{$\kappa=-\frac{1}{V}\left(\frac{\partial V}{\partial p}\right)_T$} jest współczynnikiem ściśliwości izotermicznej.\\
+
+
+\zadanie
+Znajdź ogólną postać równania stanu substancji, której współczynniki rozszerzalności temperaturowej  $\gamma$ i izotermicznej ściśliwości $\kappa$ spełniają równania:
+\[ \gamma=\frac{a T^2}{p}, ~~~\kappa=\frac{b T^3}{p^2}. \]
+Wyznacz stosunek $a/b$.\\
+
+
+\zadanie
+Znaleźć dwa pierwsze wyrazy rozwinięcia wirialnego 
+$\displaystyle \frac{p v}{R T} = 1 + \frac{B(T)}{v} + \frac{C(T)}{v^2} + \ldots$ \\
+dla równania stanu van der Waalsa
+      $\displaystyle p(T,v) = \frac{R T}{v-b} - \frac{a}{v^2}$, \\
+{\em Uwaga:} $v$ -- objętość molowa. 
+Aby zapisać równania dla $n$ moli, trzeba podstawić $v \mapsto V/n$.\\
+
+
+\zadanie
+Znaleźć współrzędne $p_k, v_k$ i $T_k$ punktu krytycznego
+gazu van der Waalsa oraz tzw. krytyczny
+współczynnik kompresji $\displaystyle z_k =\frac{p_k v_k}{R T_k}$,
+a następnie przedstawić równanie van der Waalsa w
+zmiennych zredukowanych: $\pi=p/p_k$, $\omega=v/v_k$ i $\tau=T/T_k$.\\
+
+{\it Uwaga:} W punkcie krytycznym rówanie stanu $f(p,v,T)=0$ ma pierwiatek potrójny oraz występuje punkt przegięcia izotermy.\\
+
+\pagebreak
+\zaddom
+Znając dla gazu doskonałego $\gamma$, $\beta$, $\kappa$, odtwórz r. stanu.
+
+\zaddom
+Dany jest gaz, którego zachowanie w pewnym zakresie parametrów opisuje równanie stanu:
+\[ p V = R T \cdot\exp\left[ - \frac{a}{T V} \right], {\rm ~~~gdzie~ }R,a = const. \]
+Znajdź współczynniki: rozszerzalności temperaturowej
+$\displaystyle \gamma \equiv \frac{1}{V}\left(\frac{\partial V}{\partial T}\right)_p$
+oraz izotermicznej ściśliwości
+\mbox{$\displaystyle \kappa \equiv -\frac{1}{V}\left(\frac{\partial V}{\partial p}\right)_T$}
+dla tego gazu.\\
+
+{\it Odpowiedź:}
+\[
+  \begin{array}{c}
+    \gamma = \frac{V+a/T}{VT-a}\\
+    \\
+    \kappa = \frac{1}{p}\frac{VT}{VT-a}
+  \end{array}
+\]
+
+\zaddom
+Dany jest gaz, którego zachowanie w pewnym zakresie parametrów opisuje równanie stanu:
+\[  p^3 \cdot T^{-1/2} \cdot \exp( \alpha V ) = c = const.\]
+Znajdź współczynnki izobarycznej rozszerzalności temperaturowej oraz izotermicznej ściśliwości poprzez:
+\begin{enumerate}[a)]
+\item znalezienie odpowiednich pochodnych cząstkowych po wyznaczeniu $V$ z równiania stanu
+\item licząc różniczkę równania stanu, a następnie wyrażając $dV$ przez $dT$ i $dp$.
+\end{enumerate}
+
+{\it Odpowiedź:}
+\[
+  \begin{array}{c}
+    \gamma = \left(2T \ln\left( \frac{c \sqrt{T}}{p^3} \right) \right)^{-1}\\
+    \\
+    \kappa = \frac{3}{p} \left( \ln\left( \frac{c \sqrt{T}}{p^3} \right) \right)^{-1}
+  \end{array}
+\]    
+
+\zaddom
+Znaleźć dwa pierwsze wyrazy rozwinięcia wirialnego w $1/v$ dla gazu Dietericiego: 
+$\displaystyle p(T,v) = \frac{R T}{v-b}\cdot\exp\left[-\frac{a}{R T v}\right]$.\\
+
+{\em Uwaga: Aby zapisać te równania dla $n$ moli, trzeba podstawić $v\mapsto V/n$}.\\
+
+{\it Odpowiedź:}
+\[
+  \frac{pv}{RT} = 1 + \left(b - \frac{a}{RT} \right) \frac{1}{v} + \left( b^2 - \frac{b a}{R T} + \frac{a^2}{2 R^2 T^2} \right) \left( \frac{1}{v} \right)^2 + ...
+\]
+
+\zaddom
+Wiadomo, że równanie van der Waalsa daje współczynnik krytyczny $K$
+(gdzie $K\equiv 1/z_k$), mniejszy od wartości doświadczalnej.
+Jaki współczynnik krytyczny dawałoby zmodyfikowane równanie
+postaci
+\linebreak
+\mbox{$\displaystyle p(T,V) = \frac{R T}{V-b} - \frac{a}{T V^n}$}? \\
+Ile powinien wynosić parametr $n$, aby otrzymać  wartość
+$K = 3.8$ ?
+Ile razy objętość krytyczna $V_k$
+byłaby większa od parametru $b$? \\
+
+{\em Uwaga: Dla $n=2$ powyższe równanie nosi nazwę równania Berthelota.}\\
+
+{\it Odpowiedź:} $n=1.656$; $V_k \approx 4b$
+
+
+% An example of figure placement:
+%\begin{wrapfigure}[13]{r}{0.4\linewidth}\vspace{3mm}
+%\resizebox{\linewidth}{!}{\includegraphics{NAZWA.png}}
+%\end{wrapfigure}
+%\zadanie
+
+\end{document}

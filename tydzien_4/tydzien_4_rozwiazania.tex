@@ -1,0 +1,398 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[polish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{polski}
+\usepackage[T1]{fontenc}
+\usepackage{indentfirst}
+\usepackage{wrapfig}    % for wrapping figures, tables
+
+\frenchspacing
+
+\usepackage{amsmath}
+%\usepackage{physics}
+%\usepackage{bm}
+\usepackage{gensymb}
+%\usepackage{hepnames}
+\usepackage{epsfig}
+\usepackage{graphics}
+\usepackage[shortlabels]{enumitem}
+%\usepackage{xspace}
+%\xspaceaddexceptions{[]\{\}}
+
+%
+%
+%fixpagesize
+\pagestyle{empty}
+\addtolength{\textwidth}{6cm}
+\addtolength{\textheight}{4cm}
+\addtolength{\evensidemargin}{-3cm}
+\addtolength{\oddsidemargin}{-3cm}
+\addtolength{\topmargin}{-2cm}
+\parindent=0cm
+
+
+%
+%
+%small distance in list/item/enum for enumitem package
+\setlist[itemize,enumerate]{topsep=0em}
+\setlist{noitemsep}
+
+%print zadanie #
+\newcounter{zadanie}\newcommand{\zadanie}[1][]{\addtocounter{zadanie}{1} ~\\  {\bf \emph{Zadanie \arabic{zadanie} #1 }} \\}
+\newcounter{zaddom}\newcommand{\zaddom}[1][]{\addtocounter{zaddom}{1} ~\\  {\bf \emph{Zadanie domowe \arabic{zaddom} #1 }} \\}
+%\renewcommand{\zadanie}[1][]{\pagebreak  ~\\  {\bf \emph{Zadanie }} \\} \addtolength{\topmargin}{-2cm}
+
+\newcommand{\dbar}{{\mkern3mu\mathchar'26\mkern-12mu d}}
+\newcommand{\Partial}[3]{\left( \frac{\partial #1}{\partial #2} \right)_{#3}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}           % End of preamble and beginning of text.
+
+\begin{centering}
+\bf{\Large{Termodynamika z elementami fizyki statystycznej}}\\
+Tydzień 4  (23 marca 2023)\\[3mm]
+Równanie stanu, rozwinięcia wirialne, parametry krytyczne \\ 
+\end{centering} 
+\vspace{5mm}
+
+\zadanie
+Pokaż, że: \[ 
+\left(\frac{\partial p}{\partial T}\right)_V \cdot
+\left(\frac{\partial T}{\partial V}\right)_p \cdot
+\left(\frac{\partial V}{\partial p}\right)_T = -1 
+\]
+\\
+\\
+\textbf{Rozwiązanie:}
+\\
+Zakładamy, że słuszne jest ogólne równanie stanu postaci:
+\begin{equation*}
+    f(p,V,T)=0.
+\end{equation*}
+Wynika stąd, że dowolny parametr stanu np. ciśnienie możemy wyrazić jako funkcję dwóch pozostałych parametrów, tu: $T,V$
+\begin{equation*}
+    p=p(T,V).
+\end{equation*}
+W ogólności
+\begin{equation*}
+    dp = \Partial{p}{T}{V}dT+\Partial{p}{V}{T}dV.
+\end{equation*}
+Rozważmy infinitezymalny proces pod stałym ciśnieniem $p=const, \, dp=0$. Mamy
+\begin{equation}
+\label{eq0}
+    0=\Partial{p}{T}{V}dT+\Partial{p}{V}{T}dV.
+\end{equation}
+Podczas takiego procesu
+\begin{equation*}
+    dV=\Partial{V}{T}{p}dT.
+\end{equation*}
+wstawiając takie wyrażenie na $dV$ do \eqref{eq0} otrzymujemy relację
+\begin{equation*}
+    0=\Partial{p}{T}{V}+\Partial{p}{V}{T}\Partial{V}{T}{p}
+\end{equation*}
+Zatem
+\begin{equation*}
+    \Partial{p}{T}{V}=-\Partial{p}{V}{T}\Partial{V}{T}{p}
+\end{equation*}
+Korzystając z wzoru na pochodną funkcji odwrotnej dostajemy ostatecznie
+\[ 
+\left(\frac{\partial p}{\partial T}\right)_V \cdot
+\left(\frac{\partial T}{\partial V}\right)_p \cdot
+\left(\frac{\partial V}{\partial p}\right)_T = -1.
+\]
+
+\newpage
+
+
+\zadanie
+Pokaż, że zachodzi związek $\gamma=p\beta\kappa$, gdzie $p$ - ciśnienie, 
+$\gamma$ - współczynnik rozszerzalności temperaturowej,
+$\beta$ - współczynnik temperaturowej zmiany ciśnienia, 
+$\kappa$ - współczynnik ściśliwości izotermicznej. 
+Wynik sprawdź dla gazu doskonałego (korzystając z wyników z poprzednich ćwiczeń).\\
+
+{\it Wskazówka:} Skorzystaj z wyniku poprzedniego zadania.\\
+\\
+\textbf{Rozwiązanie:}
+\\
+Definicje współczynników $\gamma, \beta, \kappa$ są następujące
+\begin{equation*}
+    \gamma=\frac{1}{V} \Partial{V}{T}{p} \qquad \beta= \frac{1}{p} \Partial{p}{T}{V} \qquad \kappa =-\frac{1}{V} \Partial{V}{p}{T}.
+\end{equation*}
+Z tożsamości wyprowadzonej w poprzednim zadaniu i z wzoru na pochodną funkcji odwrotnej znajdujemy
+\begin{equation*}
+    \Partial{V}{T}{p}=-\Partial{V}{p}{T}\Partial{p}{T}{V}.
+\end{equation*}
+Wobec czego 
+\begin{equation*}
+    \gamma=\frac{1}{V} \Partial{V}{T}{p}=-\frac{1}{V}\Partial{V}{p}{T}\Partial{p}{T}{V}=\kappa p \beta.
+\end{equation*}
+Sprawdźmy teraz dla gazu doskonałego. Na poprzednich ćwiczeniach znaleźliśmy 
+\begin{equation*}
+    \gamma = \frac{1}{T} \qquad \kappa=\frac{1}{p} \qquad \beta =\frac{1}{T}.
+\end{equation*}
+Widzmy, że dla takich współczynników $\gamma =p \beta \kappa$ jest spełnione w oczywisty sposób.
+\newpage
+
+\zadanie
+Rozpatrzmy rtęć wypełniającą zbiornik w warunkach normalnych. 
+Jak zmieni się ciśnienie wywierane na ścianki przy ogrzaniu o 100\degree C?
+Znajdź wynik, wiedząc że 
+$\gamma=181\cdot 10^{-6}$\,K$^{-1}$, $\kappa= 3.82\cdot 10^{-11}$\,Pa$^{-1}$ słabo zależą od
+temperatury i można je przyjąć jako stałe.\\
+
+\textbf{Rozwiązanie:}
+\\
+Rtęć nie zmienia swojej objętości podczas podgrzewania, piszemy więc
+\begin{equation}
+\label{eq1}
+    p(T+\Delta T)=p(T)+ \Partial{p}{T}{V} \Delta T +O(\Delta T^2).
+\end{equation}
+Z definicji współczynnika $\beta$ mamy
+\begin{equation*}
+    \beta p =\Partial{p}{T}{V}
+\end{equation*}
+jednocześnie, korzystając z tożsamości z poprzedniego zadania znajdujemy
+\begin{equation*}
+    \Partial{p}{T}{V} = \beta p =\frac{\gamma}{\kappa}
+\end{equation*}
+zarówno $\gamma$ jak i $\kappa$ przyjmujemy jako niezależne od temperatury, więc i $\Partial{p}{T}{V}$ nie zależy od $T$. Wobec czego, wyrazy z wyższymi potęgami w $\Delta T$ w równaniu \eqref{eq1} możemy pominąć.
+Znajdujemy
+\begin{equation*}
+    \Delta p = p(T+\Delta T)-p(T)=\frac{\gamma}{\kappa} \Delta T \approx 4738,22 \text{Ba}.
+\end{equation*}
+\newpage
+
+\zadanie
+Znaleźć równanie stanu gazu, jeżeli znane są następujące fakty:
+\begin{enumerate}
+\item w temperaturze $T$ i ciśnieniu $p=1$ spełniony jest związek
+$\gamma V = R,$
+\item w temperaturze $T$ i dowolnym ciśnieniu $p$ słuszny jest wzór $\kappa V = \frac{RT}{p^2}-\frac{2a}{p^3},$
+gdzie $a$ jest pewną znaną stałą,
+\item $\lim_{p\rightarrow\infty}V=V_0,$
+\end{enumerate}
+przy czym $\gamma=\frac{1}{V}\left(\frac{\partial V}{\partial T}\right)_p$ to współczynnik rozszerzalności temperaturowej, a
+\mbox{$\kappa=-\frac{1}{V}\left(\frac{\partial V}{\partial p}\right)_T$} jest współczynnikiem ściśliwości izotermicznej.\\
+\\
+\textbf{Rozwiązanie:}
+\\
+Z definicji współczynnika ściśliwości iotermicznej mamy:
+\begin{equation}
+    \kappa V = -\Partial{V}{p}{T}
+\end{equation}
+korzystając z faktu 2. piszemy
+\begin{equation*}
+    -\Partial{V}{p}{T}=\frac{RT}{p^2}-\frac{2a}{p^3}
+\end{equation*}
+wiemy, że $V=V(p,T)$. Całkując powyższe równanie po ciśnieniu otrzymujemy
+\begin{equation}
+\label{eq2}
+    V = \frac{RT}{p}-\frac{a}{p^2}+f(T)
+\end{equation}
+gdzie $f(T)$ jest pewną funkcją temperatury, którą teraz wyznaczymy. Z definicji współczynnika rozszerzalności temperaturowej
+\begin{equation*}
+    \gamma V = \Partial{V}{T}{p}=\frac{R}{p}+\frac{ df}{dT}
+\end{equation*}
+Z faktu 1. mamy
+\begin{equation*}
+    \left(\frac{R}{p}+\frac{ df}{dT}\right )_{p=1}=R+\frac{ df}{dT}=R
+\end{equation*}
+stąd wniosek
+\begin{equation*}
+    f(T)=const. \equiv f
+\end{equation*}
+z faktu 3. i równania \eqref{eq2} znajdujemy, że $f=V_0$. Ostatecznie
+\begin{equation*}
+    V(p,T)=\frac{RT}{p}-\frac{a}{p^2}+V_0.
+\end{equation*}
+\newpage
+\zadanie
+Znajdź ogólną postać równania stanu substancji, której współczynniki rozszerzalności temperaturowej  $\gamma$ i izotermicznej ściśliwości $\kappa$ spełniają równania:
+\[ \gamma=\frac{a T^2}{p}, ~~~\kappa=\frac{b T^3}{p^2}. \]
+Wyznacz stosunek $a/b$.\\
+\\
+\textbf{Rozwiązanie:}
+Z definicji współczynników $\gamma$ i $\beta$ dostajemy
+\begin{equation}
+\label{eq3}
+    \gamma=\frac{1}{V}\Partial{V}{T}{p}=\frac{a T^2}{p}
+\end{equation}
+oraz
+\begin{equation}
+\label{eq4}
+    \beta=-\frac{1}{V}\Partial{V}{p}{T}=\frac{bT^3}{p^2}.
+\end{equation}
+Wiemy, że $V=V(p,T)$. Rozważając \eqref{eq3} dla stałego ciśnienia możemy napisać równanie
+\begin{equation*}
+    \frac{dV}{V}=\frac{aT^2}{p}dT.
+\end{equation*}
+Analogicznie, rozważając \eqref{eq4} dla stałej temperatury znajdujemy
+\begin{equation*}
+    \frac{dV}{V}=-\frac{bT^3}{p^2}dp.
+\end{equation*}
+Odcałkowanie tych równań daje odpowiednio
+\begin{equation*}
+    \ln V(p,T)=\frac{aT^3}{3p}+f(p)
+\end{equation*}
+i
+\begin{equation*}
+    \ln V(p,T)=\frac{bT^3}{p}+\tilde{f}(T)
+\end{equation*}
+gdzie $f(p)$ zależy tylko od ciśnienia, a $\tilde{f}(T)$ zależy tylko od temperatury. Aby uzyskać zgodność obu powyższych zależności musimy mieć
+\begin{equation*}
+    f(p)=\tilde{f}(T)=const,
+\end{equation*}
+ponadto
+\begin{equation*}
+    \frac{a}{3}=b.
+\end{equation*}
+Ostatecznie, ogólna postać równania stanu to
+\begin{equation*}
+    V(p,T)=C\exp \left( \frac{a T^3}{3p} \right)
+\end{equation*}
+i
+\begin{equation*}
+    a/b=3.
+\end{equation*}
+
+\newpage
+\zadanie
+Znaleźć dwa pierwsze wyrazy rozwinięcia wirialnego 
+$\displaystyle \frac{p v}{R T} = 1 + \frac{B(T)}{v} + \frac{C(T)}{v^2} + \ldots$ \\
+dla równania stanu van der Waalsa
+      $\displaystyle p(T,v) = \frac{R T}{v-b} - \frac{a}{v^2}$, \\
+{\em Uwaga:} $v$ -- objętość molowa. 
+Aby zapisać równania dla $n$ moli, trzeba podstawić $v \mapsto V/n$.\\
+\\
+\textbf{Rozwiązanie:}
+\\
+Podaną postać równania stanu mnożymy przez $\frac{v}{RT}$ otrzymując
+\begin{equation*}
+    \frac{pv}{RT}=\frac{v}{v-b}-\frac{a}{RTv}.
+\end{equation*}
+Chcemy zapisać prawą stronę jako szereg w $1/v$, mamy
+\begin{equation*}
+    \frac{v}{v-b}=\frac{1}{1-b/v}=1+\frac{b}{v}+\frac{b^2}{v^2}+\ldots
+\end{equation*}
+wobec czego
+\begin{equation*}
+    \frac{pv}{RT}=1+\left(b-\frac{a}{RT} \right) \frac{1}{v}+\frac{b^2}{v^2}+\ldots.
+\end{equation*}
+Stąd
+\begin{equation*}
+    B(T)=b-\frac{a}{RT} \qquad C(T)=b^2.
+\end{equation*}
+
+
+\newpage
+\zadanie
+Znaleźć współrzędne $p_k, v_k$ i $T_k$ punktu krytycznego
+gazu van der Waalsa oraz tzw. krytyczny
+współczynnik kompresji $\displaystyle z_k =\frac{p_k v_k}{R T_k}$,
+a następnie przedstawić równanie van der Waalsa w
+zmiennych zredukowanych: $\pi=p/p_k$, $\omega=v/v_k$ i $\tau=T/T_k$.\\
+
+{\it Uwaga:} W punkcie krytycznym rówanie stanu $f(p,v,T)=0$ ma pierwiatek potrójny oraz występuje punkt przegięcia izotermy.\\
+
+{\it Wskazówka 1:} Przekształć równanie stanu gazu Van der Waalsa do postaci wielomianu w $v$.\\
+
+{\it Wskazówka 2:} Istnieje więcej niż jeden sposób rozwiązania tego zadania.\\
+\\
+\textbf{Rozwiązanie:}
+\\
+\textit{Sposób 1.}
+\\
+Rozważmy izotermy Van der Waalsa. Znajdźmy temperaturę odpowiadającą izotermie, która wykazuje punkt przegięcia. W tym punkcie takim spełnione są następujące warunki:
+\begin{itemize}
+    \item znikanie pierwszej pochodnej
+    \begin{equation*}
+        \Partial{p}{v}{T}=0, \text{w punkcie } (p_k,v_k,T_k)
+    \end{equation*}
+    \item znikanie drugiej pochodnej
+    \begin{equation*}
+    \left( \frac{\partial^2 p}{\partial v^2} \right)_T=0, \text{w punkcie } (p_k,v_k,T_k)
+    \end{equation*}
+    \item spełnione jest równanie stanu
+    \begin{equation*}
+        f(p_k,v_k,T_k)=0.
+    \end{equation*}
+\end{itemize}
+Problem sprowadza się do rozwiązania układu równań
+\begin{equation*}
+    RT_kv_k^3=2a(v_k-b)^2
+\end{equation*}
+\begin{equation*}
+    RT_kv_k^4=3a(v_k-b)^3
+\end{equation*}
+\begin{equation*}
+    p_k=\frac{RT_k}{v_k-b}-\frac{a}{v_k^2}.
+\end{equation*}
+Z pierwszych dwóch równań znajdujemy
+\begin{equation*}
+    v_k=3b \qquad T_k=\frac{8}{27}\frac{a}{bR}
+\end{equation*}
+podstawiając te wartości do trzeciego znajdujemy
+\begin{equation*}
+    p_k=\frac{1}{27} \frac{a}{b^2}.
+\end{equation*}
+Ostatecznie 
+\begin{equation*}
+    z_k=\frac{p_k v_k}{R T_k}=\frac{3}{8}
+\end{equation*}
+\textit{Sposób 2.}
+\\
+Na początku sprowadźmy równanie van der Waalsa do postaci wielomianu zmiennej $v$. Wiemy, że
+\begin{equation*}
+    p=\frac{RT}{v-b}-\frac{a}{v^2}
+\end{equation*}
+\begin{equation*}
+    (v-b)v^2p=RTv^2-a(v-b)
+\end{equation*}
+\begin{equation*}
+    v^3-\left( b+\frac{RT}{p} \right)v^2+\frac{a}{p}v-\frac{ab}{p}=0
+\end{equation*}
+Wiemy, że w punkcie krytycznym istnieje jeden pierwiastek potrójny. Powyższe równanie dla $p_k, T_k$ powinno dać więc się przedstawić w postaci $(v-v_k)^3=0$. Piszemy więc
+\begin{equation*}
+    (v-v_k)^3=v^3-\left( b+\frac{RT_k}{p_k} \right)v_k^2+\frac{a}{p_k}v-\frac{ab}{p_k}
+\end{equation*}
+Przyrównując współczynniki przy odpowiednich potęgach $v$ znajdujemy
+\begin{equation*}
+    3v_k=b+\frac{RT_k}{p_k}
+\end{equation*}
+\begin{equation*}
+    3v_k^2=\frac{a}{p_k}
+\end{equation*}
+\begin{equation*}
+    v_k^3=\frac{ab}{p_k}
+\end{equation*}
+Dzieląc trzecie równanie przez drugie znajdujemy 
+\begin{equation*}
+    v_k=3b
+\end{equation*}
+a stąd
+\begin{equation*}
+    p_k=\frac{1}{27}\frac{a}{b^2} \qquad T_k=\frac{8}{27}\frac{a}{bR}
+\end{equation*}
+Na koniec, wyraźmy równanie stanu w zmiennych zredukowanych $\pi =p/p_k$, $\omega=v/v_k$ i $\tau=T/T_k$. Zastępując zmienne $p,V,T$ zmiennymi $\pi p_k, \omega v_k, \tau T_k$ znajdujemy
+\begin{equation*}
+    \pi p_k=\frac{R \tau T_k}{\omega v_k-b}-\frac{a}{\omega^2 v_k^2},
+\end{equation*}
+\begin{equation*}
+    \frac{\pi}{27}\frac{a}{b^2}=\frac{\tau \frac{8}{27}\frac{a}{b}}{b(3\omega-1)}-\frac{a}{9\omega^2 b^2}.
+\end{equation*}
+I ostatecznie
+\begin{equation*}
+    (3 \omega-1) \left( \pi +\frac{3}{\omega^2} \right)=8 \tau.
+\end{equation*}
+
+
+% An example of figure placement:
+%\begin{wrapfigure}[13]{r}{0.4\linewidth}\vspace{3mm}
+%\resizebox{\linewidth}{!}{\includegraphics{NAZWA.png}}
+%\end{wrapfigure}
+%\zadanie
+
+\end{document}
