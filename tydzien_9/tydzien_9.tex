@@ -1,0 +1,257 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[polish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{polski}
+\usepackage[T1]{fontenc}
+\usepackage{indentfirst}
+\usepackage{wrapfig}    % for wrapping figures, tables
+
+\frenchspacing
+
+%\usepackage{amsmath}
+\usepackage{physics}
+%\usepackage{bm}
+\usepackage{gensymb}
+%\usepackage{hepnames}
+\usepackage{epsfig}
+\usepackage{graphics}
+\usepackage[shortlabels]{enumitem}
+%\usepackage{xspace}
+%\xspaceaddexceptions{[]\{\}}
+
+%
+%
+%fixpagesize
+\pagestyle{empty}
+\addtolength{\textwidth}{6cm}
+\addtolength{\textheight}{4cm}
+\addtolength{\evensidemargin}{-3cm}
+\addtolength{\oddsidemargin}{-3cm}
+\addtolength{\topmargin}{-2cm}
+\parindent=0cm
+
+
+%
+%
+%small distance in list/item/enum for enumitem package
+\setlist[itemize,enumerate]{topsep=0em}
+\setlist{noitemsep}
+
+%print zadanie #
+\newcounter{zadanie}\newcommand{\zadanie}[1][]{\addtocounter{zadanie}{1} ~\\  {\bf \emph{Zadanie \arabic{zadanie} #1 }} \\}
+\newcounter{zaddom}\newcommand{\zaddom}[1][]{\addtocounter{zaddom}{1} ~\\  {\bf \emph{Zadanie domowe \arabic{zaddom} #1 }} \\}
+%\renewcommand{\zadanie}[1][]{\pagebreak  ~\\  {\bf \emph{Zadanie }} \\} \addtolength{\topmargin}{-2cm}
+
+\newcommand{\dbar}{{\mkern3mu\mathchar'26\mkern-12mu d}}
+
+\renewcommand{\t}[1]{\textrm{#1}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}           % End of preamble and beginning of text.
+
+\begin{centering}
+\bf{\Large{Termodynamika z elementami fizyki statystycznej}}\\
+Tydzień 9 (27 kwietnia 2023)\\[3mm]
+Entropia - procesy nieodwracalne\\
+\end{centering}
+\vspace{5mm}
+
+\zadanie
+Rozważyć odwracalne, izotermiczne rozprężanie gazu doskonałego w temperaturze $T$
+od objętości $V_1$ do objętości $V_2$. Obliczyć zmianę entropii gazu w tym
+procesie, zmianę entropii otoczenia (założyć, że jest to duży zbiornik, którego
+temperatura jest stała i wynosi $T$) i pokazać, że sumaryczna entropia układu gaz$-$otoczenie
+nie ulega zmianie.
+Korzystając z tego wyniku obliczyć zmianę entropii gazu doskonałego
+podczas nieodwracalnego rozprężania do próżni (też od $V_1$ do $V_2$ przy temperaturze $T$). Pokazać, że w tym przypadku sumaryczna entropia
+układu gaz$-$otoczenie wzrosła (nie ma przekazu ciepła, więc entropia otoczenia
+nie zmienia się).
+\newline
+
+%\emph{Odpowiedź:} W przypadku odwracalnym $\Delta S_{\textrm{gaz}} = + n R \ln(V_2/V_1) = -\Delta S_{\textrm{otoczenie}}$. W przypadku nieodwracalnym mamy tylko wzrost entropii gazu $\Delta S_{\textrm{gaz}} = + n R \ln(V_2/V_1).$
+
+\zadanie
+Cienka przegroda dzieli zbiornik na 2 części o objętościach $V_a$ i $V_b$.
+W obydwu częściach zbiornika znajduje się taki sam gaz doskonały.
+W pierwszej części mamy $n_a$ moli gazu o temperaturze $T_a$, a w drugiej części $n_b$ moli
+gazu o temperaturze $T_b$, $T_a >  T_b$.
+Zakładamy, że gaz jest izolowany od otoczenia (nie ma wymiany ciepła).
+W pewnym momencie usunięto ściankę oddzielającą części zbiornika.
+Oblicz zmianę entropii po zmieszaniu się
+gazów i wyrównaniu się temperatury. Pokaż, że jest większa od zera.
+\newline
+
+%\emph{Odpowiedź:} temperatura końcowa $T = (n_a T_a + n_b T_b)/(n_a + n_b)$, zmiana entropii
+%$\Delta S =c_v[n_a \ln (T/T_a) + n_b \ln (T/T_b)]  + n_a \ln [(V_a+V_b)/V_a] + n_b\ln[(V_a+V_b)/V_b]$.
+%Dodatniość wyrazów drugiego i trzeciego jest oczywista. Żeby udowodnić dodatniość pierwszego składnika można skorzystać z wklęsłości funkcji $\ln$.
+
+\zadanie
+Kostkę lodu o masie $10\,$g i temperaturze $-10^\circ$C wrzucono do jeziora o
+temperaturze $15^\circ$C.
+Wyznacz zmianę entropii układu kostka -- jezioro po dojściu do
+stanu równowagi. Ciepło właściwe lodu wynosi $c_l = 2220\,{\rm J/(kg\cdot K)}$,
+ciepło topnienia lodu wynosi $L = 334\,{\rm kJ/kg}$, a ciepło właściwe
+wody $c_w = 4200\,{\rm J/(kg\cdot K)}$.
+\newline
+
+%\emph{Wskazówka:} przy liczeniu zmiany entropii jeziora zauważ, że jego temperatura jest stała i zmiana entropii będzie po prostu równa całkowitemu przekazanemu ciepłu podzielonemu przez temperaturę. W przypadku kostki trzeba natomiast całkować przyrosty entropii.
+%\newline
+
+%\emph{Odpowiedź:} $\Delta S_{\textrm{jezioro}} = - 14.6\,\textrm{J/K}$, $\Delta S_{\textrm{kostka}} = 15.3\,\textrm{J/K}$
+
+
+\zadanie
+Kawałek żelaza o masie $m$, cieple właściwym $c$ i temperaturze $T_1$ zetknięto
+z takim samym kawałkiem, ale o~temperaturze $T_2$.
+Obliczyć zmianę entropii tego układu po ustaleniu się temperatury
+równowagi \mbox{$T_k = (T_1+T_2)/2$}. Pokazać, że w tym (nieodwracalnym!)
+procesie entropia wzrasta.
+\newline
+
+%\emph{Odpowiedź:} $\Delta S = m c \ln(\frac{T_k^2}{T_1 T_2})$,
+
+
+\zadanie
+W izolowanym zbiorniku znajdują się dwa rodzaje gazu doskonałego (np. jednoatomowy i dwuatomowy)
+w dwóch osobnych częściach przedzielonych nieprzepuszczalną przegrodą.
+W pierwszej znajduje się $n_1$ moli gazu, a w drugiej $n_2$ moli.
+W obu częściach panuje takie samo ciśnienie $p$ i temperatura $T$.
+Po usunięciu przegrody gazy wymieszały się, a temperatura układu nie zmieniła się.
+Znajdź zmianę entropii całego układu.
+\newline
+
+\zadanie
+Do naczynia zawierającego 1\,l wody o temperaturze $20^\circ$C wrzucono kamień granitowy
+o masie 3\,kg i temperaturze $600^\circ$C. Jaka będzie temperatura układu
+po ustaleniu się równowagi? Jaka będzie objętość cieczy w naczyniu?
+Ile wyniesie zmiana enropii  układu kamień/woda?
+Założ, że wewnątrz naczynia panuje stałe ciśnienie równe
+atmosferycznemu, które jest utrzymywane za pomocą szczelnego, ruchomego tłoka.
+Straty energii pominąć.
+Dane są:
+ciepło właściwe granitu $c_g = 750\,{\rm J/(kg\, K)}$,
+ciepło właściwe wody $c_w = 4200\,{\rm J/(kg\, K)}$,
+ciepło właściwe pary wodnej pod stałym ciśnieniem $c_p = 1020\,{\rm J/(kg\, K)}$,
+ciepło parowania wody $q_w = 2560\,{\rm kJ/kg}$.
+\newline
+
+\noindent
+%\emph{Odpowiedź:}
+%Ustali się końcowa temperatura $100^\circ\t{C}$, gdyż ciepło dostarczone przez kamień wystarczy do podgrzania wody do temperatury $100^\circ \t{C}$ ale nie wystarczy do całkowitej zamiany wody w parę wodną. Około $31\%$ wody zmieni się w parę wodną, czyli zaniedbując roszerzalność termiczną wody, ciecz będzie zajmować objętość\, $0,69 \t{l}$.
+
+%\emph{Odpowiedź:} $\Delta S = n_1 R \ln(\frac{n_1+n_2}{n_1}) + n_2 R \ln(\frac{n_1+n_2}{n_2})$. Fakt, że gazy są jedno lub dwuatomowe nie ma znaczenia. Ważne, że są różne.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagebreak
+
+\zaddom
+Do termosu, w którym znajduje się 1\,kg lodu o temperaturze $0^\circ$C,
+wrzucono 1\,kg żelaza o temperaturze $100^\circ$C. Jaki jest stan układu
+po osiągnięciu równowagi? Jaka była zmiana entropii w tym procesie?
+Dane są: ciepło właściwe żelaza $c_{\rm Ż} = 450\,{\rm\frac{J}{kg\, K}}$ i
+ciepło topnienia lodu $L=333\,{\rm\frac{kJ}{kg}}$.
+Straty energii zaniedbać.
+\newline
+
+\noindent
+\emph{Odpowiedź:} Żelazo ochłodzi się do temperatury $T=0^\circ \textrm{C}$ i stopi się $m=0,13\,\textrm{kg}$  lodu.
+Zmiana entropii lodu $\Delta S_L = 164,8\,\textrm{J/K}$,
+ zmiana entropii żelaza:  $\Delta S_{\textrm{Fe}}= -140,5\,\textrm{J/K}$, sumarycznie $\Delta S =24,4\,\textrm{J/K}$.
+
+
+
+
+\zaddom
+Cylindryczny, sztywny, izolowany termicznie od otoczenia zbiornik gazu o objętości
+$V_0$ rozdzielony jest szczelną, przewodzącą ciepło przegrodą
+na dwie równe części.
+Obie części napełniamy tym samym gazem doskonałym w taki sposób, że ciśnienie
+z lewej strony przegrody wynosi $p_0$, zaś z prawej $3 p_0$.
+Temperatura gazu w obydwu połówkach zbiornika jest początkowo
+równa $T_0$.
+Następnie zwalniamy ruchomą przegrodę i odczekujemy na ustalenie się równowagi.
+Oblicz zmianę entropii dla każdej części osobno oraz dla całego układu.
+Przyjmij, że przegroda porusza się wzdłuż cylindra bez tarcia, a
+jej pojemność cieplną można zaniedbać.
+\newline
+
+\noindent
+\emph{Odpowiedź:} Końcowa temperatura będzie wynosić $T_0$, przegroda podzieli zbiornik na dwie częsci o objętościach odpowiednio $V/4$, $3V/4$. Ciśnienie w obu przegrodach będzie wynosić $2 p_0$.
+Zmiany entropii $\Delta S_1 = \frac{p_0 V_0}{2 T_0} \ln(1/2)$   $\Delta S_2 = \frac{3 p_0 V_0}{2 T_0} \ln(3/2)$ i sumarycznie:  $\Delta S= \frac{p_0 V_0}{ 2 T_0} \ln\left( \frac{27}{16} \right)$
+
+
+\zaddom
+Izolowany, nieprzewodzący ciepło zbiornik zawiera
+$n$ moli gazu doskonałego i jest zamknięty szczelnym, ruchomym tłokiem,
+który utrzymuje stałe ciśnienie wewnątrz naczynia.
+Początkowa objętość gazu wynosi $V_0$, zaś temperatura $T_0$.
+Następnie do zbiornika włożono mały kawałek żelaza o temperaturze początkowej $T_{\rm Ż}$
+oraz o zaniedbywalnej objętości. Znajdź stan końcowy układu.
+Jak zmieni się entropia układu gaz$-$żelazo?
+Dane są: masa żelaza $m$, ciepło właściwe żelaza $c_{\rm Ż}$, ciepło molowe
+gazu doskonałego przy stałej objętości $C_V$.
+Straty energii pominąć.
+\newline
+
+\noindent
+\emph{Odpowiedź:} Końcowa temperatura będzie wynosić $T_k = \frac{T_{\t{ż}} m  c_{\t{ż}} + n (R + C_V)T_0}{m c_{\t{ż}}+ n(R + C_V)}$,
+końcowa objętość $V_k = n R T_k/p_0$. Zmiana entropii: $\Delta S=-m c_{\t{ż}} \ln(T_{\t{ż}}/T_k) + n(R + C_V) \ln(T_k/T_0)$.
+
+
+
+\zaddom
+%{\bf\em skrypt, str.106}\\
+Księżniczka przechadzając się nad jeziorem wrzuciła doń złoty pierścień o temperaturze $T_0 = 37^\circ$C
+i masie $m = 10\,$g. Temperatura wody w jeziorze wynosiła tego dnia $T_J = 4^\circ$C i była stała
+w całej objętości. Oblicz zmianę entropii układu pierścień$-$jezioro po dojściu do stanu
+równowagi. Ciepło właściwe złota wynosi $c=129\,{\rm J/(kg\, K)}$. Zmianę temperatury jeziora
+można zaniedbać.
+\newline
+
+\noindent
+\emph{Odpowiedź:}
+$\Delta S = mc \left( \frac{T_0 - T_J}{T_J}  - \ln\left(\frac{T_0}{T_J}\right)  \right) = 8.5 \cdot 10^{-3}\, \t{J/K}$
+
+\end{document}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\zaddom
+Cylindryczne, izolowane od otoczenia naczynie o objętości $V$ przedzielone jest ruchomym,
+przewodzącym ciepło tłokiem. Naczynie napełniono jednoatomowym gazem doskonałym w
+taki sposób, że tłok początkowo dzieli naczynie na części o równej objętości. W lewej
+połowie naczynia temperatura gazu wynosi początkowo $T$, zaś w prawej $2T$. Początkowe
+ciśnienie z obydwu stron wynosi $p$.
+%Znajdź temperaturę gazu w naczyniu oraz jego ciśnienie
+%po ustaleniu się równowagi.
+Oblicz o ile zmieniła się entropia gazu.
+Pojemność cieplną tłoka zaniedbujemy i zakładamy, że porusza się on w naczyniu bez tarcia.
+\newline
+
+\noindent
+\emph{Odpowiedź:} Końcowa temperatura będzie wynosić $T_k = \frac{4}{3} T_0$. Objętości poszczególnych fragnentów odpowiednio: $2/3 V$ i $1/3 V$. Zmiana entropii: $\Delta S=\frac{p V}{4 T} \left(1 + \frac{C_V}{R}  \right)\ln\left(\frac{32}{27}\right)$.
+
+
+
+\zaddom
+Pręt metalowy o długości $L$, masie $M$ i cieple właściwym $c$ ma w chwili początkowej
+następujący rozkład temperatury w zależności od położenia $x, x\in[0,L]$:
+$T(x)=T_0+ \frac{T_L-T_0}{L} \cdot x$, gdzie $T_0=200\,{\rm K}, T_L=400\,{\rm K}$ -- parametry
+odpowiadające początkowej temperaturze pręta w $x=0$ i $x=L$.
+Znajdź zmianę entropii przy dojściu do równowagi termodynamicznej.
+% An example of figure placement:
+%\begin{wrapfigure}[13]{r}{0.4\linewidth}\vspace{3mm}
+%\resizebox{\linewidth}{!}{\includegraphics{NAZWA.png}}
+%\end{wrapfigure}
+%\zaddom
+\newline
+
+\noindent
+\emph{Odpowiedź:} Końcowa temperatura będzie wynosić $T_k = (T_0+T_L)/2$.
+Zmiana entropii: $$\Delta S = M c \left(1  + \frac{T_L \ln(T_k/T_L) + T_0 \ln(T_0/T_k)}{T_L - T_0}   \right)  \approx M c * 0,019$$
+}
+
+
+
