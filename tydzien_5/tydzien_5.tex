@@ -1,0 +1,168 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[polish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{polski}
+\usepackage[T1]{fontenc}
+\usepackage{indentfirst}
+\usepackage{wrapfig}    % for wrapping figures, tables
+
+\frenchspacing
+
+%\usepackage{amsmath}
+\usepackage{physics}
+%\usepackage{bm}
+\usepackage{gensymb}
+%\usepackage{hepnames}
+\usepackage{epsfig}
+\usepackage{graphics}
+\usepackage[shortlabels]{enumitem}
+%\usepackage{xspace}
+%\xspaceaddexceptions{[]\{\}}
+
+%
+%
+%fixpagesize
+\pagestyle{empty}
+\addtolength{\textwidth}{6cm}
+\addtolength{\textheight}{4cm}
+\addtolength{\evensidemargin}{-3cm}
+\addtolength{\oddsidemargin}{-3cm}
+\addtolength{\topmargin}{-2cm}
+\parindent=0cm
+
+
+%
+%
+%small distance in list/item/enum for enumitem package
+\setlist[itemize,enumerate]{topsep=0em}
+\setlist{noitemsep}
+
+%print zadanie #
+\newcounter{zadanie}\newcommand{\zadanie}[1][]{\addtocounter{zadanie}{1} ~\\  {\bf \emph{Zadanie \arabic{zadanie} #1 }} \\}
+\newcounter{zaddom}\newcommand{\zaddom}[1][]{\addtocounter{zaddom}{1} ~\\  {\bf \emph{Zadanie domowe \arabic{zaddom} #1 }} \\}
+%\renewcommand{\zadanie}[1][]{\pagebreak  ~\\  {\bf \emph{Zadanie }} \\} \addtolength{\topmargin}{-2cm}
+
+\newcommand{\dbar}{{\mkern3mu\mathchar'26\mkern-12mu d}}
+\renewcommand{\t}[1]{\textrm{#1}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}           % End of preamble and beginning of text.
+
+\begin{centering}
+\bf{\Large{Termodynamika z elementami fizyki statystycznej}}\\
+Tydzień 5  (23 marca 2023)\\[3mm]
+przemiany gazowe, praca \\
+\end{centering}
+\vspace{5mm}
+
+\zadanie
+W letni dzień zawieszono na grubej stalowej linie o długości $10\,$m ciężar o masie $20\,$t.
+W nocy temperatura spadła o $10^\circ$C. O ile uniósł się ciężar?
+Jaka praca została przy tym wykonana? Jaka siła wykonała pracę?
+Współczynnik rozszerzalności liniowej stali wynosi $\alpha = 1.2\cdot 10^{-5}\,{\rm K}^{-1}$.
+\vskip 10pt
+\textbf{Uwaga: }lina wisi pionowo, pomijamy jej masę.
+
+%\textbf{Odpowiedź:} $W=235 \t{J}$
+
+\zadanie
+Znaleźć pracę wykonaną przy izotermicznym sprężaniu 1 dm$^3$
+gazu doskonałego i bloku miedzianego o tej samej objętości od
+ciśnienia $p_1=1\,$atm do $p_2=5\,$atm. Moduł Younga miedzi wynosi $130\,$GPa.
+\vskip 10pt
+\textbf{Uwaga:} sprężanie bloku miedzianego następuje tylko wzdłuż jednego kierunku.
+
+%\textbf{Odpowiedź:} $W_{\t{gazu}}=161\,\t{J}$, $W_{\t{Cu}} = 9.2 \cdot 10^{-4}\,\t{J}$
+
+\zadanie
+$n$ moli gazu doskonałego poddano dwóm przemianom ze stanu początkowego
+opisanego parametrami $T_1, V_1$ do stanu końcowego o objętości $V_2$
+$(V_2>V_1)$ w ten
+sposób, że:\begin{enumerate}
+\item $p(V) = \gamma - \alpha (V-V_1)$,
+\item $p(V) = \gamma - \beta (V-V_1)^2$.
+\end{enumerate}
+Współczynniki $\alpha$, $\beta$ i $\gamma$ dobrano tak,
+aby końcowe ciśnienie $p_2$ w obu przemianach było jednakowe.
+Oblicz: zależnosć $T(V)$, temperaturę końcową $T_2$
+oraz pracę wykonaną przez siły zewnętrzne w obu przemianach.
+Kiedy $T_2>T_1$?
+
+\vskip 10pt
+%\textbf{Odpowiedź:} w przypadku 1): $W =\frac{1}{2}(V_1-V_2)(p_1+p_2)$, w przypadku 2): $W =\frac{1}{3}(V_1-V_2)(2 p_1+p_2)$. Temperatury są w obu przypadkach takie same.
+
+
+\zadanie
+Jeden mol gazu doskonałego przeszedł ze stanu opisanego parametrami
+$p_0, V_0$ do stanu o objętości $V_1 = 2 V_0$.
+Przemiana prowadzona była tak, że przez cały czas $p^2 V = const$.
+Następnie gaz poddano przemianom izochorycznej i izotermicznej, w ten sposób, że gaz osiągnął
+początkowe parametry stanu. \\
+Znajdź pracę wykonaną nad gazem w każdej z przemian.
+
+
+\vskip 10pt
+%\textbf{Odpowiedź:} Całkowita praca wykonana nad gazem $W = p_0 V_0 [\ln 2 -2(\sqrt{2}-1)] \approx -0.135 \,p_0V_0$ (to gaz efektywnie wykonał pracę)
+
+\zadanie
+Oblicz pracę jaką wykona jeden mol gazu van der Waalsa, o równaniu stanu
+$(p+\frac{a}{V^2})(V-b)=RT$
+($a=0.138\,\rm{Jm}^3/\rm{mol}^2$, $b=31.8\,\rm{cm^3/mol}$)
+przy izotermicznym i odwracalnym rozprężaniu od objętości $V_0=22.4\,\rm{dm}^3$
+do objętości $2 V_0$ przy temperaturze $T=0\degree$C.
+Czy gaz doskonały rozprężając się w takich samych warunkach wykona większą pracę?
+
+\vskip 10pt
+%\textbf{Odpowiedź:}  $W = RT \ln(2 + \frac{b}{V_0-b}) - \frac{a}{2 V_0} \approx 1569.1\,\t{J}$ dla porównania gaz doskonały
+%$W_{\t{d}} = RT \ln 2 \approx 1570.6\,\t{J}$.
+
+
+\pagebreak
+\zaddom
+Stalowa szyna o przekroju poprzecznym $S = 10\,$cm$^2$ i długości $L = 10\,$m zmieniła temperaturę
+z $20^\circ$C do $40^\circ$C.
+\begin{enumerate}
+\item Oszacuj o ile wzrosła długość szyny
+\item Jakie siły powinny działać na końce szyny, aby przywrócić jej początkową długość? \\
+      Czy wartość tych sił zależy od długości szyny?
+\end{enumerate}
+Przyjmij, że dla stali: współczynnik liniowej rozszerzalności cieplnej wynosi $\alpha = 1.2\cdot 10^{-5}\,$K$^{-1}$,
+zaś moduł Younga wynosi $\displaystyle E = \frac{\Delta p}{\Delta L/L} = 200\,$GPa.
+
+\vskip 10pt
+\textbf{Odpowiedź:} $\Delta L = L \alpha \Delta T = 2.4 \cdot 10^{-3}\, {\rm m}$, $F = S E \alpha \Delta T = 4.8 \cdot 10^4\, {\rm N}$.
+
+\zaddom
+Jeden mol gazu van der Waalsa ($a=0.138\,\rm{Jm}^3/\rm{mol}^2$, $b=31.8\,\rm{cm^3/mol}$)
+utrzymywany jest pod stałym ciśnieniem normalnym w pojemniku o ściankach adiabatycznych, zamkniętym tłokiem,
+wypełniając początkowo objętość $V_0=22,4\,\rm{dm}^3$.
+W wyniku przesunięcia tłoka objętość jego wzrosła dwukrotnie. Podaj temperturę początkową i końcową.  
+Jaki byłby wynik tego typu ekspansji w przypadku gazu doskonałego?
+
+\vskip 10pt
+\textbf{Odpowiedź:} 
+Temperatura początkowa: $T_0 = \frac{V_0-nb}{nR}\left(p_0 + \frac{n^2 a}{V_0^2} \right)$, temperatura końcowa $T_1 = T_0 \left(\frac{V_1 - nb}{V_0 - nb} \right)^{nR/C_v}$. 
+
+\zaddom
+Równanie stanu paramagnetyka (np. w polu solenoidu) zapisać można jako:
+\[  {\rm M}= C \frac{H}{T}, \]
+gdzie $C$ - stała Curie, $H$ - natężenia pola magnetycznego, $T$- temperatura,
+$\rm M$ - magnetyzacja, tj. moment magnetyczny $M$ w jednostce objętości (${\rm M}=M/V$).
+Praca wykonana nad paramagnetykiem w polu magnetycznym
+ (z wyłączeniem energii wzajemnej paramegantyk-solenoid) może być zapisana jako
+ $\dbar W = -\mu_0 M dH$.
+Znajdź pracę: 
+\begin{itemize}
+\item w przemianie izotermicznej przy zmianie momentu magnetycznego od $M_1$ do $M_2$
+\item w przemianie dla której $H/T={\rm const}$, od $T_1$ do $T_2$. 
+\end{itemize}
+
+\vskip 10pt
+\textbf{Odpowiedź:}
+\begin{itemize}
+	\item $W = - \frac{1}{2} \frac{\mu_0 T}{C} \left(M_2^2 - M_1^2 \right)$,
+	\item $W = - \frac{\mu_0 M^2}{C} (T_2 - T_1)$.
+\end{itemize}
+
+\end{document}
