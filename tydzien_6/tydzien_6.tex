@@ -1,0 +1,187 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[polish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{polski}
+\usepackage[T1]{fontenc}
+\usepackage{indentfirst}
+\usepackage{wrapfig}    % for wrapping figures, tables
+
+\frenchspacing
+
+%\usepackage{amsmath}
+\usepackage{physics}
+%\usepackage{bm}
+\usepackage{gensymb}
+%\usepackage{hepnames}
+\usepackage{epsfig}
+\usepackage{graphics}
+\usepackage[shortlabels]{enumitem}
+%\usepackage{xspace}
+%\xspaceaddexceptions{[]\{\}}
+
+%
+%
+%fixpagesize
+\pagestyle{empty}
+\addtolength{\textwidth}{6cm}
+\addtolength{\textheight}{4cm}
+\addtolength{\evensidemargin}{-3cm}
+\addtolength{\oddsidemargin}{-3cm}
+\addtolength{\topmargin}{-2cm}
+\parindent=0cm
+
+
+%
+%
+%small distance in list/item/enum for enumitem package
+\setlist[itemize,enumerate]{topsep=0em}
+\setlist{noitemsep}
+
+%print zadanie #
+\newcounter{zadanie}\newcommand{\zadanie}[1][]{\addtocounter{zadanie}{1} ~\\  {\bf \emph{Zadanie \arabic{zadanie} #1 }} \\}
+\newcounter{zaddom}\newcommand{\zaddom}[1][]{\addtocounter{zaddom}{1} ~\\  {\bf \emph{Zadanie domowe \arabic{zaddom} #1 }} \\}
+%\renewcommand{\zadanie}[1][]{\pagebreak  ~\\  {\bf \emph{Zadanie }} \\} \addtolength{\topmargin}{-2cm}
+
+\newcommand{\dbar}{{\mkern3mu\mathchar'26\mkern-12mu d}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}           % End of preamble and beginning of text.
+
+\begin{centering}
+\bf{\Large{Termodynamika z elementami fizyki statystycznej}}\\
+Tydzień 6  (3 kwietnia 2023)\\[3mm]
+energia wewnętrzna, ciepło, I zasada termodynamiki \\ 
+\end{centering} 
+\vspace{5mm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\zadanie
+Znajdź energię wewnętrzną $U(T)$ i równanie adiabaty gazu doskonałego o cieple molowym
+$C_V = \frac{1}{n}\left( \frac{\rm{\dbar}Q}{\rm{d}T}\right)_V$.
+
+\textbf{Wskazówki:}
+\begin{itemize}
+  \item korzystając z faktu, że
+    $\rm{d}U = \left(\frac{\partial U}{\partial_T}\right)_V \rm{d}T + \left(\frac{\partial U}{\partial_V}\right)_T \rm{d}V$
+    pokaż, że $\rm{d}U = n C_V \rm{d}T$.
+  \item w celu znalezienia równania adiabaty, skorzystaj z pierwszej zasady termodynamiki,
+    oraz postaci $\rm{d}(pV)$ dla gazu doskonałego\\
+\end{itemize}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\zadanie
+W wielu omawianych dotąd procesach dla gazu doskonałego ciepło molowe jest stałe:
+\begin{enumerate}
+\item w przemianie izochorycznej ciepło molowe wynosi $C_V$,
+\item w przemianie izobarycznej ciepło molowe wynosi $C_p = C_V + R$,
+\item w przemianie adiabatycznej $\dbar Q = 0$, czyli ciepło molowe $C = 0$,
+\item w przemianie izotermicznej $\rm{d}T = 0$, czyli ciepło molowe $C_T = \infty$.
+\end{enumerate}
+Wyprowadź wzór na ciepło molowe $C_X$ przy stałym $X$ dla gazu doskonałego.
+$X$ jest dowolną funkcją zmiennych stanu. Następnie wyprowadź ogólne równanie 
+takiej przemiany (równanie politropy gazu doskonałego).
+
+\textbf{Wskazówki:}
+\begin{itemize}
+\item skorzystaj z pierwszej zasady termodynamiki i różniczki zupełnej $\rm{d}U = n C_V \rm{d}T$.
+\item znajdź wyrażenie na $n(C_X - C_V)$
+\end{itemize}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\zadanie
+Jeden mol gazu doskonałego przeszedł ze stanu opisanego parametrami
+$p_0, V_0$ do stanu o objętości $V_1 = 2 V_0$.
+Przemiana prowadzona była tak, że przez cały czas $p^2 V = const$.
+Znajdź pracę wykonaną nad układem, zmianę energii wewnętrznej i ciepło wymienione z otoczeniem.
+Jakie jest ciepło molowe w tej przemianie?
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\zadanie
+Oblicz energię wewnętrzną gazu van der Waalsa.
+Założ, że molowe ciepło właściwe $C_V$ jest znane i nie zależy od temperatury.
+Skorzystaj z następującej tożsamości (równanie energetyczne)
+podanej na razie bez dowodu {\em (dowód wymaga wprowadzenia pojęcia entropii)}:
+\[ \left(\frac{\partial U}{\partial V}\right)_T = 
+   T \cdot \left(\frac{\partial p}{\partial T}\right)_V - p.\]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   
+\zadanie
+Korzystając z równania energetycznego pokaż, że energia gazu doskonałego nie zależy od
+objętości, tj. $U=U(T)$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\zadanie
+Gęstość energii wewnętrznej (energia wewnętrzna na jednostkę objętości: $u = U/V$) pewnego gazu jest 
+wyłącznie funkcją temperatury: $u = u(T)$. Wiadomo też, że ciśnienie tego gazu to $p=\frac{1}{3}u$. 
+Korzystając z równania energetycznego: 
+
+\[ \left(\frac{\partial U}{\partial V}\right)_T = 
+   T \cdot \left(\frac{\partial p}{\partial T}\right)_V - p.\]
+
+Znajdź ogólną postać równania stanu i wyrażenie na energię wewnętrzną tego gazu.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{centering}
+\bf{ Zadania domowe }\\[1mm]
+\end{centering}
+\vspace{1mm}
+
+\zaddom
+Zależność ciepła molowego $C_V$ wodoru od temperatury można przybliżyć w zakresie temperatur $0-300\,$K wzorem:
+\[C_V(T) = \frac{3}{2}R + \frac{1}{2}R\cdot\left\{ 1 - \cos\left(\pi\cdot\frac{T}{300\,{\rm K}}\right)\right\}.\]
+Jak zależy od temperatury energia wewnętrzna 1 mola wodoru w tym zakresie temperatur?
+
+{\it Odpowiedź:} $U(T) = 2 RT - \frac{150 K R}{\pi} \sin\left(\frac{\pi T}{300K}\right) + U_{0}(V)$
+
+\zaddom
+Dla ciał stałych zależność ciepła molowego $C_V$ od temperatury można przybliżyć funkcją:
+\[ C_V(T) = 3 R \cdot\frac{x^3}{(1+x^4)^{3/4}},\]
+gdzie $x=T/T_0$, zaś $T_0$ jest temperaturą charakterystyczną dla danego ciała.
+Jak zależy od temperatury energia wewnętrzna 1 mola ciała stałego?
+
+{\it Odpowiedź:} $U(T) = 3R T_0 \left(\left(1+x^4\right)^{1/4}-1\right) + U_{0}(V)$
+
+\zaddom
+Wyprowadź wyrażenie na ściśliwość adiabatyczną ściśliwość, $\kappa_{ad}$ ,
+kiedy gaz doskonały jest adiabatycznie oraz kwazistatycznie sprężany.
+Następnie korzystając z wartości prędkości dźwięku wyznacz wykładnik adiabaty, 
+$\kappa$ dla powietrza w warunkach normalnych:
+pod ciśnieniem 1\,atm oraz o temperaturze 0\degree\,C.
+Prędkość dźwięku jest dana równaniem $c=\sqrt{\dv{p}{\varrho}}$, gdzie $\varrho$ to gęstość.
+Przyjmij $R = 8.21~$J/mol/K, prędkość dźwięku $v= 331.6$~m/s,
+masa molowa suchego powietrza: $\mu = 28.96~$g/mol.
+%wykładnik adiabaty suchego powietrza: $\kappa = 1.403$, 
+
+{\it Odpowiedź:} Niech $pV^\kappa=const$ będzie równaniem adiabaty,wtedy
+$\kappa_{ad} = \frac{1}{p \kappa}$, $\kappa = 1.403$.
+%$c=\sqrt{\frac{R T \kappa}{\mu}} \approx332 \frac{m}{s}$ (powietrze w warunkach normalnych)
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\zaddom
+Gaz doskonały poddano przemianie,
+w której spełniona była następująca zależność ciśnienia i temperatury:
+\mbox{$p(T)=p_0 \exp(\frac{T}{T_0})$}, gdzie $p_0$ i $T_0$ są stałymi.
+Wyznacz ciepło molowe oraz pracę wykonaną w tej przemianie, gdy gaz ogrzewany jest
+od temperatury $T_1$ do $T_2$.
+
+{\it Odpowiedź:}  $C_X = C_V + R\left(1 - \frac{T}{T_0}\right)$, $W = nR(T_1 - T_2 + \frac{1}{2}\frac{T_{2}^{2} - T_{1}^{2}}{T_{0}})$
+
+
+\zaddom
+Znajdź spadek temperatury $n$ moli gazu van der Waalsa przy adiabatycznym rozprężaniu do próżni od objętości $V_1$ do $V_2$.
+Jaki byłby wynik tego typu rozprężania w przypadku gazu doskonałego?
+
+{\it Odpowiedź:}
+$T_1-T_2 = \frac{n a}{C_V} \left(\frac{1}{V_1}-\frac{1}{V_2}\right)$, 
+dla gazu doskonałego $T_1-T_2 = 0$.
+
+\end{document}

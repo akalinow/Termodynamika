@@ -1,0 +1,411 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[polish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{polski}
+\usepackage[T1]{fontenc}
+\usepackage{indentfirst}
+\usepackage{wrapfig}    % for wrapping figures, tables
+
+\frenchspacing
+
+%\usepackage{amsmath}
+\usepackage{physics}
+%\usepackage{bm}
+\usepackage{gensymb}
+%\usepackage{hepnames}
+\usepackage{epsfig}
+%\usepackage{amssymb}
+\usepackage{graphics}
+\usepackage[shortlabels]{enumitem}
+%\usepackage{xspace}
+%\xspaceaddexceptions{[]\{\}}
+
+%
+%
+%fixpagesize
+\pagestyle{empty}
+\addtolength{\textwidth}{6cm}
+\addtolength{\textheight}{4cm}
+\addtolength{\evensidemargin}{-3cm}
+\addtolength{\oddsidemargin}{-3cm}
+\addtolength{\topmargin}{-2cm}
+\parindent=0cm
+
+
+%
+%
+%small distance in list/item/enum for enumitem package
+\setlist[itemize,enumerate]{topsep=0em}
+\setlist{noitemsep}
+
+%print zadanie #
+\newcounter{zadanie}\newcommand{\zadanie}[1][]{\addtocounter{zadanie}{1} ~\\  {\bf \emph{Zadanie \arabic{zadanie} #1 }} \\}
+\newcounter{zaddom}\newcommand{\zaddom}[1][]{\addtocounter{zaddom}{1} ~\\  {\bf \emph{Zadanie domowe \arabic{zaddom} #1 }} \\}
+%\renewcommand{\zadanie}[1][]{\pagebreak  ~\\  {\bf \emph{Zadanie }} \\} \addtolength{\topmargin}{-2cm}
+\newcounter{wskazowka}\newcommand{\wskazowka}[1][]{\addtocounter{wskazowka}{1} ~\\  {\bf \emph{Wskazówka \arabic{wskazowka} #1 }} \\}
+\newcounter{rozwiazanie}\newcommand{\rozwiazanie}[1][]{\addtocounter{rozwiazanie}{1} ~\\  {\bf \emph{Rozwiązanie: }} \\}
+\newcommand{\dbar}{{\mkern3mu\mathchar'26\mkern-12mu d}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}           % End of preamble and beginning of text.
+
+\begin{centering}
+\bf{\Large{Termodynamika z elementami fizyki statystycznej}}\\
+Tydzień 6  (3 kwietnia 2023)\\[3mm]
+energia wewnętrzna, ciepło, I zasada termodynamiki \\ 
+\end{centering} 
+\vspace{5mm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\zadanie
+
+Znajdź energię wewnętrzną $U(T)$ i równanie adiabaty gazu doskonałego o cieple molowym
+$C_V = \frac{1}{n}\left( \frac{\rm{\dbar}Q}{\rm{d}T}\right)_V$.
+
+\textbf{Wskazówki:}
+\begin{itemize}
+  \item korzystając z faktu, że
+    $dU = \left(\frac{\partial U}{\partial_T}\right)_V dT + \left(\frac{\partial U}{\partial_V}\right)_T dV$
+    pokaż, że $dU = n C_V dT$.
+  \item w celu znalezienia równania adiabaty, skorzystaj z pierwszej zasady termodynamiki,
+    oraz postaci $d(pV)$ dla gazu doskonałego\\
+\end{itemize}
+
+
+\vspace{5mm}
+\rozwiazanie
+Ciepło molowe przy stałej objętości definiujemy jako:
+\begin{align}
+C_V = \frac{1}{n}\left( \frac{\rm{\dbar}Q}{\rm{d}T}\right)_V,
+\end{align}
+gdzie ${\rm \dbar} Q$ oznacza infinitezymalny przyrost energii na sposób ciepła. \\
+Pierwsza zasada termodynamiki:
+\begin{align}
+\rm{d}U = \rm{\dbar}Q + \rm{\dbar}W,
+\end{align}
+w warunkach izochorycznych przyjmuje postać:
+\begin{align}
+\rm{d}U_V = \rm{\dbar}Q _V, 
+\end{align}
+co implikuje,
+\begin{align}
+C_V = \frac{1}{n}\left( \frac{\rm{d}U}{\rm{d}T}\right)_V.
+\end{align}
+Z drugiej strony wiemy, że:
+\begin{align*}
+\rm{d}U = \left(\frac{\partial U}{\partial T} \right)_V \rm{d}T +  \left(\frac{\partial U}{\partial V} \right)_T \rm{d}V,
+\end{align*}
+dlatego dla $V=const.$ ciepło molowe $C_V$ jest równe:
+\begin{align}
+C_V = \frac{1}{n}\left( \frac{\partial U}{\partial T} \right)_V.
+\end{align}
+Po wycałkowaniu otrzymujemy:
+\begin{align}
+\Delta U = n C_V \Delta T 
+\end{align}
+
+Po wycałkowaniu od temperatury 0 otrzymujemy:
+\begin{align}
+U = n C_V T + U_{0}
+\end{align}
+
+Można się przekonać (np. stosując równanie energetyczne lub rozpatrując
+rozprężanie gazu do próżni), że dla gazu doskonałego energia wewnętrzna nie
+zależy od jego objętości. 
+
+Równanie adiabaty $\rm{\dbar} Q =0$ znajdujemy korzystając ponownie z pierwszej zasady termodynamiki 
+i wyrażenia na energię wewnętrzną uzyskanego powyżej:
+\begin{align}
+\rm{d}U = \rm{\dbar} W,
+\end{align} 
+a stąd
+\begin{align}
+n C_V \rm{d} T = - p \rm{d}V
+\end{align}
+Ponadto, z równania stanu gazu doskonałego (r. Clapeyrona) mamy:
+\begin{align}
+\rm{d}(pV) = n R \rm{d} T \implies  \rm{d} T = \frac{\rm{d}(pV)}{n R} = \frac{1}{n R}(p\rm{d}V + V\rm{d}p  )
+\end{align}
+i stąd
+\begin{align}
+- p \rm{d}V  = \frac{C_V}{R}\left(  p \rm{d}V +  V \rm{d}p \right)\\
+- \left( 1 + \frac{R}{C_V}\right) p \rm{d}V = V \rm{d}p. \\
+-\frac{C_P}{C_V}\frac{\rm{d} V}{V}=\frac{\rm{d} p}{p}
+\end{align}
+Ostatecznie:
+\begin{align*}
+-\frac{C_P}{C_V}\ln(V) = \ln(p) + const. \\
+V^{-\frac{C_P}{C_V}} = const. \cdot p \implies pV^{\frac{C_P}{C_V}} = const.
+\end{align*}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\zadanie
+W wielu omawianych dotąd procesach dla gazu doskonałego ciepło molowe jest stałe:
+\begin{enumerate}
+\item w przemianie izochorycznej ciepło molowe wynosi $C_V$,
+\item w przemianie izobarycznej ciepło molowe wynosi $C_p = C_V + R$,
+\item w przemianie adiabatycznej $\dbar Q = 0$, czyli ciepło molowe $C = 0$,
+\item w przemianie izotermicznej $\rm{d}T = 0$, czyli ciepło molowe $C_T = \infty$.
+\end{enumerate}
+Wyprowadź wzór na ciepło molowe $C_X$ przy stałym $X$ dla gazu doskonałego.
+$X$ jest dowolną funkcją zmiennych stanu. Następnie wyprowadź ogólne takiej 
+przemiany (równanie politropy gazu doskonałego).
+
+\textbf{Wskazówki:}
+\begin{itemize}
+\item skorzystaj z pierwszej zasady termodynamiki i różniczki zupełnej $\rm{d}U = n C_V \rm{d}T$.
+\item znajdź wyrażenie na $n(C_X - C_V)$
+\end{itemize}
+
+\vspace{5mm}
+\rozwiazanie
+Ciepło molowe $C_X$ definiujemy jako:
+\begin{align}
+C_X = \frac{1}{n}\left( \frac{\rm{\dbar Q}}{\rm{d}T}\right)_X. \label{eq:cx}
+\end{align}
+Korzystając z pierwszej zasady termodynamiki, oraz postaci $\rm{d}U$ dla gazu doskonałego $\rm{\dbar} Q $ możemy zapisać jako:
+\begin{align*}
+\rm{\dbar } Q =  \rm{d} U -  \rm{\dbar} W =  n C_V \rm{d} T +  p \rm{d}V.
+\end{align*}
+Łącząc to z \eqref{eq:cx} otrzymujemy 
+\begin{align}
+C_X = C_V +\frac{p}{n} \left(\frac{\partial V}{\partial T} \right)_X \\
+n(C_X - C_V) =  p \cdot \left(\frac{\partial V}{\partial T} \right)_X
+\end{align}
+Korzystając z równania stanu: 
+\begin{align*}
+\frac{n R T}{V} = p =n( C_X - C_V  ) \cdot \left(\left(\frac{\partial V}{\partial T} \right)_X \right)^{-1}
+\end{align*}
+Zatem:
+\begin{align}
+\left(\frac{\partial V}{V}\right)_X=\frac{C_X -C_V}{R} \left(\frac{\partial T}{T}\right)_X,
+\end{align}
+i po wycałkowaniu:
+\begin{align}
+\ln(V) = \frac{C_X -C_V}{R} \ln(T) + const.\\
+V = C \cdot T^{\frac{C_X -C_V}{R}} \\
+T V^{- \frac{R}{C_X-C_V}}=const.
+\end{align}
+Wykorzystując równanie stanu by wyrazić $T$ przez $p$, oraz związak $C_p = C_V + R$ otrzymujemy:
+\begin{align}
+  p V^{1- \frac{R}{C_X-C_V}}=
+  p V^{\frac{C_X - C_V - R}{C_X-C_V}} = p V^{\frac{C_X - C_p}{C_X-C_V}} = p V^{\kappa }=const. \\
+\end{align}
+gdzie $\kappa$ oznacza wykładnik politropy:
+\begin{align}
+\kappa =\frac{C_X - C_p}{C_X - C_V}. \label{eq:kappa}
+\end{align}
+Przekształcając powyższą zależność otrzymujemy wzór na ciepło molowe rozważanej przemiany politropowej:
+\begin{align}
+\kappa (C_X - C_V) = C_X - C_p \implies C_X (\kappa - 1) = \kappa C_V = C_p \\
+C_X = \frac{\kappa C_V -C_p}{\kappa -1}. \label{eq:cx2}
+\end{align}
+
+Przeanalizujmy przypadki szczególne:
+\begin{itemize}
+\item $\kappa = 0$  odpowiada przemianie izobarycznej:  $pV^{0} = const.$ stąd: $C_X = C_p$.
+\item $\kappa =1$, odpowiada przemianie izotermicznej i   $pV^{1} = const.= nRT$  stąd: $C_X \rightarrow \infty$,
+\item $\kappa = \frac{C_p}{C_V}$, odpowiada przemianie adiabatycznej i wtedy $C_X = 0$.
+\item $\kappa \rightarrow \infty$: $pV^{\infty} = const. $ wtedy $C_X = C_V$, co opisuje przemianę izochoryczną.
+\end{itemize}
+
+\vspace{1cm}
+Ponadto, przekształcając wzór \eqref{eq:cx2} do postaci:
+\begin{align}
+C_X =C_V \frac{\kappa - \frac{C_P}{C_V}}{\kappa-1},
+\end{align}
+można pokazać, że dla $\kappa \in  \left( 1,\frac{C_p}{C_V}\right)$ ciepło $C_X$ jest ujemne, co odpowiada za spadek temperatury gazu przy  jednoczesnym dostarczaniu do gazu ciepła. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\zadanie
+Jeden mol gazu doskonałego przeszedł ze stanu opisanego parametrami
+$p_0, V_0$ do stanu o objętości $V_1 = 2 V_0$.
+Przemiana prowadzona była tak, że przez cały czas $p^2 V = const$.
+Znajdź wykonaną nad układem pracę, zmianę energii wewnętrznej i ciepło wymienione z otoczeniem.
+Jakie jest ciepło molowe w tej przemianie?
+\vspace{5mm}
+\rozwiazanie 
+Z równania rozważanej przemiany mamy:
+\begin{align}
+p^2 V = p_0^2 V_0 \implies \quad p = p_0 \sqrt{\frac{V_0}{V}},
+\end{align}
+zatem praca wykonana nad układem jest równa:
+\begin{align}
+\Delta W = - \int_{V_0}^{2 V_0} p \rm{d} V =  - \int_{V_0}^{2 V_0}  p_0 \sqrt{\frac{V_0}{V}} \rm{d} V  = - 2 p_0 V_0 (\sqrt{2}-1).
+\end{align}
+Zmiana energii wewnętrznej gazu doskonałego jest równa:
+\begin{align}
+\Delta U =   C_V \Delta T = C_V \left( \frac{\sqrt{2}p_0 V_0}{R} -  \frac{p_0 V_0}{R} \right) = \frac{C_V}{R} p_0 V_0 ( \sqrt{2}-1).
+\end{align}
+Zatem ciepło wymienione w tym procesie jest równe:
+\begin{align}
+\Delta Q = \Delta U - \Delta W = p_0 V_0{(\sqrt{2}-1)\left[ \frac{C_V}{R} + 2 \right]} = \frac{p_0 V_0}{R}(\sqrt{2}-1) \left[ C_p + R\right]
+\end{align}
+Ciepło molowe tej przemiany:
+\begin{align}
+C_X = \frac{\Delta Q}{\Delta T } = \frac{ \frac{p_0 V_0}{R}(\sqrt{2}-1) \left[ C_V + 2 R\right]}{\frac{p_0 V_0}{R}(\sqrt{2}-1)}= C_V + 2 R = C_p + R.
+\end{align}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\zadanie
+Oblicz energię wewnętrzną gazu van der Waalsa.
+Założ, że molowe ciepło właściwe $C_V$ jest znane i nie zależy od temperatury.
+Skorzystaj z następującej tożsamości (równanie energetyczne)
+podanej bez dowodu {\em (dowód wymaga wprowadzenia pojęcia entropii)}:
+\[ \left(\frac{\partial U}{\partial V}\right)_T = 
+   T \cdot \left(\frac{\partial p}{\partial T}\right)_V - p.\]
+\rozwiazanie 
+Energia wewnętrzna zależy od dwu parametrów stanu, np. $U = U(T, V)$. Wtedy jej różniczka ma postać:
+\begin{align}
+  \rm{d} U &= \left(\frac{\partial U}{\partial T} \right)_V \rm{d}T  + \left(\frac{\partial U}{\partial V} \right)_T \rm{d}V \\
+\end{align}
+
+Pierwsza zasada termodynamiki:
+\begin{align}
+\rm{d}U = \rm{\dbar}Q + \rm{\dbar}W,
+\end{align}
+w warunkach izochorycznych przyjmuje postać:
+\begin{align}
+\rm{d}U_V = \rm{\dbar}Q _V, 
+\end{align}
+co implikuje,
+\begin{align}
+C_V = \frac{1}{n}\left( \frac{\rm{d}U}{\rm{d}T}\right)_V.
+\end{align}
+
+Różniczka $\rm{d}U$ ma więc ogólną postać:
+
+\begin{align}
+  \rm{d} U &= n C_V \rm{d}T + \left(\frac{\partial U}{\partial V} \right)_T \rm{d}V \\
+ &= n C_V \rm{d}T + \left[    T \cdot \left(\frac{\partial p}{\partial T}\right)_V - p\right] \rm{d}V.
+\end{align}
+ Z drugiej strony, z równania van der Waalsa mamy:
+ \begin{align}
+ \left( \frac{\partial p}{\partial T} \right)_V = \frac{nR}{V - bn},
+ \end{align}
+ a stąd: 
+ \begin{align}
+  \rm{d} U &=  n C_V \rm{d} T + a \frac{n^2}{V^2} \rm{d}V.
+ \end{align}
+ Ostatecznie po wycałkowaniu:
+ \begin{align}
+ U(T, V) = n C_V T - a \frac{n^2}{V}  + U_0.
+ \end{align}
+%\wskazowka
+ % Rozpisz wyrażenie na różniczkę zupełną $\rm{d}U$ korzystając z wyprowadzonego wcześniej zależności $n C_V = \left(\frac{\partial U}{\partial T} \right)_V$ oraz z przytoczonego powyżej równania energetycznego. 
+ %\vspace{5mm}\\
+%\textbf{Odpowiedź:} Energia wewnętrzna gazu van der Waalsa wyraża się %wzorem $ U(V, T) = n C_V T -\frac{n^2 a}{V} + U_0$.
+  %\vspace{5mm}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ 
+\zadanie
+Korzystając z równania energetycznego:
+
+\[ \left(\frac{\partial U}{\partial V}\right)_T = 
+T \cdot \left(\frac{\partial p}{\partial T}\right)_V - p.\]
+
+pokaż, że energia gazu doskonałego nie zależy od objętości, tj. $U=U(T)$.
+
+\vspace{5mm}
+\rozwiazanie
+
+Energia wewnętrzna zależy od dwu parametrów stanu, np. $U = U(T, V)$. Wtedy jej różniczka ma postać:
+\begin{align}
+  \rm{d} U &= \left(\frac{\partial U}{\partial T} \right)_V \rm{d}T  + \left(\frac{\partial U}{\partial V} \right)_T \rm{d}V \\
+\end{align}
+
+Pierwsza zasada termodynamiki:
+\begin{align}
+\rm{d}U = \rm{\dbar}Q + \rm{\dbar}W,
+\end{align}
+w warunkach izochorycznych przyjmuje postać:
+\begin{align}
+\rm{d}U_V = \rm{\dbar}Q _V, 
+\end{align}
+co implikuje,
+\begin{align}
+C_V = \frac{1}{n}\left( \frac{\rm{d}U}{\rm{d}T}\right)_V.
+\end{align}
+
+Różniczka $\rm{d}U$ ma więc ogólną postać:
+
+\begin{align}
+  \rm{d} U &= n C_V \rm{d}T + \left(\frac{\partial U}{\partial V} \right)_T \rm{d}V \\
+ &= n C_V \rm{d}T + \left[    T \cdot \left(\frac{\partial p}{\partial T}\right)_V - p\right] \rm{d}V.
+\end{align}
+
+ Natomiast z równania stanu gazu doskonałego: 
+ \begin{align}
+ \left(\frac{\partial p}{\partial T}\right)_V  = \frac{nR}{V} = p
+ \end{align}
+ 
+ co prowadzi do postaci $\rm{d} U$:
+ \begin{align}
+  \rm{d} U &= n C_V \rm{d}T + \left[T\frac{nR}{V} - p\right] \rm{d}V = \\
+  &= n C_V \rm{d}T + \left[p - p\right] \rm{d}V = \\
+  &= n C_V \rm{d}T
+\end{align}  
+ zatem energia wewnętrzna gazu doskonałego nie zależy od objętości.
+
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\zadanie
+Gęstość energii wewnętrznej (energia wewnętrzna na jednostkę objętości: $u = U/V$) pewnego gazu jest 
+wyłącznie funkcją temperatury: $u = u(T)$. Wiadomo też, że ciśnienie tego gazu to $p=\frac{1}{3}u$. 
+Korzystając z równania energetycznego: 
+
+\[ \left(\frac{\partial U}{\partial V}\right)_T = 
+   T \cdot \left(\frac{\partial p}{\partial T}\right)_V - p.\]
+
+Znajdź ogólną postać równania stanu i wyrażenie na energię wewnętrzną tego gazu.
+
+\vspace{5mm}
+\rozwiazanie
+Wiemy, że
+\begin{align}
+u(T) = \frac{U}{V} \quad  \implies U = V \cdot u(T),
+\end{align}
+a stąd 
+\begin{align}
+\left( \frac{\partial U }{\partial V}\right)_T = u(T). \label{eq:part1}
+\end{align}
+Natomiast z równania energetycznego mamy,
+\begin{align}
+\left( \frac{\partial U }{\partial V}\right)_T  = T \cdot \left( \frac{\partial p }{\partial T}\right)_V - p = \frac{T}{3} \frac{\rm{d} u}{\rm{d} T}- \frac{u}{3}. \label{eq:part2}
+\end{align}
+Zatem 
+\begin{align}
+u = \frac{T}{3}\frac{\rm{d} u}{\rm{d} T}- \frac{u}{3}\\
+\frac{\rm{d}u}{4 u} = \frac{\rm{d}T}{T}.
+\end{align}
+Po wycałkowaniu otrzymujemy:
+\begin{align}
+\frac{1}{4}\ln(u) = \ln(T) + const.\\
+u = \alpha T^4,
+\end{align}
+gdzie $\alpha$ jest pewną stałą. 
+Równanie stanu tej substancji dane jest wzorem:
+\begin{align}
+p = \frac{1}{3}u = \frac{\alpha}{3}T^4,
+\end{align}
+a energia wewnętrzna tej substancji:
+\begin{align}
+U = u V = \alpha V T^4
+\end{align}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}
