@@ -49,7 +49,7 @@
 
 \begin{centering}
 \bf{\Large{Termodynamika z elementami fizyki statystycznej}}\\
-Ćwiczenia 2 (2 marca 2020)\\[1mm]
+Ćwiczenia 2 (6 marca 2024)\\[1mm]
 własności cieplne cd. \\
 \end{centering}
 
@@ -172,57 +172,78 @@ plot  (exp(26154/x) - 1)/(exp(20550/x) - 1)-4.29 from 3855 to 3860
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\vskip 10pt
 \zadanie
-Doskonale czarna kula (gwiazda) o temperaturze $T$ i promieniu $R$ otoczona jest
-czarną sferą (sferą Dysona) o promieniu $r$, której temperatura jest ustalona
-przez równowagę termodynamiczną. Jaka jest temperatura sfery? Rozważ następujące warianty:
-\begin{enumerate}
-\item wariant bardzo duża gwiazda - gwiazda pochłania całe promieniowanie pochodzące z wnętrza sfery,
-      ale temperatura gwiazdy nie zmienia się;
-\item wariant mała gwiazda - gwiazda jest tak mała, że promieniowanie pochłonięte przez nią jest zaniedbywalne
-\item gwiazda ma temperaturę $T$ przed nałożeniem osłony. Po nałożeniu osłony jej temperatura podniesie się,
-      ale zakładamy, że energia produkowana wewnątrz gwiazdy nie zmieni się;  
+
+Wyznaczyć temperaturę Ziemi zakładając, że znajduje się ona w równowadze radiacyjnej ze
+Słońcem. Temperatura Słońca wynosi $T_\odot = 5800$~K, a promień $R_\odot = 7 \cdot 10^8$~m.
+Odległość między Ziemią a Słońcem wynosi $D = 1.5 \cdot 10^{11}$~m. 
+Przyjąć, że temperatura na powierzchni Ziemi jest stała podczas całego cyklu dobowego.
+Obliczenia należy wykonać w dwóch wariantach:\\
+\begin{enumerate}[a)]
+        \item Ziemia jest ciałem doskonale czarnym i nie posiada atmosfery.
+        \item Ziemia jest ciałem doskonale czarnym i posiada atmosferę w postaci sfery o promieniu niewiele większym od promienia Ziemi. 
+        W modelu tym $\alpha=40\%$ promieniowania pochodzącego ze Słońca odbija się od górnych warstw atmosfery, zaś pozostałe $60\%$ 
+        przenika przez atmosferę i zostaje pochłonięte przez Ziemię. Atmosfera pochłania całe promieniowanie wyemitowane przez Ziemię
+  (promieniowanie Ziemi ma inny zakres długości fal niż promieniowanie Słońca). Atmosfera jest w równowadze tylko z Ziemią, 
+  ponieważ nie absorbuje promieniowania słonecznego.
 \end{enumerate}
+%Otrzymany wynik należy porównać z rzeczywistą średnią temperaturą
+%Ziemi równą $15^\circ C$.
 
 \vskip 10pt
 \textbf{Rozwiązanie:}\\
+Moc wyemitowana przez Słońce, wynosi
+$P_\odot = 4\pi R_\odot^2 \sigma T_\odot^4 $. Moc na jednostkę powierzchni docierająca
+do Ziemi wynosi 
+$$
+{\cal I}_{in} = \frac{P_\odot}{ 4\pi D^2} =  \sigma T_\odot^4 \left(\frac{R_\odot}{D}\right)^2
+$$
+Moc absorbowana przez Ziemię (w przypadku bez atmosfery)
+$$
+P_{in} =  \sigma T_\odot^4 \left(\frac{R_\odot}{D}\right)^2 \pi R_z ^2,
+$$
+gdzie $R_z$ jest promieniem Ziemi.
+Moc emitowana przez Ziemię:
+$$
+P_{out} = 4\pi R_z^2 \sigma T_z^4.
+$$
+W równowadze $P_{in}=P_{out}$ więc otrzymujemy
+$$
+T_z = T_\odot \sqrt{\frac{R_\odot}{ D}}\frac{1}{4^{1/4}} \approx 280 K \approx 7^\circ C.
+$$
 
-W każdym wariancie rozważamy bilans energetyczny sfery.
-Oznaczmy temperaturę sfery jako $T_{S}$, a sfera promieniuje na zewnątrz i do wewnątrz:
-\begin{equation}
-I_{out} = 2 \cdot 4 \pi R^2 T_{S}^4
-\end{equation}
+W przypadku z atmosferą 
+Ziemia pochłania część promieniowania pochodzącego ze Słońca oraz część promieniowania 
+pochodzącego od atmosfery 
+$$
+P_{in} = (1-\alpha)\sigma T_\odot^4 \left(\frac{R_\odot}{D}\right)^2 \pi R_z ^2
++ \frac{1}{2} P_{atm},
+$$
+natomiast emituje
+$$
+P_{out} = 4\pi R_z^2 \sigma T_z^4.
+$$
+Otrzymujemy więc
+$$
+4\pi R_z^2 \sigma T_z^4 = (1-\alpha)\sigma T_\odot^4 \left(\frac{R_\odot}{D}\right)^2 \pi R_z ^2
++ \frac{1}{2} P_{atm}
+$$
 
-Wariant {\bf 1)}:
+Atmosfera pochłania całe promieniowanie wyemitowane przez  Ziemię  
+$$
+P_{atm} =  4\pi R_z^2 \sigma T_z^4.
+$$
+Podstawiając do poprzedniego równania otrzymujemy
+$$
+4   T_z^4 = (1-\alpha)T_\odot^4 \left(\frac{R_\odot}{D}\right)^2  
++ 2  T_z^4 
+$$
+otrzymujemy
+$$
+T_z = T_\odot \sqrt{\frac{R_\odot}{ D}} \left[\frac{1-\alpha}{2}\right]^{1/4}
+$$
+W przypadku $\alpha=0.4$ otrzymujemy $T_z \approx 293.23 K \approx 20^\circ C$.
 
-Sfera przyjmuje całe promieniowanie gwiazdy: $I_{in} = 4 \pi r^2 T^4$, a gwiazda nie odbija promioniowania sfery.   
-Bilans energii sfery ma postać:
-\begin{equation}
-I_{in} = I_{out} \; \implies \; T_{S} = T \sqrt[4]{\frac{r^2}{2R^2}}.
-\end{equation}
-
-Wariant {\bf 2)}:
-
-Sfera przyjmuje więc całe swoje promieniowanie do wewnątrz zatem, mamy:
-\begin{equation}
-I_{in} = 4 \pi \left( r^2 T^4 +  R^2 T_{S}^4\right)
-I_{in} = I_{out} \; \implies \; T_{S} = T \sqrt{\frac{r}{R}}.
-\end{equation}
-
-Wariant {\bf 3)}:
-
-Liczymy na początek moc produkowaną w gwieździe; musi ona być równa energii wypromieniowanej
-w sytuacji bez osłony $I = 4 \pi r^2 T^4$. Po dodaniu osłony temperatura gwiazdy wzrośnie.
-Do tego policzenie dokładnego bilansu energetycznego samej osłony jest bardzo trudnym zagadnieniem
-geometrycznym. Możemy za to rozważyć bilans energetyczny całego układu gwiazda+osłona.
-Moc dostarczana do układu pochodzi z reakcji wewnątrz gwiazdy i ma niezmiennie moc
-$I_{in} = 4 \pi r^2 T^4$. Musi ona być równa strumieniowi kierowanemu na zewnątrz osłony
-$I_{out} = 4\pi R^2 T_{S}^4$. Dostajemy zatem:
-\begin{equation}
-I_{in} = I_{out} \; \implies \; T_{S} = T \sqrt{\frac{r}{R}}.
-\end{equation}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage
