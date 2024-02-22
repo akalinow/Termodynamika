@@ -1,0 +1,288 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[polish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{polski}
+\usepackage[T1]{fontenc}
+\usepackage{indentfirst}
+\usepackage{wrapfig}    % for wrapping figures, tables
+
+\frenchspacing
+
+%\usepackage{amsmath}
+\usepackage{physics}
+%\usepackage{bm}
+\usepackage{gensymb}
+%\usepackage{hepnames}
+\usepackage{epsfig}
+\usepackage{graphics}
+\usepackage[shortlabels]{enumitem}
+%\usepackage{xspace}
+%\xspaceaddexceptions{[]\{\}}
+
+%
+%
+%fixpagesize
+\pagestyle{empty}
+\addtolength{\textwidth}{6cm}
+\addtolength{\textheight}{4cm}
+\addtolength{\evensidemargin}{-3cm}
+\addtolength{\oddsidemargin}{-3cm}
+\addtolength{\topmargin}{-2cm}
+\parindent=0cm
+
+%
+%
+%small distance in list/item/enum for enumitem package
+\setlist[itemize,enumerate]{topsep=0em}
+\setlist{noitemsep}
+
+
+% definition of inexact differential symbol:
+\newcommand{\dbar} {\ensuremath{\,\mathchar'26\mkern-12mu d}}
+
+%print zadanie #
+\newcounter{zadanie}\newcommand{\zadanie}[1][]{\addtocounter{zadanie}{1} ~\\  {\bf \emph{Zadanie \arabic{zadanie} #1 }} \\}
+\newcounter{zaddom}\newcommand{\zaddom}[1][]{\addtocounter{zaddom}{1} ~\\  {\bf \emph{Zadanie domowe \arabic{zaddom} #1 }} \\}
+%\renewcommand{\zadanie}[1][]{\pagebreak  ~\\  {\bf \emph{Zadanie }} \\} \addtolength{\topmargin}{-2cm}
+
+
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Changes figure placing algorithm
+\renewcommand{\topfraction}{1}       % maximal fraction of a page allowed for figures
+\renewcommand{\textfraction}{0.15}   % minimal number of text for figure-text shared pages
+\renewcommand{\floatpagefraction}{0.95} % if two above does not help, this could do the job
+                                        % must be: floatpagefraction < topfraction !!!!
+%
+\renewcommand{\textfraction}{0} % minimum fraction of page, which must be
+                                % devoted to text
+\renewcommand{\topfraction}{1}  % maximum fraction at top, which can be
+                                % occupied whit floats
+\setcounter{totalnumber}{400}   % increase the number of floats for one page
+\setcounter{topnumber}{200}     % at all/top/bottom.
+\setcounter{bottomnumber}{200}  %
+
+
+\begin{document}           % End of preamble and beginning of text.
+\begin{centering}
+\bf{\Large{Termodynamika z elementami fizyki statystycznej}}\\
+Tydzień 13 (24 maja 2023)\\[5mm]
+Ekwipartycja energii, mikroskopowy obraz ciśnienia, równanie równowagi hydrostatycznej\\
+\end{centering}
+\vspace{10mm}
+
+
+\zadanie
+Rozważmy jednoatomowy gaz doskonały w temperaturze $T$ i w stanie równowagi termodynamicznej.
+Obliczyć średnią energię kinetyczną cząsteczki (atomu) tego gazu.
+Zastanowić się nad powodem spełnienia zasady ekwipartycji.
+\newline
+
+%\emph{Wskazówka:} Rozważ rozkład Boltzmana parametryzowany prędkością cząstki, gdzie $E_{\vec{v}} = \frac{m}{2}(v_x^2+v_y^2+v_z^2)$.
+%\newline
+
+%\emph{Odpowiedź:} $\langle E \rangle = \frac{3}{2} k T$.
+
+
+\zadanie
+{\em Przykład, w którym zasada ekwipartycji nie działa}\\
+Cząstka o masie $m$ porusza się ruchem jednowymiarowym w polu o energii potencjalnej
+$E_p(x) = A \cdot |x|^n$, gdzie $A>0$, $n\ge 1$.
+Układ jest w kontakcie z termostatem o temperaturze $T$.
+Obliczyć średnie energie cząstki: potencjalną, kinetyczną oraz całkowitą.
+\newline
+
+%\emph{Wskazówka:} Udowodnij a następnie skorzystaj z następującej tożsamości:
+%$\int_{-\infty}^\infty  e^{- \alpha |x|^n}\textrm{d}x = \alpha n \int_{-\infty}^\infty |x|^n e^{-\alpha |x|^n} \textrm{d}x$.
+%\newline
+
+%\emph{Odpowiedź:} $\langle E \rangle = (\frac{1}{2} + \frac{1}{n}) k T$. Czyli zasada ekwipartycji spełniona jedynie dla $n=2$.
+
+
+\zadanie
+Jako przykład rozkładu ciągłego zmiennej losowej rozważmy
+rozkład prędkości cząsteczek gazu\linebreak doskonałego w temperaturze $T$
+(tzw. rozkład Maxwella):
+\[ D(v) = \left(\frac{m}{2\pi k T}\right)^{\frac{3}{2}}
+          \cdot 4 \pi v^2 \cdot\exp\left[ -\frac{m v^2}{2 k T} \right],\]
+gdzie: $m$ jest masą cząsteczki, $k$ – stałą Boltzmanna, $T$ – temperaturą bezwzględną, zaś $v$ – wartością prędkości cząsteczki.
+$D(v)$ jest gęstością prawdopodobieństwa, tzn. $D(v)\cdot dv = P(v, v+dv)$ jest prawdopodobieństwem tego, że prędkość cząsteczki ma wartość zawartą między
+$v$ a $v+dv$. Policzyć najbardziej prawdopodobną oraz średnią wartość prędkości. Wykonać obliczenia dla cząsteczki azotu o masie $m = 28\,$u ($1\,{\rm u} = 1.66\cdot 10^{-27}\,$kg) w temperaturze $T = 300\,$K.
+Stała Boltzmanna wynosi $k = 1.38\cdot 10^{-23}\,$J/K.
+\newline
+
+%\emph{Odpowiedź:} Wartość najbardziej prawdopodobna $v_{\textrm{max}} = \sqrt{\frac{2 k T}{m}} = 429\, \textrm{m}/\textrm{s}$.
+%Wartość średnia $\langle v \rangle = \frac{2}{\sqrt{\pi}} v_{\textrm{max}} = 485\, \textrm{m}/\textrm{s}$.
+
+\zadanie
+Rozważyć pionową nieskończoną kolumnę gazu złożoną z cząsteczek o masie $m$,
+utrzymywaną w stałej temperaturze $T$, znajdującą się w jednorodnym polu grawitacyjnym
+o natężeniu $g$. Wyznaczyć wysokość środka masy gazu posługując się rozkładem kanonicznym.
+\newline
+
+%\emph{Odpowiedź:} $\langle x \rangle = \frac{k T }{m g}$
+
+\zadanie
+Rozwiąż zadanie poprzednie korzystając z równania równowagi hydrosatycznej
+\newline
+
+%\emph{Wskazówka:} Rozważamy cienkie warstwy powietrza i obliczamy jak musi sie zmieniać ciśnienie a w konsekwencji gęstość gazu (zgodnie z równaniem gazy doskonałego) aby spełniony był warunek równowagi hydrostatycznej. Położenie środka masy wyjdzie takie samo $\langle x \rangle = \frac{k T }{m g}$.
+
+\zadanie
+{\em Przypadek stałej gęstości, ale niejednorodnego pola grawitacyjnego.} \\
+Oszacować ciśnienie panujące w centrum Ziemi.
+Dane są: promień Ziemi $R_Z = 6370$\,km i masa Ziemi \linebreak \mbox{$M_Z = 5.98\cdot10^{24}$\,kg} oraz wartość
+przyspieszenia ziemskiego na powierzchni Ziemi $g\approx 10$\,m/s$^2$.
+Zakładamy, że Ziemia jest jednorodną kulą.
+
+%\emph{Odpowiedź:} $p =  176\,\textrm{GPa}$ (faktyczne ciśnienie wynosi ok. $300 \textrm{GPa}$).
+\newpage
+
+\zadanie
+{\em Przypadek zmiennej gęstości i jednorodnego pola grawitacyjnego.} \\
+Jaki jest wpływ zmiany temperatury na ciśnienie atmosferyczne?
+Rozwiązać równanie barometryczne zakładając, że dla wysokości w zakresie $0-10$\,km:
+$g=const$, powietrze spełnia równanie gazu doskonałego,
+temperatura maleje liniowo z wysokością, o 5\,K na 1\,km.
+Wynik porównać z~przypadkiem stałej temperatury.
+Przeprowadzić przejście graniczne do stałej temperatury.
+\newline
+
+%\emph{Odpowiedź:} Zakładamy, że $T(x) = T_0 - \alpha x$. Wtedy $p(x) = p_0\left(1- \frac{\alpha x}{T_0}\right)^{\frac{m g}{\alpha k}}$.
+%Aby pokazać, przejście graniczne do wzoru barometrycznego dla stałej temperatury ($\alpha \rightarrow 0$) należy skorzystać z $\lim_{n\rightarrow \infty} (1+x/n)^n =e^x$.
+
+\vspace{2cm}
+
+%\pagebreak
+%
+% domowe
+%
+\zaddom
+Energia kwantowego oscylatora harmonicznego wynosi $E(n)=(n+\frac{1}{2})\hbar\omega$,
+gdzie $n = 0,1\ldots\infty$.
+Znajdź średnią energię oscylatora w otoczeniu o temperaturze $T$.
+Jaki jest wkład oscylacji do ciepła właściwego?
+Przedyskutuj postać rozwiązania w zakresie niskich i wysokich
+temperatur (odpowiednio $k T \ll \hbar\omega$ i $k T \gg \hbar\omega$).
+Porównaj wynik z oscylatorem klasycznym.
+
+\emph{Odpowiedź:} $\langle E \rangle =  \hbar \omega/2 \cdot  \coth(\hbar \omega / (2k_B T))$. 
+
+\zaddom
+Znajdź fluktuacje energii (odchylenie standardowe), tzn,
+$\sigma_E^2= \left<E^2\right> - \left<E\right>^2 $ kwantowego oscylatora i
+harmonicznego będącego w równowadze z termostatem o temperaturze $T$.
+Jaka będzie fluktuacja średniej energii $N$ takich oscylatorów?
+
+\emph{Odpowiedź:} $\sigma_E^2 =  (\hbar \omega/2)^2 \cdot [\sinh(\hbar \omega / (2k_B T))]^{-2}$.
+
+%\zaddom
+%W mleku kuleczki tłuszczu o gęstości $\rho_t=0.9\,{\rm g/cm^3}$,
+%zawieszone są w wodzie o gęstości $\rho_w=1.0\,{\rm g/cm^3}$.
+%Objętość kuleczki tłuszczu jest równa $10\,{\rm \mu m}^3$.
+%Stała Boltzmana wynosi $1.38\cdot 10^{-23}\,$J/K.
+%\begin{enumerate}[a)]
+%\item Jak zależy energia potencjalna kulki tłuszczu od głębokości $H$
+%liczonej od powierzchni cieczy?
+%\item Jak zależy od $H$ prawdopodobieństwo znalezienia kulki tłuszczu
+%w warunkach równowagi termodynamicznej w temperaturze 300\,K?
+%\end{enumerate}
+%Przyjmij, że głębokość naczynia jest znana.
+
+%\emph{Odpowiedź:}
+%a) $
+%E(H) =  (\rho_w - \rho_t)V g H.
+%$
+%b) $p(H)= \alpha  e^{-\alpha H},$
+%gdzie 
+%$\alpha = 2.4\, \mu m^{-1}$.
+
+
+
+\zaddom
+{\em Atmosfera adiabatyczna.} Zakładając, że powietrze jest w równowadze hydrostatycznej
+oraz że jego temperatura zmienia się z ciśnieniem zgodnie ze wzorem na adiabatę dla gazu
+doskonałego, pokazać, że pionowy gradient temperatury jest wtedy stały.
+Policzyć ten gradient dla masy molowej powietrza $\mu=29\,$g/mol oraz
+$\kappa = C_P/C_V = 7/5$.
+
+\emph{Odpowiedź:}
+Gradient temperatury wynosi $\nabla T  = -\frac{\mu g (\kappa-1)}{R\kappa } = 10^{-2}\, {\rm K}/{\rm m}. $ 
+%Oznacza to zmianę o $1^\circ {\rm C}$ przy zmianie wysokości o $100\,{\rm m}$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%\zadanie
+%{\em Przypadek zmiennej gęstości i jednorodnego pola grawitacyjnego.} \\
+%W dwóch pionowych rurach o długości 1000\,m, zamkniętych od góry i utrzymywanych w temperaturze
+%$0^\circ$C, znajdują się wodór i ksenon. Na dole rur panuje ciśnienie 1\,atm = 1.013\,bar.
+%\begin{enumerate}[(a)]
+%\item Jakie ciśnienia panują na górze rur?
+%\item Przekrój poprzeczny rur $S = 10\,{\rm cm^2}$.
+%Jaka wypadkowa siła działa na górne denka rur (zwrot i~wartość)?
+%\end{enumerate}
+%Gęstości gazów w warunkach normalnych wynoszą: wodór 0.0899\,kg/m$^3$, ksenon 5.89\,kg/m$^3$,
+%powietrze 1.293\,kg/m$^3$.
+%Przyjąć, że wszystkie gazy można traktować jak gazy doskonałe.
+
+\zaddom
+Policzyć ciśnienie wywierane przez $n$ moli gazu doskonałego
+złożonego z cząstek o masie $m$ i znajdującego się w objętości $V$,
+jeśli rozkład wartości prędkości jest maxwellowski i każdy kierunek prędkości
+jest jednakowo prawdopodobny.
+
+\emph{Odpowiedź:} %Rozkład prawdopodobieństwa ciśnienia będzie zadany przez:
+%$P(p) = \sqrt{\frac{V}{2 \pi n k T}} \frac{1}{\sqrt{p}} e^{-\frac{V}{2 n k T} p}$,
+Średnie ciśnienie $\langle p \rangle = \frac{n k T}{V}$.
+
+\zaddom
+Znaleźć rozkład ciśnienia gazu wokół planety o masie $M$ i promieniu $R_0$, przy założeniu,
+że gaz ma masę molową $\mu$, a jego temperatura jest wszędzie jednakowa i równa $T_0$,
+zaś na powierzchni planety ciśnienie gazu wynosi $p_0$. Podać wzór na stosunek ciśnienia
+w granicy nieskończonej odległości od planety, $p_\infty$ do ciśnienia $p_0$.
+Wykonać obliczenia dla powietrza, $\mu=29\,$g/mol o temperaturze $T_0 = 273\,$K
+w 2 przypadkach:
+\begin{enumerate}
+\item planety wielkości Ziemi i o masie Ziemi ($R_Z = 6370\,$km, $M_Z = 5.98\cdot10^{24}\,$kg),
+\item planety o masie 10 razy mniejszej niż masa Ziemi, ale o takiej samej gęstości.
+\end{enumerate}
+Przedyskutować otrzymany wynik z punktu widzenia możliwości utrzymywania atmosfery przez planety.
+Stała grawitacji $G = 6.67 \cdot 10^{-11}\,{\rm N m^2 kg^{-2}}$,
+stała gazowa $R = 8.31\,$J/K.
+
+\emph{Odpowiedź:}
+$p(h) = p_0 e^{-\frac{G M \mu}{R T_0} \frac{h}{R_0(R_0+h)}}$, gdzie
+$h$ jest odległością od powierzchni planety, 
+$p(\infty)/p_0 = e^{-\frac{G M \mu}{R T_0 R_0}}$.  Dla Ziemi:
+$p(\infty)/p_0 = e^{-747}$ a dla mniejszej planety: $p(\infty)/p_0 = e^{-161} $. 
+
+\zaddom
+Oszacuj temperaturę i ciśnienie w centrum Słońca, przyjmując następujące założenia:
+\begin{enumerate}
+\item Słońce jest sferycznie symetryczną kulą gazu o promieniu $R_\odot$,
+pozostającą w równowadze\linebreak hydrostatycznej
+(tzn. w każdym punkcie ciśnienie gazu równoważy ciężar wyższych
+jego warstw).
+\item Gęstość materii słonecznej zmienia się z odległością od centrum według wzoru:
+$\rho(r) = \rho_0 \left( 1 - \frac{r}{R_\odot}\right )$.
+\item Materia słoneczna jest gazem doskonałym o masie molowej $\mu = 1.1\,$g/mol.
+\item Masa Słońca $M_\odot = 2\cdot 10^{30}\,$kg,
+promień Słońca $R_\odot = 7\cdot10^8\,$m.
+\end{enumerate}
+
+\emph{Odpowiedź:}
+$p_0 = \frac{5}{4 \pi} \frac{G M_\odot}{R_\odot^4} = 4.4 \cdot 10^{14}\, {\rm Pa}$, $T_0 = \frac{p_0 \mu}{R \rho_0}  = 1.05 \cdot 10^7\, {\rm K}$,
+gdzie $\rho_0 = \frac{3 M_\odot}{\pi R_\odot^3} = 5.6 \cdot 10^3 {\rm kg}/{\rm m}^3$ jest gęstością gazu wewnątrz Słońca.
+
+
+% An example of figure placement:
+%\begin{wrapfigure}[13]{r}{0.4\linewidth}\vspace{3mm}
+%\resizebox{\linewidth}{!}{\includegraphics{NAZWA.png}}
+%\end{wrapfigure}
+%\zaddom
+
+\end{document}

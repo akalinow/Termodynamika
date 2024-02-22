@@ -1,0 +1,478 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[polish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{polski}
+\usepackage[T1]{fontenc}
+\usepackage{indentfirst}
+\usepackage{wrapfig}    % for wrapping figures, tables
+
+\frenchspacing
+
+%\usepackage{amsmath}
+\usepackage{physics}
+%\usepackage{bm}
+\usepackage{gensymb}
+%\usepackage{hepnames}
+\usepackage{epsfig}
+\usepackage{graphics}
+\usepackage[shortlabels]{enumitem}
+%\usepackage{xspace}
+%\xspaceaddexceptions{[]\{\}}
+
+%
+%
+%fixpagesize
+\pagestyle{empty}
+\addtolength{\textwidth}{6cm}
+\addtolength{\textheight}{4cm}
+\addtolength{\evensidemargin}{-3cm}
+\addtolength{\oddsidemargin}{-3cm}
+\addtolength{\topmargin}{-2cm}
+\parindent=0cm
+
+%
+%
+%small distance in list/item/enum for enumitem package
+\setlist[itemize,enumerate]{topsep=0em}
+\setlist{noitemsep}
+
+
+% definition of inexact differential symbol:
+\newcommand{\dbar} {\ensuremath{\,\mathchar'26\mkern-12mu d}}
+
+%print zadanie #
+\newcounter{zadanie}\newcommand{\zadanie}[1][]{\addtocounter{zadanie}{1} ~\\  {\bf \emph{Zadanie \arabic{zadanie} #1 }} \\}
+\newcounter{zaddom}\newcommand{\zaddom}[1][]{\addtocounter{zaddom}{1} ~\\  {\bf \emph{Zadanie domowe \arabic{zaddom} #1 }} \\}
+%\renewcommand{\zadanie}[1][]{\pagebreak  ~\\  {\bf \emph{Zadanie }} \\} \addtolength{\topmargin}{-2cm}
+
+
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Changes figure placing algorithm
+\renewcommand{\topfraction}{1}       % maximal fraction of a page allowed for figures
+\renewcommand{\textfraction}{0.15}   % minimal number of text for figure-text shared pages
+\renewcommand{\floatpagefraction}{0.95} % if two above does not help, this could do the job
+                                        % must be: floatpagefraction < topfraction !!!!
+%
+\renewcommand{\textfraction}{0} % minimum fraction of page, which must be
+                                % devoted to text
+\renewcommand{\topfraction}{1}  % maximum fraction at top, which can be
+                                % occupied whit floats
+\setcounter{totalnumber}{400}   % increase the number of floats for one page
+\setcounter{topnumber}{200}     % at all/top/bottom.
+\setcounter{bottomnumber}{200}  %
+\renewcommand{\t}[1]{\textrm{#1}}
+
+\begin{document}           % End of preamble and beginning of text.
+\begin{centering}
+\bf{\Large{Termodynamika z elementami fizyki statystycznej}}\\
+Tydzień 13 (30 maja 2022)\\[5mm]
+Ekwipartycja energii, mikroskopowy obraz ciśnienia, równanie równowagi hydrostatycznej\\
+\end{centering}
+\vspace{10mm}
+
+
+\zadanie
+Rozważmy jednoatomowy gaz doskonały w temperaturze $T$ i w stanie równowagi termodynamicznej.
+Obliczyć średnią energię kinetyczną cząsteczki (atomu) tego gazu.
+Zastanowić się nad powodem spełnienia zasady ekwipartycji.
+\newline
+
+\emph{Rozwiązanie:} Energia (Hamiltonian) dla pojedynczej cząstki swobodnej ma postać:
+$$
+E = \frac{m}{2}(v_x^2 + v_y^2 + v_z^2),
+$$
+zatem zgodnie z rozkładem Boltzmana gęstość prawdopodobieńśtwa rozkładu prędkości cząstki zadana jest przez:
+$$
+p(\vec{v}) = p(v_x,v_y,v_z) = \frac{1}{Z}\exp\left(-\frac{m(v_x^2+v_y^2+ v_z^2)}{2 k T}  \right).
+$$
+Z warunku normalizacji rozkładu możemy wyznaczyć stałą  normalizacyjną $Z$:
+$$
+\frac{1}{Z}\int \textrm{d}^3 \vec{v} \, p(\vec{v}) = \frac{1}{Z} \sqrt{\frac{2 \pi k T }{m}}^3 \longrightarrow Z = \left(\frac{2 \pi k T }{m}\right)^{3/2},
+$$
+gdzie skorzystaliśmy z całki $\int_{-\infty}^{+\infty} \textrm{d}x\, e^{-a x^2} = \sqrt{\frac{\pi}{a}}$.
+
+Średnia energia kinetyczna (w tym przypadku to po prostu średnia energia całkowita, gdyż nie ma żadnej energii potencjalnej):
+$$
+\langle E \rangle = \frac{m}{2} \int \textrm{d}^3 \vec{v}\,
+p(\vec{v})(v_x^2 + v_y^2 + v_z^2) = \frac{1}{Z} \frac{m}{2} \int \textrm{d}^3\vec{v}\, (v_x^2+v_y^2+v_z^2) \exp\left(- \frac{m(v_x^2+v_y^2+ v_z^2)}{2 k T}   \right)
+$$
+Do obliczenia całki będziemy potrzebować wyrażenia na $\int \t{d} x \, x^2 e^{-a x^2}$.
+Zauważmy, że możemy wykorzystać sztuczkę różniczkowania po parametrze $a$:
+$$
+\int_{-\infty}^{\infty} \t{d} x \, x^2 e^{-a x^2} = - \frac{\t{d}}{\t{d}a} \int_{-\infty}^{\infty} \t{d} x\, e^{-a x^2} = - \frac{\t{d}}{\t{d}a} \sqrt{\frac{\pi}{a}} = \frac{1}{2a }\sqrt{\frac{\pi}{a}}
+$$
+Zauważając, że każda składowa w sumie da taki sam wkład, wyrażenie na średnią energię wynosi:
+$$
+\langle E \rangle =  \frac{3 m}{2 Z} \int_{-\infty}^\infty \textrm{d}v_x\,  v_x^2 \exp\left(-\frac{m v_x^2}{2 k T}\right) \int_{-\infty}^{\infty} \textrm{d}v_y\,  \exp\left(-\frac{m v_y^2}{2 k T}\right)\int_{-\infty}^\infty \textrm{d}v_z\,  \exp\left(-\frac{m v_z^2}{2 k T}\right) =  \frac{3m}{2} \cdot \frac{2 k T}{2 m } = \frac{3}{2} k T.
+$$
+Uzyskaliśmy zasadę ekwipartycji energii dzięki temu, że energia kinetyczna jest sumą energii kinetycznych poszczególnych składowych a rozkład prawdopodobieństwa $p(\vec{v})$ jest rozkładem niezależnym dla każdej ze składowych.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\zadanie
+{\em Przykład, w którym zasada ekwipartycji nie działa}\\
+Cząstka o masie $m$ porusza się ruchem jednowymiarowym w polu o energii potencjalnej
+$E_p(x) = A \cdot |x|^n$, gdzie $A>0$, $n\ge 1$.
+Układ jest w kontakcie z termostatem o temperaturze $T$.
+Obliczyć średnie energie cząstki: potencjalną, kinetyczną oraz całkowitą.
+\newline
+
+\emph{Rozwiązanie:}
+Energia cząstki ma postać:
+$$
+E = \frac{m v^2}{2} + A |x|^n.
+$$
+Ponieważ cząstka jest w kontakcie z termostatem o temperaturze $T$, rozkład prawdopodobieństwa położenia i prędkości cząstki będzie
+postaci:
+$$
+p(x,v) = \frac{1}{Z} \exp\left[ - \frac{1}{kT} \left(\frac{m v^2}{2} + A |x|^n \right)  \right],
+$$
+gdzie $Z$ jest stałą normalizacyjną.
+Rozkład jest rozkładem niezależnym dla $x$ i $v$ i możemy go zapisać.
+$$
+p(x,v) = p_x(x) p_v(v), \quad p_x(x) = \frac{1}{Z_x} \exp\left( - \frac{A |x|^n}{kT}\right),
+\ p_v(v) = \frac{1}{Z_v}\exp\left(- \frac{m v^2}{2 k T } \right),
+$$
+gdzie $Z_x$, $Z_v$ są odpowiednimi stałymi normalizującymi poszczególne rozkłady.
+
+Wyrażenia na średnie energie kinetyczną, potencjalną i całkowitą mają postać:
+$$
+\langle E_k \rangle = \int \t{d} x \t{d}v \, p(x,v) \frac{m v^2}{2}, \quad  \langle E_p \rangle = \int \t{d} x \t{d}v \, p(x,v)
+A |x|^n, \quad \langle E \rangle = \langle E_k \rangle + \langle E_p \rangle.
+$$
+Dzięki niezależności rozkładów możemy napisać
+$$
+\langle E_k \rangle = \int_{-\infty}^\infty \t{d}v \, p_v(v) \frac{m v^2}{2}, \quad  \langle E_p \rangle = \int_{-\infty}^\infty \t{d} x \, p_x(x)
+A |x|^n.
+$$
+Obliczenie średniej energii kinetycznej przebiega jak w poprzednim zadaniu i otrzymujemy $\langle E_k\rangle = \frac{1}{2}k T$.
+Aby obliczyć $\langle E_p \rangle$ zapiszmy:
+$$
+\langle E_p \rangle = \frac{\int_{-\infty}^\infty\t{d}x A |x|^n \exp\left( - \frac{A |x|^n}{kT} \right)}{\int_{-\infty}^\infty\t{d}x\,  \exp\left( - \frac{A |x|^n}{kT} \right)}
+$$
+gdzie zapisaliśmy stałą normalizacyjna $Z_x$ jako całkę.
+
+Zauważmy, że całkując przez części możemy uzyskać następujący związek:
+$$
+\int_{-\infty}^\infty  e^{- \alpha |x|^n}\textrm{d}x = 2 \int_0^\infty  e^{- \alpha x^n}\textrm{d}x =
+2\left[ \left.x  e^{- \alpha x^n}\right|_{0}^\infty +  \int\t{d}t\, \alpha n x^n e^{-\alpha x^n}\right] = n \alpha \int_{-\infty}^\infty |x|^n e^{-\alpha |x|^n}.
+$$
+
+Stąd otrzymujemy wyrażenie na średnią energię potencjalną:
+$$
+\langle E_p \rangle = \frac{k T}{n}.
+$$
+
+Całkowita średnia energia wynosi:
+$$
+\langle E \rangle = (\frac{1}{2} + \frac{1}{n}) k T,
+$$
+czyli zasada ekwipartycji w swoim podstawowym sformułowaniu spełniona jedynie dla $n=2$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\zadanie
+Jako przykład rozkładu ciągłego zmiennej losowej rozważmy
+rozkład prędkości cząsteczek gazu\linebreak doskonałego w temperaturze $T$
+(tzw. rozkład Maxwella):
+\[ D(v) = \left(\frac{m}{2\pi k T}\right)^{\frac{3}{2}}
+          \cdot 4 \pi v^2 \cdot\exp\left[ -\frac{m v^2}{2 k T} \right],\]
+gdzie: $m$ jest masą cząsteczki, $k$ – stałą Boltzmanna, $T$ – temperaturą bezwzględną, zaś $v$ – wartością prędkości cząsteczki.
+$D(v)$ jest gęstością prawdopodobieństwa, tzn. $D(v)\cdot dv = P(v, v+dv)$ jest prawdopodobieństwem tego, że prędkość cząsteczki ma wartość zawartą między
+$v$ a $v+dv$. Policzyć najbardziej prawdopodobną oraz średnią wartość prędkości. Wykonać obliczenia dla cząsteczki azotu o masie $m = 28\,$u ($1\,{\rm u} = 1.66\cdot 10^{-27}\,$kg) w temperaturze $T = 300\,$K.
+Stała Boltzmanna wynosi $k = 1.38\cdot 10^{-23}\,$J/K.
+\newline
+
+\emph{Rozwiązanie:}
+Wartość najbardziej prawdopodobną znajdujemy przyrównując pochodną $D(v)$ do zera:
+$$
+0= \frac{\t{d} D(v)}{\t{d} v}  \propto 2 v e^{- \alpha v^2} - 2 \alpha v^3 e^{-\alpha v^2}  \longrightarrow v_{\t{max}} = \sqrt{\frac{1}{\alpha}} = \sqrt{\frac{2 k T}{m}} = 429\, \textrm{m}/\textrm{s}.
+$$
+gdzie wprowadziliśmy oznaczenie $\alpha = m/(2k T)$.
+
+Wartość średnią znajdujemy całkując:
+\begin{multline*}
+\langle v \rangle = \int_{0}^\infty \t{d} v \, D(v) v = \frac{4}{\sqrt{\pi}} \alpha^{3/2} \int_0^\infty \t{d}v\, v^3 e^{-\alpha v^2} =
+- \frac{4}{\sqrt{\pi}} \alpha^{3/2} \frac{\t{d}}{\t{d} \alpha} \int_0^\infty \t{d}v\, v e^{-\alpha v^2} =\\ - \frac{4}{\sqrt{\pi}} \alpha^{3/2} \frac{\t{d}}{\t{d}\alpha} \left(
+\frac{-1}{2\alpha}\right) = \frac{2 }{\sqrt{ \pi \alpha}} =  \frac{2}{\sqrt{\pi}} v_{\textrm{max}} = 485\, \textrm{m}/\textrm{s}.
+\end{multline*}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\zadanie
+Rozważyć pionową nieskończoną kolumnę gazu złożoną z cząsteczek o masie $m$,
+utrzymywaną w stałej temperaturze $T$, znajdującą się w jednorodnym polu grawitacyjnym
+o natężeniu $g$. Wyznaczyć wysokość środka masy gazu posługując się rozkładem kanonicznym.
+\newline
+
+\emph{Rozwiązanie}
+Energia potencjalna ma postać: $E = m g x$. Zgodnie z rozkładem Boltzmanna gęstość prawdopodobieństwa znalezienia cząstki na wysokości $x$
+zadana jest przez:
+$$
+p(x) = \frac{1}{Z} e^{-\frac{mgx}{kT}}.
+$$
+Środek masy gazu będzie równy, średniemu położeniu pojedynczej cząstki stąd:
+$$
+\langle x \rangle =  \frac{\int_0^\infty \t{d} x\, x e^{-\frac{m g x}{k T }}}{\int_0^\infty \t{d} x\, e^{-\frac{m g x}{k T }}} =
+\frac{\int_0^\infty \t{d} x\, x e^{- \alpha x }}{\int_0^\infty \t{d} x\, e^{-\alpha x}} = \frac{- \frac{\t{d}}{\t{d}\alpha}
+\left( \int_0^\infty \t{d} x\, e^{- \alpha x }\right)}{\frac{1}{\alpha}} = \frac{1}{\alpha} = \frac{k T }{m g}
+$$
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\zadanie
+Rozwiąż zadanie poprzednie korzystając z równania równowagi hydrostatycznej
+\newline
+
+\emph{Rozwiązanie:}
+Rozważmy infitesymalną warstwę powietrza na wysokości $x$ o grubości $\t{d}x$. Warunek równowagi hydrostatycznej oznacza, że:
+$$
+p(x) - p(x+\t{d}x) = \rho(x) g \t{d} x,
+$$
+gdzie $p(x)$ to ciśnienie na wysokości $x$ a $\rho(x)$ gęstośc. Z równania gazu doskonałego mamy:
+$$
+p V = N k T \longrightarrow p(x) = \frac{\rho(x) k T }{m},
+$$
+gdzie $m$ jest masą pojedynczej cząstki. Podstawiając za $p(x)$ otrzymujemy równanie:
+$$
+\frac{\t{d}\rho}{\t{d}x} = - \rho \frac{g m}{k T}.
+$$
+Co daje rozwiązanie:
+$$
+\rho(x) = \rho(0) e^{- \frac{g m x}{k T}},
+$$
+gdzie $\rho(0)$ gęstośc powietrza przy powierzchni Ziemi.
+Położenie środka masy możemy więc obliczyć jako:
+$$
+\langle x \rangle = \frac{\int_0^\infty x e^{e^{- \frac{g \mu x}{R T}}}}{\int_0^\infty  {e^{- \frac{g \mu x}{R T}}}} = \frac{k T}{m g}.
+$$
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\zadanie
+{\em Przypadek stałej gęstości, ale niejednorodnego pola grawitacyjnego.} \\
+Oszacować ciśnienie panujące w centrum Ziemi.
+Dane są: promień Ziemi $R_Z = 6370$\,km i masa Ziemi \linebreak \mbox{$M_Z = 5.98\cdot10^{24}$\,kg} oraz wartość
+przyspieszenia ziemskiego na powierzchni Ziemi $g\approx 10$\,m/s$^2$.
+Zakładamy, że Ziemia jest jednorodną kulą.
+\newline
+
+\emph{Rozwiązanie:}
+Zgodnie z prawem powszechnego ciążenia, dla kuli o jednorodnej gestości, natężenie pola grawitacyjnego wewnątrz kuli w odległości $r$ od jej centrum przyjmuje postać (efektywnie wkład do pola wnosi tylko kula o promieniu $r$):
+$$
+g(r) = G \frac{\frac{4}{3}\pi r^3 \rho}{r^2} = g \frac{r}{R},
+$$
+gdzie jako $g$ oznaczyliśmy przyspieszenie ziemskie na powierzchni $r=R$. gdzie $R$ to promień Ziemi.
+Z warunku hydrostatyki otrzymujemy:
+$$
+\frac{\t{d} p}{\t{d} r} = - \rho g(r) = - \frac{\rho g r}{R}.
+$$
+Stąd $p(r) = p(0) - \frac{\rho g r^2}{2 R}$. Podstawiając $p(R) = p_0 = 10^5 \t{Pa}$ mamy, że ciśnienie w środku Ziemi wynosi:
+$$
+p(0) = p_0 + \frac{\rho g R}{2} =  p_0 + \frac{M_Z g R}{\frac{8}{3} \pi R^3} = 176\,\t{GPa},
+$$
+gdzie jak widać ciśnienie atmosferyczne nie daje zauważalnego wkładu do końcowego wyniku.
+Faktyczne ciśnienie wynosi ok. $300 \textrm{GPa}$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\zadanie
+{\em Przypadek zmiennej gęstości i jednorodnego pola grawitacyjnego.} \\
+Jaki jest wpływ zmiany temperatury na ciśnienie atmosferyczne?
+Rozwiązać równanie barometryczne zakładając, że dla wysokości w zakresie $0-10$\,km:
+$g=const$, powietrze spełnia równanie gazu doskonałego,
+temperatura maleje liniowo z wysokością, o 5\,K na 1\,km.
+Wynik porównać z~przypadkiem stałej temperatury.
+Przeprowadzić przejście graniczne do stałej temperatury.
+\newline
+
+\emph{Rozwiązanie:}
+Warunek równowagi hydrostatycznej
+$$
+p(x) - p(x+\t{d}x) = \rho(x) g \t{d}x
+$$
+Korzystamy z równania gazu doskonałego aby wyznaczyć $\rho$ w funkcji $p$:
+$$
+p V = N k T, \quad \rightarrow \quad \rho = \frac{m p }{k T}.
+$$
+Otrzymujemy równanie różniczkowe:
+$$
+\frac{\t{d}p}{\t{d}x} = -\frac{m p g}{k T} = \frac{- m p}{k (T_0 -\alpha x)}
+$$
+gdzie podstawiliśmy zależność temperatury od wysokości $T(x) = T_0 - \alpha x$.
+Przekształcamy:
+$$
+\frac{\t{d}p}{p} = \frac{- m g }{k (T_0 -\alpha x)} \t{d}x
+$$
+i całkujemy w granicach (lewą stronę od $p(0)$ do $p(x)$  prawą stronę od $0$  do $x$)
+$$
+\ln\left(\frac{p(x)}{p(0)}\right) = \frac{m g }{\alpha k } \ln\left(1 - \frac{\alpha x}{T_0}  \right).
+$$
+Stąd dostajemy
+
+$$p(x) = p(0)\left(1- \frac{\alpha x}{T_0}\right)^{\frac{m g}{\alpha k}}.
+$$
+Aby pokazać, przejście graniczne do wzoru barometrycznego dla stałej temperatury ($\alpha \rightarrow 0$) korzystamy z faktu, że  $\lim_{n\rightarrow \infty} (1+x/n)^n =e^x$, co jest równoważne
+$\lim_{\epsilon \rightarrow 0 } (1+\epsilon x)^{1/\epsilon} =e^x$ i dostajemy
+$$
+p(x) = p(0)e^{- \frac{m g }{k T_0} x}.
+$$
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\zaddom
+Energia kwantowego oscylatora harmonicznego wynosi $E(n)=(n+\frac{1}{2})\hbar\omega$,
+gdzie $n = 0,1\ldots\infty$.
+Znajdź średnią energię oscylatora w otoczeniu o temperaturze $T$.
+Jaki jest wkład oscylacji do ciepła właściwego?
+Przedyskutuj postać rozwiązania w zakresie niskich i wysokich
+temperatur (odpowiednio $k T \ll \hbar\omega$ i $k T \gg \hbar\omega$).
+Porównaj wynik z oscylatorem klasycznym.
+
+\emph{Odpowiedź:} $\langle E \rangle =  \hbar \omega/2 \cdot  \coth(\hbar \omega / (2k_B T))$. 
+
+\zaddom
+Znajdź fluktuacje energii (odchylenie standardowe), tzn,
+$\sigma_E^2= \left<E^2\right> - \left<E\right>^2 $ kwantowego oscylatora i
+harmonicznego będącego w równowadze z termostatem o temperaturze $T$.
+Jaka będzie fluktuacja średniej energii $N$ takich oscylatorów?
+\newline
+
+\noindent
+\emph{Wskazówka:} Możesz skorzystać z faktu, że $\langle E \rangle = -\frac{1}{Z} \frac{\partial Z}{\partial \beta}$, $\langle E^2 \rangle = \frac{1}{Z} \frac{\partial^2 Z}{\partial \beta^2}$.
+\newline
+
+\noindent
+\emph{Odpowiedź:}
+$\sigma_E^2 =  \frac{\hbar \omega^2}{4 \sinh^2\left(\frac{\hbar \omega}{2 k T}\right)}$. Jeśli uśrednimy energię $N$ niezależnych oscylatorów, uzyskamy $N$ razy mniejszą wariancję dla średniej.
+
+\zaddom
+Policzyć ciśnienie wywierane przez $n$ moli gazu doskonałego
+złożonego z cząstek o masie $m$ i znajdującego się w objętości $V$,
+jeśli rozkład wartości prędkości jest maxwellowski i każdy kierunek prędkości
+jest jednakowo prawdopodobny.
+\newline
+
+\emph{Wskazówka:} Rozważ płaszczyznę (np. yz) i sprężyste odbicie cząstki od niej. Średnie ciśnienie będzie równe średniej wartości zmiennej losowej $\frac{n m}{V} v_x^2$ gdzie $v_x$ jest  składową $x$ prędkości cząstki.
+\newline
+
+\emph{Odpowiedź:} %Rozkład prawdopodobieństwa ciśnienia będzie zadany przez:
+%$P(p) = \sqrt{\frac{V}{2 \pi n k T}} \frac{1}{\sqrt{p}} e^{-\frac{V}{2 n k T} p}$,
+Średnie ciśnienie $\langle p \rangle = \frac{n k T}{V}$.
+
+\zaddom
+W mleku kuleczki tłuszczu o gęstości $\rho_t=0.9\,{\rm g/cm^3}$,
+zawieszone są w wodzie o gęstości $\rho_w=1.0\,{\rm g/cm^3}$.
+Objętość kuleczki tłuszczu jest równa $10\,{\rm \mu m}^3$.
+Stała Boltzmana wynosi $1.38\cdot 10^{-23}\,$J/K.
+\begin{enumerate}[a)]
+\item Jak zależy energia potencjalna kulki tłuszczu od głębokości $H$
+liczonej od powierzchni cieczy?
+\item Jak zależy od $H$ prawdopodobieństwo znalezienia kulki tłuszczu
+w warunkach równowagi termodynamicznej w temperaturze 300\,K?
+\end{enumerate}
+Przyjmij, że głębokość naczynia jest znana.
+\newline
+
+\emph{Odpowiedź:}
+Upraszczamy rozumowanie pomijając efekty związane z częściowym zanurzeniem kulki. Zakładamy więc, że kulka jest całkowicie zanurzona w mleku. Ponadto przyjmujemy, że głębokość naczynia można pominąć, gdyż zanurzenia będą znacznie mniejsze niż jego głebokość.
+% albo znajduje się całkowicie ponad powierzchnią mleka.
+W takiej sytuacji możemy napisać, że energia potencjalna dana jest przez:
+$$
+E(H) =  (\rho_w - \rho_t)V g H.
+$$
+Prawdopodobieństwo znalezienia kuleczki tłuszczu na głębokości $H$:
+$$p(H)= \alpha  e^{-\alpha H},$$
+gdzie $\alpha =\frac{(\rho_w - \rho_t) g V}{kT}$.
+Podstawiamy wartości liczbowe, dostajemy
+$\alpha = 2.4\, \mu m^{-1}$.
+Oznacza to, że charakterystyczne głębokości ,,nurkowania kulki'' będą  $\approx \alpha^{-1} = 0.414\, \mu m$. Z objętości kulki możemy wyliczyć jej promień i dostajemy $r=1.3\,\mu m$. Widać więc, że nasze założenie o pominięciu efektów  skończonej głębokości naczynia jest uzasadnione natomiast założenie pominięcia efektów częściowego zanurzenia nie ma dobrego uzasadnienia, bo kulka raczej będzie się zanurzać jedynie częściowo. Dokładne uwzględnienie efektów częściowego zanurzenia byłoby jednak bardzo uciążliwe rachunkowo.
+
+\zaddom
+{\em Atmosfera adiabatyczna.} Zakładając, że powietrze jest w równowadze hydrostatycznej
+oraz że jego temperatura zmienia się z ciśnieniem zgodnie ze wzorem na adiabatę dla gazu
+doskonałego, pokazać, że pionowy gradient temperatury jest wtedy stały.
+Policzyć ten gradient dla masy molowej powietrza $\mu=29\,$g/mol oraz
+$\kappa = C_P/C_V = 7/5$.
+\newline
+
+\emph{Odpowiedź:}
+$T(h) = T_0 - \frac{\mu g (\kappa-1)}{R\kappa } h$. Stąd gradient temperatury
+wynosi $\nabla T  = -\frac{\mu g (\kappa-1)}{R\kappa } = 10^{-2}\, \t{K}/\t{m} $. Oznacza to zmianę o $1^\circ \t{C}$ przy zmianie wysokości o $100\,\t{m}$.
+
+%\zadanie
+%{\em Przypadek zmiennej gęstości i jednorodnego pola grawitacyjnego.} \\
+%W dwóch pionowych rurach o długości 1000\,m, zamkniętych od góry i utrzymywanych w temperaturze
+%$0^\circ$C, znajdują się wodór i ksenon. Na dole rur panuje ciśnienie 1\,atm = 1.013\,bar.
+%\begin{enumerate}[(a)]
+%\item Jakie ciśnienia panują na górze rur?
+%\item Przekrój poprzeczny rur $S = 10\,{\rm cm^2}$.
+%Jaka wypadkowa siła działa na górne denka rur (zwrot i~wartość)?
+%\end{enumerate}
+%Gęstości gazów w warunkach normalnych wynoszą: wodór 0.0899\,kg/m$^3$, ksenon 5.89\,kg/m$^3$,
+%powietrze 1.293\,kg/m$^3$.
+%Przyjąć, że wszystkie gazy można traktować jak gazy doskonałe.
+
+\zaddom
+Znaleźć rozkład ciśnienia gazu wokół planety o masie $M$ i promieniu $R_0$, przy założeniu,
+że gaz ma masę molową $\mu$, a jego temperatura jest wszędzie jednakowa i równa $T_0$,
+zaś na powierzchni planety ciśnienie gazu wynosi $p_0$. Podać wzór na stosunek ciśnienia
+w granicy nieskończonej odległości od planety, $p_\infty$ do ciśnienia $p_0$.
+Wykonać obliczenia dla powietrza, $\mu=29\,$g/mol o temperaturze $T_0 = 273\,$K
+w 2 przypadkach:
+\begin{enumerate}
+\item planety wielkości Ziemi i o masie Ziemi ($R_Z = 6370\,$km, $M_Z = 5.98\cdot10^{24}\,$kg),
+\item planety o masie 10 razy mniejszej niż masa Ziemi, ale o takiej samej gęstości.
+\end{enumerate}
+Przedyskutować otrzymany wynik z punktu widzenia możliwości utrzymywania atmosfery przez planety.
+Stała grawitacji $G = 6.67 \cdot 10^{-11}\,{\rm N m^2 kg^{-2}}$,
+stała gazowa $R = 8.31\,$J/K.
+\newline
+
+\emph{Odpowiedź:}
+Oznaczmy odległość od powierzchni planety jako $h$:
+$$p(h) = p_0 e^{-\frac{G M \mu}{R T_0} \frac{h}{R_0(R_0+h)}}.$$
+Stosunek $p(\infty)/p_0 = e^{-\frac{G M \mu}{R T_0 R_0}}.$ Podstawiając dane liczbowe mamy dla ziemi:
+$p(\infty)/p_0 = e^{-747}$ a dla mniejszej planety: $p(\infty)/p_0 = e^{-161} $. Widać, że w przypadku mniejszej planety spadek ciśnienia jest wyraźnie mniejszy, co oznacza, że  atmosfera ma większą tendencje do uciekania z planety.
+
+\zaddom
+Oszacuj temperaturę i ciśnienie w centrum Słońca, przyjmując następujące założenia:
+\begin{enumerate}
+\item Słońce jest sferycznie symetryczną kulą gazu o promieniu $R_\odot$,
+pozostającą w równowadze\linebreak hydrostatycznej
+(tzn. w każdym punkcie ciśnienie gazu równoważy ciężar wyższych
+jego warstw).
+\item Gęstość materii słonecznej zmienia się z odległością od centrum według wzoru:
+$\rho(r) = \rho_0 \left( 1 - \frac{r}{R_\odot}\right )$.
+\item Materia słoneczna jest gazem doskonałym o masie molowej $\mu = 1.1\,$g/mol.
+\item Masa Słońca $M_\odot = 2\cdot 10^{30}\,$kg,
+promień Słońca $R_\odot = 7\cdot10^8\,$m.
+\end{enumerate}
+\vspace{0.5cm}
+
+\emph{Odpowiedź:}
+$p_0 = \frac{5}{4 \pi} \frac{G M_\odot}{R_\odot^4} = 4.4 \cdot 10^{14}\, \t{Pa}$, $T_0 = \frac{p_0 \mu}{R \rho_0}  = 1.05 \cdot 10^7\, \t{K}$,
+gdzie $\rho_0 = \frac{3 M_\odot}{\pi R_\odot^3} = 5.6 \cdot 10^3 \t{kg}/\t{m}^3$ jest gęstością gazu wewnątrz słońca.
+
+% An example of figure placement:
+%\begin{wrapfigure}[13]{r}{0.4\linewidth}\vspace{3mm}
+%\resizebox{\linewidth}{!}{\includegraphics{NAZWA.png}}
+%\end{wrapfigure}
+%\zaddom
+
+\end{document}
