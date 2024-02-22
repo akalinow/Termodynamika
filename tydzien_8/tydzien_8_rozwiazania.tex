@@ -1,0 +1,426 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[polish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{polski}
+\usepackage[T1]{fontenc}
+\usepackage{indentfirst}
+\usepackage{wrapfig}    % for wrapping figures, tables
+
+\frenchspacing
+
+\usepackage{amsmath}
+%\usepackage{physics}
+%\usepackage{bm}
+\usepackage{gensymb}
+%\usepackage{hepnames}
+\usepackage{epsfig}
+\usepackage{graphics}
+\usepackage[shortlabels]{enumitem}
+%\usepackage{xspace}
+%\xspaceaddexceptions{[]\{\}}
+
+%
+%
+%fixpagesize
+\pagestyle{empty}
+\addtolength{\textwidth}{6cm}
+\addtolength{\textheight}{4cm}
+\addtolength{\evensidemargin}{-3cm}
+\addtolength{\oddsidemargin}{-3cm}
+\addtolength{\topmargin}{-2cm}
+\parindent=0cm
+
+
+%
+%
+%small distance in list/item/enum for enumitem package
+\setlist[itemize,enumerate]{topsep=0em}
+\setlist{noitemsep}
+
+%print zadanie #
+\newcounter{zadanie}\newcommand{\zadanie}[1][]{\addtocounter{zadanie}{1} ~\\  {\bf \emph{Zadanie \arabic{zadanie} #1 }} \\}
+\newcounter{zaddom}\newcommand{\zaddom}[1][]{\addtocounter{zaddom}{1} ~\\  {\bf \emph{Zadanie domowe \arabic{zaddom} #1 }} \\}
+%\renewcommand{\zadanie}[1][]{\pagebreak  ~\\  {\bf \emph{Zadanie }} \\} \addtolength{\topmargin}{-2cm}
+
+\newcommand{\dbar}{{\mkern3mu\mathchar'26\mkern-12mu d}}
+\newcommand{\Partial}[3]{\left( \frac{\partial #1}{\partial #2} \right)_{#3}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}           % End of preamble and beginning of text.
+
+\begin{centering}
+\bf{\Large{Termodynamika z elementami fizyki statystycznej}}\\
+Tydzień 8 (20 kwietnia 2023)\\[3mm]
+Entropia jako funkcja stanu, podstawowe r. termodynamiki, współrzędne $T-S$\\
+\end{centering} 
+\vspace{5mm}
+
+\zadanie
+Oblicz entropię $n$ moli gazu doskonałego. Korzystając z wyprowadzonego
+wzoru znajdź równanie adiabaty we współrzędnych $p - V$.
+Znajdź równanie izochory  i izobary we współrzędnych $T-S$.
+
+
+\vspace{5mm}
+{\em Rozwiązanie:}
+
+Zaczynamy od obliczenia entropii $n$ moli gazu doskonałego.
+Korzystamy z definicji entropii i pierwszej zasady termodynamiki
+\begin{equation}
+	dS = \frac{dQ}{T} = \frac{dU}{T} + \frac{p}{T}dV.
+\end{equation}
+Dla gazu doskonałego $U = n C_V T$ oraz $p V = nRT$ co prowadzi do 
+\begin{equation}
+	dS = n C_V \frac{dT}{T} + n R \frac{dV}{V}.
+\end{equation}
+Widzimy więc, że entropia jest funkcją V i T, jej różniczkę zupełną możemy więc zapisać jako
+\begin{equation}
+	dS = \left(\frac{\partial S}{\partial T} \right)_V dT + \left(\frac{\partial S}{\partial V} \right)_T dV.
+\end{equation}
+gdzie
+\begin{align}
+	\left(\frac{\partial S}{\partial T} \right)_V = \frac{n C_V}{T}, \qquad  \left(\frac{\partial S}{\partial V} \right)_T = \frac{nR}{V}.
+\end{align}
+Całkując oba wyrażenia dostajemy
+\begin{align}
+	S(T,V) = n C_V \ln T + f(V), \qquad S(T,V) = n R \ln V + g(T).
+\end{align}
+Następnie porównując oba wyrażenia stwierdzamy, że
+\begin{equation}
+	S(T,V) = n C_V \ln T + n R \ln V + S_0.
+\end{equation}
+
+W procesie adiabatycznym, nie zachodzi wymiana ciepła, więc tym samym entropia pozostaje stałą i
+\begin{equation}
+	n C_V \ln T + n R \ln V = {\rm const}.
+\end{equation}
+Korzystając z równania stanu gazu doskonałego eliminujemy $T$ i po paru przekształceniach otrzymujemy
+\begin{equation}
+	p V^{(C_V + R)/C_V} = {\rm const}.
+\end{equation}
+
+Podczas przemiany izochorycznej $V = {\rm const}$ więc równanie izochory we współrzędnych $T-S$ wynosi
+\begin{equation}
+	S - n C_V \ln T =\text{const.}, \qquad T = \text{const.} \times e^\frac{S}{nC_v}
+\end{equation}
+
+Podczas przemiany izobarycznej ciśnienie jest stałe. Wyznaczamy $V$ z równania stanu gazu oraz wykorzystujemy, że $p = {\rm const}$ by otrzymać
+\begin{equation}
+	S  - n (C_V +R) \ln T = \text{const.}, \qquad T = \text{const.} \times e^\frac{S}{n(C_V+R)}.
+\end{equation}
+Używając prawa Mayera $C_P=C_V+R$ mamy ostatecznie
+\begin{equation}
+	S  - n C_P \ln T = \text{const.}, \qquad T = \text{const.} \times e^\frac{S}{nC_P}.
+\end{equation}
+\newpage
+
+\zadanie
+Jeden mol gazu doskonałego rozpręża się odwracalnie od objętości początkowej $V_1$ do objętości końcowej $V_2$ w ten sposób, że $p = \alpha V$, gdzie $\alpha=const$. Znaleźć zależność $T(S)$ oraz ciepło $Q$ dostarczone w trakcie tego procesu.
+
+\vspace{5mm}
+{\em Rozwiązanie:}
+
+Chcemy policzyć ciepło wymienione w procesie znając zależność $T(S)$ oraz korzystając ze związku $dQ = T dS$. Mamy więc, że
+\begin{equation}
+	Q = \int_{S_1}^{S_2} T(S) {\rm d}S,
+\end{equation}
+gdzie $S_1$ i $S_2$ są odpowiednio entropią początkową i końcową które, z warunków zadania, wynoszą
+\begin{align}
+	S_1 = C_V \ln \frac{\alpha V_1^2}{R} + R \ln V_1 + S_0, \\
+	S_2 = C_V \ln \frac{\alpha V_2^2}{R} + R \ln V_2 + S_0.
+\end{align}
+gdzie wykorzystaliśmy związek $p =\alpha V$. Jak się przekonamy, ostatecznie znajomość $S_{1,2}$ nie będzie nam jednak potrzebna. 
+Zacznijmy od znalezienia zależności $T(S)$ dla przemiany w której $p = \alpha V$. Korzystamy ze wzoru na entropię gazu doskonałego oraz wyznaczamy $V$ z
+\begin{equation}
+  \left\{
+    \begin{array}{l}
+      pV = RT\\
+      p = \alpha V
+    \end{array}
+  \right.
+\end{equation}
+żeby otrzymać
+\begin{equation}
+	S - S_0 = \ln \left(  T^{C_V + R/2}  \left( \frac{R}{\alpha}\right)^{R/2}\right).
+\end{equation}
+Wyznaczając $T$ znajdujemy
+\begin{equation}
+	T(S) = \left( \frac{\alpha}{R}\right)^{\frac{R}{2 C_V + R}}\exp \left( \frac{S - S_0}{C_V + R/2}\right).
+\end{equation}
+W takim razie,
+\begin{equation}
+	Q = \int_{S_1}^{S_2} T(S) {\rm d}S =  \left( C_V + R/2 \right) (T(S_2) - T(S_1)) = \left( C_V + R/2 \right) (T_2 - T_1).
+\end{equation}
+Ostatecznie $T_1$ i $T_2$ możemy wyrazić przez znane z warunków zadania $V_1$ i $V_2$ dostając
+\begin{equation}
+	Q = \alpha \left( \frac{C_V}{R} + \frac{1}{2}\right) \left(V_2^2 - V_1^2\right).
+\end{equation}
+
+\newpage
+
+
+
+\zadanie
+Znajdź różnicę entropii jednego grama azotu gazowego $N_2$ 
+w temperaturze 20\degree C i ciekłego w -196\degree C, pod tym samym ciśnieniem 1 atm. 
+Ciepło parowania $c$=200\,kJ/kg. Traktuj azot w stanie lotnym jako gaz doskonały, 
+o stałym ciepłe molowym przy stałym ciśnieniu $C_p$=29,3 J/mol/K i o masie molowej $\mu=28$g/mol.      
+
+\vspace{5mm}
+{\em Rozwiązanie:}
+
+By policzyć zmianę entropii, zakładamy, że azot został odwracalnie schłodzony, przy stałym ciśnieniu a następnie skroplony. Całkowita zmiana entropii będzie sumą zmian entropii w tych dwóch procesach. Zacznijmy od pierwszego procesu.
+
+Z zadania 1 mamy związek dla przemiany izobarycznej gazu doskonałego
+\begin{equation}
+    S-nC_P \ln T=\text{const.}
+\end{equation}
+Tak więc zmiana entropii podczas schładzania od temperatury $T_1$ do tempertury $T_2$ wynosi
+\begin{equation}
+	\Delta S_1 = n C_p \ln \frac{T_2}{T_1}.
+\end{equation}
+W drugim procesie, w stałej temperaturze $T_2$ następuje skroplenie azotu. Ciepło pobrane z azotu w czasie skroplenia wynosi $- m c$ gdzie $m$ jest masą azotu. Zmiana entropii wynosi więc
+\begin{equation}
+	\Delta S_2 = -\frac{m c }{T_2},
+\end{equation}
+a całkowita zmiana entropii 
+\begin{equation}
+	\Delta S = n C_p \ln \frac{T_2}{T_1} - \frac{m c }{T_2} \approx -3,99\, {\rm J/K},
+\end{equation}
+gdzie skorzystaliśmy z faktu, że masa molowa azotu gazowego $N_2$ wynosi około $28\,{\rm g/mol}$. 
+
+%{\em Rozwiązanie:} Traktujemy azot wraz z otoczeniem jako układ izolowany tak więc entropia całości jest stała. Dodatkowo, entropia jest funkcją stanu, więc entropia jednego grama azotu w stanie ciekłym nie zależy od tego jaki proces doprowadził go do tego stanu ze stanu gazowego. Możemy więc przyjąć, że proces ten był odwracalny. Wtedy $dS = dQ /T$, gdzie $dQ$ jest ciepłem wymienianym z otoczeniem. Wygodnie jest policzyć zmianę entropii otoczenia $\Delta S_{ot}$ a następnie wykorzystać, że $\Delta S_{azot} + \Delta S_{ot} = 0$. Otoczenie absorbuje ciepło w stałej temperaturze więc
+%\begin{equation}
+%	\Delta S_{ot} = \frac{-\Delta Q}{T_{ot}}.
+%\end{equation}
+%gdzie $\Delta Q$ jest ciepłem wymienionym z punktu widzenia azotu, to znaczy
+%\begin{equation}
+%	\Delta Q = n C_p \Delta T + m c,
+%\end{equation}
+%gdzie $n$ jest ilością moli. Masa molowa azotu gazowego $N_2$ wynosi około $28\,{\rm g/mol}$. Podstawiając dane, dostajemy $\Delta Q = 426\,{\rm J}$. Tak więc zmiana entropii azotu wynosi $\Delta S_{azot} = 1.45\,{\rm J/K}$. 
+
+
+
+%\zadanie
+%Energia swobodna $F = U - T S$ ~jednego mola pewnego gazu wyraża się wzorem:
+%\[ F(T,V) = \frac{3}{2} R T (1 - \ln T) - R T \ln (V-b) - \frac{a}{V},\]
+%gdzie $a$ i $b$ są pewnymi stałymi.
+%Znaleźć entropię, energię wewnętrzną i równanie stanu tego gazu.
+\newpage
+\zadanie
+Znając entropię pewnej (akademickiej) substancji $pV$: $S(U,V,N) = 3A(UVN)^\frac{1}{3}$ 
+znajdź jej równanie stanu \mbox{$f(T,V,p)=0$.}
+
+\vspace{5mm}
+{\em Rozwiązanie:}
+\newline
+Szukamy równania stanu $f(T, V, p) =0$. Różniczka zupełna entropii wynosi
+\begin{equation}
+	dS = \frac{1}{3} \frac{S}{U} dU + \frac{1}{3} \frac{S}{V} dV +\frac{1}{3}\frac{S}{N}dN.
+\end{equation}
+Z drugiej strony, wiemy że $dS = 1/T dU + p/T dV-\frac{\mu}{T} dN$. Porównując wyrazy stojące przy odpowiednich różniczkach znajdujemy
+\begin{equation}
+	\frac{1}{T} = \frac{1}{3} \frac{S}{U}, \qquad \frac{p}{T} = \frac{1}{3} \frac{S}{V}, \qquad -\frac{\mu}{T}=\frac{1}{3}\frac{S}{N}
+\end{equation}
+Zajmijmy się pierwszymi dwoma równaniami. Rozwiązując dla $S$ i $U$ otrzymujemy
+\begin{equation}
+	S = 3 pV/T, \qquad U = pV.
+\end{equation}
+Podstawiając do wzoru na entropie znajdujemy
+\begin{equation}
+	p^2 V =N A^3 T^3.
+\end{equation}
+Jak widać, do wyprowadzenia można było założyć $N=\text{const.}$ i nie zajmować się trzecim równaniem, w którym pojawia się potencjał chemiczny.
+
+\newpage
+
+
+\zadanie
+Wyprowadzić tożsamość, z której korzystaliśmy przy okazji znajdowania energii wewnętrznej gazu van der Waalsa:
+\[ \left(\frac{\partial U}{\partial V}\right)_T = 
+   T \cdot \left(\frac{\partial p}{\partial T}\right)_V - p \]
+{\em Wskazówka: Traktując energię wewnętrzną $U$ oraz entropię $S$ 
+jako funkcje parametrów stanu $V$ i $T$, zapisać ich różniczki zupełne,
+skorzystać z podstawowego r. termodynamiki
+% i skorzystać z I zasady termodynamiki: 
+%$dU = \dbar Q + \dbar W = T dS - p dV$ (tożsamość termodynamiczna).
+i z równości pochodnych mieszanych $\frac{\partial^2 S}{\partial V\partial T}$}.
+
+
+\vspace{5mm}
+{\em Rozwiązanie:}
+
+Traktując $U$ i $S$ jako funkcję $V$ i $T$ ich różniczki zupełne wynoszą
+\begin{equation}
+	dU = \left( \frac{\partial U}{\partial T}\right)_V dT + \left( \frac{\partial U}{\partial V}\right)_T dV, \qquad 
+	dS = \left( \frac{\partial S}{\partial T}\right)_V dT + \left( \frac{\partial S}{\partial V}\right)_T dV.
+\end{equation}
+Korzystamy ze związku $dU = dQ + dW = TdS - p dV$ by otrzymać
+\begin{equation}
+	\left( \frac{\partial S}{\partial T}\right)_V = \frac{1}{T} \left( \frac{\partial U}{\partial T}\right)_V, \qquad 
+	\left( \frac{\partial S}{\partial V}\right)_T = \frac{1}{T} \left( \left( \frac{\partial U}{\partial V}\right)_T + p\right).
+\end{equation}
+Wystarczy teraz zróżniczkować pierwsze wyrażenie po $V$ a drugie po $T$ i skorzystać z równości pochodnych mieszanych by otrzymać szukany związek.
+
+\newpage
+
+\zadanie
+Znajdź wyrażenie na entropię gazu fotonowego. 
+Z jego pomocą wyznacz równanie adiabaty dla tego gazu.
+
+
+\vspace{5mm}
+{\emph Rozwiązanie:}
+
+Przytoczmy wyrażenie na energie wewnętrzną $U$ oraz ciśnienie $p$ dla gazu fotonowego
+\begin{equation}
+	U = 3 p V, \qquad p = \frac{4}{3} \frac{\sigma}{c} T^4.
+\end{equation}
+Korzystając ze zwiazku pomiędzy zmianą entropii a wymienionym ciepłem oraz z pierwszej zasady termodynamiki mamy
+\begin{equation}
+	dS = \frac{dQ}{T} = \frac{dU}{T} + \frac{p}{T} dV.
+\end{equation}
+Różniczka energii wewnętrznej wynosi 
+\begin{equation}
+	dU = 3p dV + 3 V dp,
+\end{equation}
+więc
+\begin{equation}
+\label{eq1}
+	dS = \frac{4p }{T} dV + \frac{3 V}{T} dp = \frac{16}{3} \frac{\sigma}{c} T^3 dV + 16 \frac{\sigma }{c} V T^2 dT,
+\end{equation}
+gdzie w drugim kroku skorzystaliśmy ze wzoru na ciśnienie.
+Mamy
+\begin{equation}
+    \Partial{S}{V}{T}=\frac{16}{3} \frac{\sigma}{c}T^3 \qquad \Partial{S}{T}{V}=16 \frac{\sigma}{c}V T^2
+\end{equation}
+Odcałkowując pierwszą równość mamy $S = \frac{16}{3} \frac{\sigma}{c} T^3 V +f(T)$, natomiast z drugiej dostajemy $S = \frac{16}{3} \frac{\sigma}{c} T^3 V +g(V)$. Stąd 
+\begin{equation}
+	S = \frac{16}{3} \frac{\sigma }{c} T^3 V + S_0.
+\end{equation}
+Alternatywnie, możemy zauważyć, że prawą stronę \eqref{eq1} możemy zapisać jako różniczkę zupełną, to znaczy
+\begin{equation}
+	dS = \frac{16}{3} \frac{\sigma }{c}   d \left(T^3 V\right).
+\end{equation}
+Oznacza to, że entropia gazu fotonowego jest funkcją $T^3 V$. Całkując obustronnie
+\begin{equation}
+	S = \frac{16}{3} \frac{\sigma }{c} T^3 V + S_0.
+\end{equation}
+Korzystając z równania stanu i wyrażenia na energie wewnętrzną możemy entropie wyrazić również przez
+\begin{equation}
+	S = \frac{4}{3} \frac{U}{T} = 4 \frac{p V}{T}=4\left( \frac{4}{3} \frac{c}{\sigma} \right)^{1/4}p^{3/4}V.
+\end{equation}
+W procesie adiabatycznym $S=\text{const.}$ co prowadzi do związku
+\begin{equation}
+    pV^{4/3}=\text{const.}
+\end{equation}
+
+\newpage
+\zadanie
+Równanie stanu paramagnetyka (np. w polu solenoidu) zapisać można jako:
+$m= C \frac{H}{T}$, 
+gdzie $C$ - stała Curie, $H$ - natężenia pola magnetycznego, $T$- temperatura,
+$m$ - magnetyzacja, tj. moment magnetyczny $M$ w jednostce objętości ($m=M/V$).
+Przy wykluczeniu energii oddziaływania paramegnetyk-solenoid, praca zapisana może być jako
+ $\dbar W = -\mu_0 M dH$, zaś energia wewnętrzna: $U=-\mu_0 M H$. Znajdź entropię paramagnetyka.
+
+\vspace{5mm}
+{\em Rozwiązanie:}
+\newline
+Stan paramagnetyka opisujemy za pomocą trzech zmiennych $M$, $H$ i $T$ powiązanych równaniem stanu
+\begin{equation}
+	\frac{M}{V} = C \frac{H}{T}. 
+\end{equation}
+Korzystając z wyrażenia na entropie w procesie odwracalnym oraz z pierwszej zasady termodynamiki mamy
+\begin{equation}
+	dS = \frac{1}{T} dU - \frac{1}{T} dW.
+\end{equation}
+Traktując energię jako funkcję $M$ i $H$ jej różniczka zupełna wynosi
+\begin{equation}
+	dU = - \mu_0 M dH - \mu_0 H dM. 
+\end{equation}
+Podstawiając wraz z wyrażeniem na $dW$ do wzoru na różniczkę entropii znajdujemy
+\begin{equation}
+	dS = - \frac{\mu_0 H} {T} dM = - \frac{\mu_0}{C V} M dM, 
+\end{equation}
+gdzie w drugim kroku skorzystaliśmy z równania stanu. Całkując otrzymujemy wzór na entropie paramagnetyka
+\begin{equation}
+	S = - \frac{1}{2} \frac{\mu_0}{C} \frac{M^2}{V}+S_0.
+\end{equation}
+%\zadanie
+%Wyprowadzić tożsamość, z której korzystaliśmy przy okazji znajdowania energii wewnętrznej gazu van der Waalsa:
+%\[ \left(\frac{\partial U}{\partial V}\right)_T = 
+%   T \cdot \left(\frac{\partial p}{\partial T}\right)_V - p \]
+%{\em Wskazówka: Traktując energię wewnętrzną $U$ oraz entropię $S$ jako funkcje parametrów stanu $V$ i $T$, zapisać ich różniczki zupełne i skorzystać z I zasady termodynamiki: $dU = \dbar Q + \dbar W = T dS - p dV$. Następnie, w celu pokazania
+%że $\left(\frac{\partial S}{\partial V}\right)_T = \left(\frac{\partial p}{\partial T}\right)_V$, wprowadzić funkcję stanu $F = U - T S$ i policzyć jej różniczkę
+%zupełną oraz drugą pochodną mieszaną $\frac{\partial^2 F}{\partial V\partial T}$}.
+
+\pagebreak
+\zaddom
+Oblicz entropię $n$ moli gazu van der Waalsa. Korzystając z wyprowadzonego
+wzoru znajdź równanie adiabaty we współrzędnych $p - V$.
+
+\vspace{5mm}
+{\em Odpowiedź:} Entropia $S = n C_V \ln T + nR \ln (V - nb) + S_0$, r. adiabaty: $(p + n^2 a/ V)(V-nb)^{C_p/C_V} = {\rm const}$.
+
+
+\zaddom
+Jeden mol gazu van der Waalsa o temperaturze początkowej $T_1$ rozpręża się
+adiabatycznie, w sposób odwracalny, od objętości $V_1 = 101\cdot b$ do
+$V_2 = 1001\cdot b$. Oblicz temperaturę końcową gazu. Przyjmij, że
+molowe ciepło właściwe jest stałe i równe $C_V=\frac{5}{2}R$.\\[3mm]
+{\em Wskazówka: entropia gazu van der Waalsa dana jest wyrażeniem:\\
+$\displaystyle S(T,V) = n C_V \ln{T} + n R \ln{(V-nb)} + S_0.$ }
+
+\vspace{5mm}
+{\em Odpowiedź:} Temperatura końcowa wynosi: $T_2 = 10^{-2/5} T_1$.  
+
+\zaddom
+Znaleźć zmianę entropii $S$ jednego mola gazu doskonałego oraz gazu van der Waalsa w procesie 
+izotermicznym, jeżeli ciśnienie początkowe wyniosło $p_1$, a końcowe $p_2$. 
+Założyć, że w obu przypadkach $C_V$ jest znaną stałą.
+Ponadto dla gazu van der Waalsa założyć, że znane jest $V_1$, $V_2$ oraz stała $b$.
+Zadanie rozwiąż, korzystając z wprost z definicji zmiany entropii 
+w infinitezymalnym procesie odwracalnym. 
+
+\vspace{5mm}
+{\em Odpowiedź:} Zmiana entropii wynosi $\Delta S =  R \ln[ (V_2 - b)/(V_1 - b)]$. 
+
+\zaddom
+%{\bf\em (Skrypt, str.105) }\\
+Entropia $n$ moli pewnego gazu wynosi:
+\[ S(U,V) = \frac{n}{2}\left( 5 R \ln{\frac{U}{n}} + 2 R \ln{\frac{V}{n}} + S_0 \right)\!,\]
+gdzie $S_0=const$. Udowodnij, że gaz ten spełnia równanie stanu gazu doskonałego
+i znajdź jego molowe ciepło właściwe $C_V$.
+
+\vspace{5mm}
+{\em Odpowiedź:} Ciepło molowe $C_V = 5/2 R$. 
+
+
+\zaddom
+Dane jest równanie stanu pewnej nowej substacji: $p=A T^3 /V$, gdzie $A$ - stała. 
+Znana jest też energia wewnętrzna tej substancji: $U= B T^n \ln(V/V_0)+ f(T)$,
+gdzie $V_0, B, n$ - stałe, zaś $ f(T)$ - zależy tylko od $T$. Znajdź $B$ i $n$.
+
+\vspace{5mm}
+{\em Odpowiedź:} $B= 2A/V_0$, $n=3$.
+
+
+%\zaddom
+%$n$ moli gazu doskonałego poddano procesowi izentalpowego rozprężania
+%od ciśnienia początkowego $p_0$ do ciśnienia końcowego $p_K$.
+%Oblicz zmianę entropii gazu w tym procesie.\\[1mm]
+%{\em Wskazówka: Entalpia jest zdefiniowana jako: $H \equiv U + p V$.}
+
+
+
+% An example of figure placement:
+%\begin{wrapfigure}[13]{r}{0.4\linewidth}\vspace{3mm}
+%\resizebox{\linewidth}{!}{\includegraphics{NAZWA.png}}
+%\end{wrapfigure}
+%\zadanie
+
+\end{document}
+
