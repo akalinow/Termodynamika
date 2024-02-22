@@ -15,7 +15,13 @@ git clone git@github.com:akalinow/Termodynamika.git
 git pull
 ```
 
-* after some updates to local files:
+* add a new file to repository:
+
+```bash
+git add file_name
+```
+
+* synchronize local updates with central repository on the web:
 
 ```bash
 git commit -a
