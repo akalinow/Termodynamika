@@ -53,40 +53,7 @@
 własności cieplne cd. \\
 \end{centering}
 
-\zadanie
-Opór właściwy półprzewodnika zależy od temperatury jak:
-$ \rho(T) = A \exp{(\alpha / T)}, $ 
-gdzie $\alpha = 0.01$eV/k$_B$.
-Jakie zmiany temperatury  w okolicy 290\,K można mierzyć takim termometrem
-zakładając, że potrafimy mierzyć opór z dokładnością do 0.01\%.
-Przyjmij k$_B = 8.62 \cdot 10^{-5}$ eV/K.
-
-\vskip 10pt
-\textbf{Rozwiązanie:}\\
-Mała zmiana temperatury $\Delta T$ będzie wiązać się z małą zmianą oporu właściwego
-$\Delta \rho = \rho(T+\Delta T) - \rho(T)$. Spróbujmy policzyć jaka wartość zmiany temperatury
-odpowiada granicy czułości naszego pomiaru $|\Delta \rho/\rho| = 0.01\%$.
-
-\begin{equation}
-  \rho(T+\Delta T) = A \exp(\alpha/(T+\Delta T)) \approx A\exp(\alpha/T)
-  \left(1-\frac{\alpha \Delta T \alpha}{T^2}\right) =
-  \rho(T)\left(1 - \frac{\alpha \Delta T }{T^2}\right).\label{rho}
-\end{equation}
-
-W równaniu powyżej rozwinęcie $\exp$ do wyrazów liniowych jest uzasadnione,
-ponieważ zmiana temperatury $\Delta T$ jest małą wartością. Korzystając z
-definicji $\Delta\rho$ możemy przekształcić równanie \eqref{rho} dostając wynik dla $\Delta T$: 
-
-\begin{equation}
-|\Delta T| = \frac{T^2}{\alpha} \left|\frac{\Delta \rho}{\rho}\right| = 0.01\% \frac{T^2}{\alpha} \approx 0.073 K
-\end{equation}
-
-W temperaturze $290K$ tym urządzeniem potrafimy zmierzyć zmiany temperatury większe niż $0.073 K$.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newpage
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \zadanie
 Przy długości fali $\lambda = 0.7\,\mu$m porównano natężenie promieniowania dwóch,
 doskonale czarnych, źródeł promieniowania o różnych temperaturach.
@@ -100,7 +67,7 @@ Przyjmij $hc = 1.24$~eV$\mu$m
 Z prawa promieniowanie Plancka wiemy, że natężenie promieniowania w danej długości fali wynosi:
 
 \begin{equation}
-I_\lambda(T) = \frac{2 h c^2}{\lambda^5} \frac{1}{\exp\left(\frac{h c}{\lambda k_B T}\right)-1}.
+I_\lambda(T) = \frac{2 \pi h c^2}{\lambda^5} \frac{1}{\exp\left(\frac{h c}{\lambda k_B T}\right)-1}.
 \label{planck}
 \end{equation}
 
@@ -249,7 +216,7 @@ W przypadku $\alpha=0.4$ otrzymujemy $T_z \approx 293.23 K \approx 20^\circ C$.
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\zadanie [(Termos próżniowy)]
+\zadanie [(Termos próżniowy I)]
 Dane są dwie nieskończone doskonale czarne płaszczyzny o temperaturach $T_1=300\,$K i $T_2=4$\,K.
 Obliczyć strumień energii (czyli moc na jednostkę powierzchni)
 przesyłaną między nimi. Rozważyć trzecią płaszczyznę (osłonę)
@@ -301,6 +268,23 @@ Dla sprawdzenia policzmy także strumień między środkową a prawą płytą:
 Zgodnie z oczekiwaniami (jesteśmy w stanie równowagi, więc środkowa płyta nie magazynuje energii)
 otrzymaliśmy dokładnie ten sam wynik po obu stronach środkowej płyty. Zauważmy, że gdy środkowa płyta
 jest doskonale czarna ($R=0$), strumień energii spada dwukrotnie.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\zadanie [(Termos próżniowy II)]
+Dwie równoległe, duże, doskonale czarne płyty umieszczone są w próżni i mają temperatury $T_1$ i $T_2$.
+Między te płyty wstawiamy równolegle do nich $n$ dużych, cienkich, doskonale czarnych płyt.
+Jaka jest temperatura $i$-tej płyty? 
+Ile razy, w wyniku wstawienia płytek, zmniejszy się strumień energii pomiędzy płaszczyznami? 
+
+\vskip 10pt
+\textbf{Rozwiązanie:}\\
+
+
+\resizebox{\linewidth}{!}{\includegraphics[width=6cm]{solution_page1.png}}
+
+\resizebox{\linewidth}{!}{\includegraphics[width=6cm]{solution_page2.png}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage
@@ -408,11 +392,5 @@ Jaka jest wtedy temperatura osłony?
 Temperatura Słońca wynosi $T_\odot= 5800$\,K, promień Słońca $R_\odot = 7 \cdot 10^8$\,m, 
 odległość Merkurego od Słońca $d = 5.8 \cdot 10^{10}$\,m. 
 Zakładamy, że cała powierzchnia sondy ma tę samą temperaturę.
-
-\zaddom
-Dwie równoległe, duże, doskonale czarne płyty umieszczone są w próżni i mają temperatury $T_1$ i $T_2$.
-Mięczy te płyty wstawiamy równolegle do nich $n$ dużych, cienkich, doskonale czarnych płyt.
-Jaka jest temperatura $i$-tej płyty? 
-Ile razy, w wyniku wstawienia płytek, zmniejszył się strumień energii pomiędzy płaszczyznami? 
 
 \end{document}
