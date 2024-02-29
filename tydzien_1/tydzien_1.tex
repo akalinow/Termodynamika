@@ -1,8 +1,8 @@
 \documentclass[11pt,a4paper]{article}
 
-\usepackage[polish]{babel}
+%\usepackage[polish]{babel}
 \usepackage[utf8]{inputenc}
-\usepackage{polski}
+%\usepackage{polski}
 \usepackage[T1]{fontenc}
 \usepackage{indentfirst}
 \usepackage{wrapfig}    % for wrapping figures, tables
@@ -24,7 +24,7 @@
 %fixpagesize
 \pagestyle{empty}
 \addtolength{\textwidth}{6cm}
-\addtolength{\textheight}{5cm}
+\addtolength{\textheight}{4cm}
 \addtolength{\evensidemargin}{-3cm}
 \addtolength{\oddsidemargin}{-3cm}
 \addtolength{\topmargin}{-3cm}
@@ -48,23 +48,23 @@
 
 \begin{centering}
 \bf{\Large{Termodynamika z elementami fizyki statystycznej}}\\
-Ćwiczenia 1 (26 lutego 2024)\\[5mm]
+Ćwiczenia 1 (27 lutego 2024)\\[5mm]
 Dochodzenie do równowagi termicznej, rozszerzalność cieplna \\
 \end{centering}
-\vspace{1mm}
+\vspace{0mm}
 
 \zadanie
 Metalowy blok o temperaturze początkowej $T_1$ umieszczony został
 w otoczeniu, którego temperatura przełączana jest regularnie
 pomiędzy dwiema ustalonymi wartościami: $T_1$ i $T_2$ ($T_1>T_2$).
-Jak zmienia si"e temperatura bloku w funkcji czasu?
+Jak zmienia się temperatura bloku w funkcji czasu?
 Znajdź maksymalną i minimalną temperaturę bloku
 w stanie ustalonym (tzn. po bardzo dużej liczbie przełączeń)
 i przedyskutuj jako funkcję okresu $b$.
 \begin{center}
 \resizebox{0.5\linewidth}{!}{\includegraphics{figure_temp_switching.png}}
 \end{center}\vspace{-5mm}
-\vskip 10pt
+\vskip 2pt
 %\textbf{Odpowiedź:} $T_{\rm max} = (T_{1} + T_{2} e^{-\alpha b/2})/(1 + e^{-\alpha b/2})$, $T_{\rm min} = (T_{2} + T_{1} e^{-\alpha b/2})/(1 + e^{-\alpha b/2})$.
 
 \zadanie
@@ -73,65 +73,66 @@ zmienia się według wzoru:
 \[T_{ot}(t) = T_\circ + A \cos(\omega t).\]
 Początkowa temperatura bloku wynosi $T_\circ$. Znajdź zależność
 temperatury bloku od czasu w stanie ustalonym.
-\vskip 10pt
+\vskip 2pt
 %\textbf{Wskazówka:} Przyjmij, że rozwiązanie r. Newtona jest postaci: $T(t) = C e^{-\alpha t} + K \sin (\omega t) + L \cos (\omega t) + T_0.$
+
 %\textbf{Odpowiedź:} $T(t) = T_{0} + B \sin(\omega t - \phi)$, gdzie $B = \alpha A/\sqrt{\omega^{2} + \alpha^{2}}$ i $\tg \phi = \omega/\alpha$.  
 
 \zadanie
 \begin{wrapfigure}{r}{0.3\linewidth}\vspace{-1cm}
 \resizebox{\linewidth}{!}{\includegraphics{figure_potencjal.png}}
 \end{wrapfigure}
-Energia potencjalna oddzia"lywania dw"och atom"ow danej substancji jest
-przedstawiona na rysunku obok. Znale"z"c "sredni"a
-odleg"lo"s"c mi"edzy atomami odpowiadaj"ac"a energii $E>E_0$,
-zak"ladaj"ac, "re:
+Energia potencjalna oddziaływania dwóch atomów danej substancji jest
+przedstawiona na rysunku obok. Znaleźć średnią
+odległość między atomami odpowiadającą energii $E>E_0$,
+zakładając, że:
 \begin{enumerate}
 \item 
 \parbox[t]{\linewidth}{
-w pobli"ru punktu r"ownowagi $x=x_0$ energia 
-potencjalna daje si"e przybli"ry"c wzorem\\[2mm] 
+w pobliżu punktu równowagi $x=x_0$ energia 
+potencjalna daje się przybliżyć wzorem\\[2mm] 
 \centerline{$E_p(x) \approx a (x-x_0)^2 - b (x-x_0)^3 + E_0$,}\\[2mm]
-gdzie $a$ i $b$ s"a sta"lymi dodatnimi,
+gdzie $a$ i $b$ są stałymi dodatnimi,
 }
-\item anharmoniczna poprawka trzeciego rz"edu jest ma"la, tzn. \mbox{$b |x-x_0|\ll a$},
+\item anharmoniczna poprawka trzeciego rzędu jest mała, tzn. \mbox{$b |x-x_0|\ll a$},
 \item punkty zwrotne $x_{\rm min}$ i $x_{\rm max}$
-drga"n bardzo niewiele r"o"rni"a si"e od punkt"ow zwrotnych
+drgań bardzo niewiele różnią się od punktów zwrotnych
 oscylatora harmonicznego $x^h_{\rm min}$ i $x^h_{\rm max}$ (dla $b=0$),
 \item \mbox{średnia odległość międzyatomowa w czasie drgań może być
 przybliżona przez średnią} arytmetyczną $\langle x\rangle \approx \frac{x_{\rm min}+x_{\rm max}}{2}$.
 \end{enumerate}
-\vskip 10pt
+\vskip 2pt
 %\textbf{Odpowiedź:} $\langle x \rangle \approx x_{0} + b \cdot \Delta E /(2a^{2})$.
 
 \zadanie
-Wykaza"c, "re dla materia"lu anizotropowego zachodzi zwi"azek:
-$\gamma\,=\,\alpha_1+\alpha_2+\alpha_3$, gdzie $\gamma$ jest wsp"o"lczynnikiem rozszerzalno"sci obj"eto"sciowej danego materia"lu, za"s $\alpha_i ~(i=1,2,3)$
-s"a wsp"o"lczynnikami rozszerzalno"sci liniowej wzd"lu"r 3 
-nier"ownowa"rnych (i wzajemnie prostopad"lych) kierunk"ow tego materia"lu.
+Wykazać, że dla materiału anizotropowego zachodzi związek:
+$\gamma\,=\,\alpha_1+\alpha_2+\alpha_3$, gdzie $\gamma$ jest współczynnikiem rozszerzalności objętościowej danego materiału, zaś $\alpha_i ~(i=1,2,3)$
+są współczynnikami rozszerzalności liniowej wzdłuż 3 
+nierównoważnych (i wzajemnie prostopadłych) kierunków tego materiału.
 
 %\textbf{Wskazówka:} Skorzystaj wprost z definicji obu współczynników.
 
-\zadanie
-Termometr rt"eciowy sk"lada si"e ze szklanego, kulistego zbiorniczka z rt"eci"a po"l"aczonego ze szklan"a kapilar"a. W temperaturze $T_0=0\degree$C
-pole przekroju poprzecznego kapilary wynosi $A_0$,
-a zbiorniczek ma obj"eto"s"c $V_0$ i jest ca"lkowicie wype"lniony rt"eci"a. Wsp"o"lczynnik rozszerzalno"sci
-obj"eto"sciowej rt"eci wynosi $\beta$, a wsp"o"lczynnik rozszerzalno"sci
-liniowej szk"la wynosi $\alpha$. Jaka b"edzie d"lugo"s"c s"lupa rt"eci w kapilarze w temperaturze $T$? Przedyskutuj wynik.
-%\textbf{Odpowiedź:} $h = \frac{\Delta V}{A_0} = \frac{V_0}{A_0} (\beta - 3\alpha) \Delta T$.
+\vskip 2pt
 
+%\textbf{Odpowiedź:} $x = \sqrt{\frac{L_0 \Delta L}{2}} \approx 0.82\, {\rm m}$.
+
+\zadanie
+Termometr rtęciowy składa się ze szklanego, kulistego zbiorniczka z rtęcią połączonego ze szklaną kapilarą. W temperaturze $T_0=0\degree$C
+pole przekroju poprzecznego kapilary wynosi $A_0$,
+a zbiorniczek ma objętość $V_0$ i jest całkowicie wypełniony rtęcią. Współczynnik rozszerzalności
+objętościowej rtęci wynosi $\beta$, a współczynnik rozszerzalności
+liniowej szkła wynosi $\alpha$. Jaka będzie długość słupa rtęci w kapilarze w temperaturze $T$? Przedyskutuj wynik.
+
+\vskip 2pt
 \zadanie
 Odległość między słupami elektrycznymi wynosi 50\,m.
 O ile zmienia swoją długość zawieszony między nimi cienki drut miedziany,
 jeżeli temperatura zmienia się od -25\degree C do +35\degree C?
 Współczynniki rozszerzalności liniowej miedzi wynosi $\alpha = 8.9\cdot 10^{-6} {\rm K}^{-1}$.
-Oszacuj zmianę zwisania drutu. Załóż, że na początku drut ma długość równą
-odległości między słupami, a w większej temperaturze przyjmuje kształt
-jak po obciążeniu na środku ciężarkiem.
+Oszacuj zmianę zwisania drutu.
 
-\vskip 10pt
 
-%\textbf{Odpowiedź:} $x = \sqrt{\frac{L_0 \Delta L}{2}} \approx 0.82\, {\rm m}$.
-
+\vskip 5pt
 
 %\textbf{Odpowiedź:} $h = \frac{\Delta V}{A_0} = \frac{V_0}{A_0} (\beta - 3\alpha) \Delta T$.
 
@@ -145,14 +146,14 @@ jak po obciążeniu na środku ciężarkiem.
 Blok metalowy znajduje się w otoczeniu
 którego temperatura zmienia się w czasie zgodnie z wzorem:\\
 \[T_1=T_0+A\exp(-\beta t),\] gdzie stałe $A,\beta>0$. 
-Temperatura początkowa bloku wynosi $T_0$. Znależć zależność
+Temperatura początkowa bloku wynosi $T_0$. Znaleźć zależność
 temperatury bloku od czasu i przedyskutować ją jako funkcję
 $\beta$. Po jakim czasie blok osiągnie maksymalną
-temperaturę?
+temperaturę? Należy przyjąć $\beta \ne \alpha$.
 
 \vskip 10pt
 
-\textbf{Odpowiedź:} Temperatura bloku w chwili $t$ wynosi $T(t) = T_0 + \frac{Ak}{k - \beta}\left(e^{-\beta t} - e^{-kt}\right)$.
+\textbf{Odpowiedź:} Temperatura bloku w chwili $t$ wynosi $T(t) = T_0 + \frac{A\alpha}{\alpha - \beta}\left(e^{-\beta t} - e^{-\alpha t}\right)$.
 
 
 \zaddom
@@ -167,25 +168,25 @@ Który z czasów jest krótszy: $t_1$ czy $t_2$?
 
 \textbf{Odpowiedź:} $t_2 = \frac{1}{k} \ln \left(2 - e^{-k t_1}\right)$. 
 
-\zaddom
-W lodówce, w temperaturze $0^\circ$C przechowywana jest butelka coli.
-Zmierzono, że w godzinę po wyjęciu jej z lodówki i pozostawieniu w otoczeniu o
-temperaturze $20^\circ$C temperatura płynu osiąga $14^\circ$C.
-\begin{enumerate}[a)]
-\item Ile wynosi czas relaksacji temperatury w tej sytuacji?
-\item Na ile minut przed otwarciem butelki należy wyjąć colę z lodówki, jeżeli
-chcemy aby miała ona optymalną do picia temperaturę $4^\circ$C?
-\end{enumerate}
+%\zaddom
+%W lodówce, w temperaturze $0^\circ$C przechowywana jest butelka coli.
+%Zmierzono, że w godzinę po wyjęciu jej z lodówki i pozostawieniu w otoczeniu o
+%temperaturze $20^\circ$C temperatura płynu osiąga $14^\circ$C.
+%\begin{enumerate}[a)]
+%\item Ile wynosi czas relaksacji temperatury w tej sytuacji?
+%\item Na ile minut przed otwarciem butelki należy wyjąć colę z lodówki, jeżeli
+%chcemy aby miała ona optymalną do picia temperaturę $4^\circ$C?
+%\end{enumerate}
 
 \vskip 10pt
 
-\textbf{Odpowiedź:} a) czas relaksacji $\tau \approx 50\, {\rm min}$, b) czas ogrzewania do optymalnej temperatury $t \approx 11\, {\rm min}$. 
+%\textbf{Odpowiedź:} a) czas relaksacji $\tau \approx 50\, {\rm min}$, b) czas ogrzewania do optymalnej temperatury $t \approx 11\, {\rm min}$. 
 
 
 \zaddom 
 Punktowa masa $m$ drga w jednym wymiarze w polu sił zachowawczych
 z energią potencjalną  \linebreak \mbox{$E_p(x) = D \left(e^{-a(x-x_\circ)}-1\right)^2$.}
-Jest to tzw. potencjał Morse’a, oddający podstawowe własności potencjałów cząsteczkowych.
+Jest to tzw. potencjał Morse’a, oddający podstawowe własności potencjałów cząstecz\-kowych.
 Zbadaj jak punkty zwrotne takiego oscylatora zależą od energii całkowitej, która nieznacznie
 przekracza minimalną energię potencjalną. W tym celu rozwiń funkcję $E_p(x)$
 w szereg Taylora wokół minimum, a następnie zachowaj tylko pierwszy nieznikający człon anharmoniczy. 
