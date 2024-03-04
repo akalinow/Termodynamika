@@ -278,13 +278,11 @@ Między te płyty wstawiamy równolegle do nich $n$ dużych, cienkich, doskonale
 Jaka jest temperatura $i$-tej płyty? 
 Ile razy, w wyniku wstawienia płytek, zmniejszy się strumień energii pomiędzy płaszczyznami? 
 
-\vskip 10pt
-\textbf{Rozwiązanie:}\\
+\resizebox{0.93\linewidth}{!}{\includegraphics[width=6cm]{termos_2_page1.png}}
 
+\resizebox{\linewidth}{!}{\includegraphics[width=6cm]{termos_2_page2.png}}
 
-\resizebox{\linewidth}{!}{\includegraphics[width=6cm]{solution_page1.png}}
-
-\resizebox{\linewidth}{!}{\includegraphics[width=6cm]{solution_page2.png}}
+\resizebox{\linewidth}{!}{\includegraphics[width=6cm]{termos_2_page3.png}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage
@@ -301,7 +299,7 @@ Całkowite natężenie promieniowania otrzymamy poprzez całkę po długościach
 
 \begin{equation}
   I(T) = \int_0^\infty I_\lambda(T) d\lambda =
-  \int_0^\infty \frac{2 h c^2}{\lambda^5} \frac{1}{\exp\left(\frac{h c}{\lambda k_B T}\right)-1} d\lambda. \label{integral}
+  \int_0^\infty \frac{2 \pi h c^2}{\lambda^5} \frac{1}{\exp\left(\frac{h c}{\lambda k_B T}\right)-1} d\lambda. \label{integral}
 \end{equation}
 
 Nie chcemy policzyć dokładnej wartości całki \eqref{integral}. Zamiast tego możemy wyciągnąć poza
@@ -314,11 +312,11 @@ x = \frac{h c}{\lambda k_B T}, \quad \lambda = \frac{h c}{x k_B T},\quad d\lambd
 
 Po zamianie zmiennych natężenie promieniowania przyjmuje postać:
 \begin{equation}
-  I(T) = 2 h c^2 \int_0^\infty \left(\frac{xk_B T}{hc}\right)^5 \frac{1}{\exp(x)-1}
+  I(T) = 2 \pi h c^2 \int_0^\infty \left(\frac{xk_B T}{hc}\right)^5 \frac{1}{\exp(x)-1}
   \frac{h c dx}{k_B T x^2} =
-  2 \frac{k_B^4 T^4}{h^3 c^2} \int_0^\infty \frac{x^3 dx}{\exp(x)-1} = \sigma T^4.
+  2 \pi \frac{k_B^4 T^4}{h^3 c^2} \int_0^\infty \frac{x^3 dx}{\exp(x)-1} = \sigma T^4.
 \end{equation}
-Otrzymaliśmy prawo Stefana-Boltzmanna ze stałą $\sigma = 2 \frac{k_B^4}{h^3 c^2} \int_0^\infty \frac{x^3 dx}{\exp(x)-1}$.
+Otrzymaliśmy prawo Stefana-Boltzmanna ze stałą $\sigma = 2 \pi \frac{k_B^4}{ h^3 c^2} \int_0^\infty \frac{x^3 dx}{\exp(x)-1}$.
 
 \pagebreak
 \begin{centering}
