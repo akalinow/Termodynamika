@@ -108,18 +108,20 @@ czyli okręt musi zmniejszyć balast o jedną tone.
 
 \clearpage
 
-\begin{minipage}{0.75\textwidth}
+\begin{minipage}{0.55\textwidth}
 \zadanie
-Kulka znajduje się w stanie równowagi pomiędzy dwoma cieczami (rysunek A) o~gęstościach $\rho_1 = 1.0\textrm{g}/\textrm{cm}^3$ i~$\rho_2 = 0.8\textrm{g}/\textrm{cm}^3$. Objętość zanurzona w cieczy ``1'' jest dwa razy większa niż objętość zanurzona w cieczy ``2''. Oblicz gęstość kulki.\\\\\\\\\\\\\\\\\\
+%Kulka znajduje się w stanie równowagi pomiędzy dwoma cieczami (rysunek A) o~gęstościach $\rho_1 = 1.0\textrm{g}/\textrm{cm}^3$ i~$\rho_2 = 0.8\textrm{g}/\textrm{cm}^3$. Objętość zanurzona w cieczy ``1'' jest dwa razy większa niż objętość zanurzona w cieczy ``2''. Oblicz gęstość kulki.\\\\\\\\\\\\\\\\\\
+Prostopadłościenny blok o wymiarach $a\times b\times c$ i gęstości $\rho_b$ zanurzono w wodzie o gęstości $\rho_w$ tak, że jedna z jego ścianek była równoległa do tafli wody, a następnie odchylono od pionu o kąt $\alpha$. Obliczyć moment sił działający na blok i przedyskutować stabilność bloku ze względu na wychylenia. 
 \end{minipage}
-\begin{minipage}{0.25\textwidth}
+\begin{minipage}{0.45\textwidth}
 \begin{center}
 
-\includegraphics[width=0.8\textwidth]{zadanie3.png}
+\includegraphics[width=1.0\textwidth]{plywanie-zadanie_rozw.png}
 \end{center}
 \end{minipage}
 
 \vspace{2mm}{\bf Rozwiązanie}:\\
+\iffalse
 Skoro kulka jest w stanie równowagi pomiędzy dwoma cieczami to odpowiednie siły wyporu muszą bilansować siłę ciężkości:
 \[
 \rho_1\,V_1\,g + \rho_2\,V_2\,g = \rho_k (V_1 + V_2) g
@@ -129,6 +131,25 @@ Wiedząc, że $V_1 = 2 V_2$ dostajemy
 \rho_k = \frac{\rho_1 V_1 +\rho_2 V_2}{V_1 + V_2} = \frac{1}{3}(2\rho_1 +\rho_2)
 \]
 Podstawiając dane: $\rho_k = 0.93\,\textrm{g/cm}^3$.
+\fi
+Niech $h=b\frac{\rho_l}{\rho_w}$ oznacza wysokość zanurzonej części bloku przed wychyleniem. Wygodnie jest przejść do układu związanego na sztywno z bryłą o początku jednej z krawędzi, w którym po wychyleniu bloku wektor ciężkości ma postać $Q=mg[\sin \alpha,-\cos\alpha]$, a tafla wody nachylona jest pod kątem $\alpha$ do osi $x$. W tym układzie zanurzona część bloku składa się z dwóch fragmentów: $A$, czyli zanurzonego prostopadłościanu o wymiarach $a\times (h-\frac{1}{2}a\tan \alpha)\times c$ oraz $B$, graniastosłupa o wysokości $c$ i  podstawie w kształcie trójkąta prostokątnego o wymiarach $a\times a \tan \alpha$. Środek wyporu znajduje się w środku masy części zanurzonej. Aby obliczyć współrzędne środka wyporu, obliczamy środki mas części $A$ i $B$. Część $A$ jest prosta: 
+\begin{equation}
+r_A=[\frac{a}{2}, \frac{h}{2}-\frac{a}{4}\tan \alpha].
+\end{equation}
+Aby obliczyć środek masy części $B$, zauważmy, że z prostego skalowania wynika, że dla trójkąta prostokątnego o przyprostokątnych $p$ i $q$ współrzędne środka masy, w układzie zaczepionym w kącie prostym o osi odciętych wzdłuż boku $p$, mają postać $[p/3,q/3]$. Czyli 
+\begin{equation}
+r_B=[\frac{2}{3}a,h-\frac{1}{2}a\tan \alpha+\frac{1}{3}a \tan \alpha]=[\frac{2}{3}a,h-\frac{1}{6}a\tan\alpha].
+\end{equation}
+Stąd środek wyporu
+\begin{equation}
+r_w=\frac{m_A}{m_{A+B}}r_A+\frac{m_B}{m_{A+B}}r_B=[\frac{a}{2}+\frac{1}{12}\frac{a^2}{h}\tan \alpha, \frac{h}{2}+\frac{1}{24}\frac{a^2}{h}\tan^2\alpha]
+\end{equation}
+gdzie $\frac{m_A}{m_{A+B}}=\frac{a(h-\frac{1}{2}a\tan \alpha)}{ah}$, $\frac{m_B}{m_{A+B}}=\frac{\frac{1}{2}a^2\tan\alpha}{ah}$ to odpowiednie stosunki mas części $A$ i $B$ do części zanurzonej. 
+Siła wyporu jest zawsze skierowana przeciwnie do ciężaru, czyli ma postać $F_w=mg[-\sin\alpha, \cos\alpha]$. Wypadkowy moment siły względem środka układu:
+\begin{equation}
+M=r_w\times F_w+r_c\times Q=(r_w-r_c)\times F_w=e_z mg \sin\alpha \left(\frac{\rho_wa^2}{12\rho_lb^2}(1+\frac{1}{2}\tan^2\alpha)-\frac{1}{2}(1-\frac{\rho_l}{\rho_w})\right)
+\end{equation}
+Warunkiem stabilności jest aby wyrażenie w nawiasach było dodatnie: wówczas moment siły przywraca układ ku tafli. Oznacza to, że $a$ musi być dostatecznie duże w porównaniu z $b$ przy ustalonych parametrach płynu i materiału -- zgodnie z intuicją przy braku wyporu.  
 
 \clearpage
 
