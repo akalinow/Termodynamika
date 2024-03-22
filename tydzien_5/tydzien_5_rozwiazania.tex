@@ -77,7 +77,9 @@ $$
 gdzie podstawiliśmy $m=2 \cdot 10^4\,\t{kg}$, $L = 10\,\t{m}$, $\Delta T = -10\,\t{K}$, $g=9.8\,\t{m}/\t{s}^2$.
 Pracę wykonują siły elektromagnetyczne związane ze strukturą sieci krystalicznej.
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \zadanie
 Znaleźć pracę wykonaną przy izotermicznym sprężaniu 1 dm$^3$
 gazu doskonałego i bloku miedzianego o tej samej objętości od
@@ -97,7 +99,8 @@ $$
 gdzie $-$ oznacza, że interesuje nas praca wykonana \emph{nad} gazem przez siły zewnętrzne i skorzystaliśmy z równania Clapeyrona.
 Ponieważ temperatura jest stała całkowanie efektywnie sprowadza się do całkowania funkcji $1/V$ i otrzymujemy:
 $$
-W = - n R T \ln\left(\frac{V_2}{V_1} \right) = p_1 V \ln\left(\frac{p_2}{p_1}\right) = 10^5\,\t{Pa}\cdot 10^{-3}\,\t{m}^3 \ln 5 \approx 161\, \t{J}.
+W = - n R T \ln\left(\frac{V_2}{V_1} \right) = p_1 V \ln\left(\frac{p_2}{p_1}\right) = 
+101325\,\t{Pa}\cdot 10^{-3}\,\t{m}^3 \ln 5 \approx 163\, \t{J}.
 $$
 
 W przypadku sprężania (ściskania) bloku miedzianego, zakładamy, że jest on ściskany wzdłuż jednego kierunku. Zgodnie z definicją modułu Younga oznacza to,  że jego wymiar liniowy w kierunku ściskania zmieni się zgodnie ze wzorem:
@@ -114,7 +117,8 @@ $$
 Znak minusa wynika z tego, że wraz ze wzrostem ciśnienia ($\Delta p > 0)$, objętość się zmniejsza ($\Delta V < 0$). 
 W takim razie, praca wynosi
 $$
-W = - \int p {\rm d}V = \frac{V_1}{E} \int_{p_1}^{p_2} p\, {\rm d} p = \frac{V_1}{E} \left(p_2^2 - p_1^2 \right).
+W = - \int p {\rm d}V = \frac{V_1}{E} \int_{p_1}^{p_2} p\, {\rm d} p = 
+\frac{V_1}{2E} \left(p_2^2 - p_1^2 \right).
 $$
 %Oznacza to, że obliczając pracę możemy wstawić zależność ciśnienia od objętości w postaci:
 %$$
@@ -131,9 +135,13 @@ $$
 %$$
 Po podstawieniu wartości liczbowych:
 $$
-W = 9.2 \cdot 10^{-4}\,\t{J}.
+W = \frac{10^{-3}~\t{m}^{3}}{130 \cdot 10^{9}~\t{Pa}}(25 - 1)\cdot 101325^{3}~\t{Pa}^{2} 
+=  1.9 \cdot 10^{-3}\,\t{m}^{3}\t{Pa} =  1.9 \cdot 10^{-3}\,\t{J}
 $$
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
 \zadanie
 $n$ moli gazu doskonałego poddano dwóm przemianom ze stanu początkowego
 opisanego parametrami $T_1, V_1$ do stanu końcowego o objętości $V_2$
@@ -171,8 +179,9 @@ $$
 $$
 W  = -\int_{V_1}^{V_2} [\gamma - \beta(V-V_1)^2]\, \t{d} V = \frac{1}{3}(V_1-V_2)(2 p_1+p_2).
 $$
-
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \zadanie
 Jeden mol gazu doskonałego przeszedł ze stanu opisanego parametrami
 $p_0, V_0$ do stanu o objętości $V_1 = 2 V_0$.
@@ -205,13 +214,16 @@ $$
 Ostatecznie całkowita praca wykonana nad gazem
  $$W = p_0 V_0 [\ln 2 -2(\sqrt{2}-1)] \approx -0.135 \,p_0V_0$$
  czyli to gaz efektywnie wykonał pracę.
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \zadanie
 Oblicz pracę jaką wykona jeden mol gazu van der Waalsa, o równaniu stanu
 $(p+\frac{a}{V^2})(V-b)=RT$
 ($a=0.138\,\rm{Jm}^3/\rm{mol}^2$, $b=31.8\,\rm{cm^3/mol}$)
 przy izotermicznym i odwracalnym rozprężaniu od objętości $V_0=22.4\,\rm{dm}^3$
 do objętości $2 V_0$ przy temperaturze $T=0\degree$C.
+Przyjmij R = 8.31 J/(mol K).
 Czy gaz doskonały rozprężając się w takich samych warunkach wykona większą pracę?
 
 \vskip 10pt
@@ -222,57 +234,21 @@ p = \frac{R T}{V-b} - \frac{a}{V^2}.
 $$
 Stąd praca wykonana przez gaz:
 $$
-W = \int_{V_0}^{2 V_0} p \,\t{d}V = \int_{V_0}^{2V_0}\left(\frac{R T}{V-b} - \frac{a}{V^2}\right) = R T \ln \left(2 + \frac{b}{V_0 - b}\right) - \frac{a}{2V_0} = 1569.1\, \t{J}.
+W = \int_{V_0}^{2 V_0} p \,\t{d}V = 
+\int_{V_0}^{2V_0}\left(\frac{R T}{V-b} - \frac{a}{V^2}\right) = 
+R T \ln \left(2 + \frac{b}{V_0 - b}\right) - \frac{a}{2V_0} = 1571.9\, \t{J}.
 $$
 Dla analogicznego procesu izotermicznego w przypadku gazu doskonałego mielibyśmy:
 $$
-W = \int_{V_0}^{2 V_0} p \,\t{d}V = \int_{V_0}^{2V_0}\left(\frac{R T}{V}\right) =  RT \ln 2 =  1570.6\, \t{J},
+W = \int_{V_0}^{2 V_0} p \,\t{d}V = 
+\int_{V_0}^{2V_0}\left(\frac{R T}{V}\right) =  
+RT \ln 2 =  1573\, \t{J},
 $$
 czyli nieznaczeni więcej. Z góry nie było oczywiste która praca będzie większa. Z jednej strony poprawka $b>0$ zwiększa ciśnienie w stosunku do gazu doskonałego a poprawka związana z $a>0$ zmniejsza.
-
-
-\pagebreak
-\zaddom
-Stalowa szyna o przekroju poprzecznym $S = 10\,$cm$^2$ i długości $L = 10\,$m zmieniła temperaturę
-z $20^\circ$C do $40^\circ$C.
-\begin{enumerate}
-\item Oszacuj o ile wzrosła długość szyny
-\item Jakie siły powinny działać na końce szyny, aby przywrócić jej początkową długość? \\
-      Czy wartość tych sił zależy od długości szyny?
-\end{enumerate}
-Przyjmij, że dla stali: współczynnik liniowej rozszerzalności cieplnej wynosi $\alpha = 1.2\cdot 10^{-5}\,$K$^{-1}$,
-zaś moduł Younga wynosi $\displaystyle E = \frac{\Delta p}{\Delta L/L} = 200\,$GPa.
-
-\vskip 10pt
-\textbf{Rozwiązanie:}
-
-Z definicji:
-\begin{enumerate}
-\item $\Delta L = L \alpha \Delta T = 2.4 \cdot 10^{-3}\, {\rm m}$,
-\item $F = S \Delta p = S E \alpha \Delta T = 4.8 \cdot 10^4\, {\rm N}$.
-\end{enumerate}
-
-
-\zaddom
-Jeden mol gazu van der Waalsa ($a=0.138\,\rm{Jm}^3/\rm{mol}^2$, $b=31.8\,\rm{cm^3/mol}$)
-utrzymywany jest pod stałym ciśnieniem normalnym w pojemniku o ściankach adiabatycznych, zamkniętym tłokiem,
-wypełniając początkowo objętość $V_0=22,4\,\rm{dm}^3$.
-W wyniku przesunięcia tłoka objętość jego wzrosła dwukrotnie. Podaj temperturę początkową i końcową.  
-Jaki byłby wynik tego typu ekspansji w przypadku gazu doskonałego?
-
-\vskip 10pt
-\textbf{Rozwiązanie:}
-Z równania stanu możemy policzyć początkową temperaturę
-\begin{equation}
-	T_0 = \frac{V_0-nb}{nR}\left(p_0 + \frac{n^2 a}{V_0^2} \right), \qquad T_0 = \frac{V_0 p_0}{nR}.
-\end{equation}
-Z równania przemiany adiabatycznej możemy wyznaczyć końcową temperaturę
-\begin{equation}
-	T_1 = T_0 \left(\frac{V_1 - nb}{V_0 - nb} \right)^{nR/C_v}, \qquad T_1 = T_0 \left(\frac{V_1}{V_0} \right)^{nR/C_v}.
-\end{equation}
-Reszta to podstawienie wielkości.
-
-\zaddom
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\zadanie
 Równanie stanu paramagnetyka (np. w polu solenoidu) zapisać można jako:
 \[  {\rm M}= C \frac{H}{T}, \]
 gdzie $C$ - stała Curie, $H$ - natężenia pola magnetycznego, $T$- temperatura,
@@ -308,7 +284,49 @@ $H_i$ możemy wyrazić przez $T_i$ jako $H_i = (M/C) T_i$ więc
 \end{equation}
 
 \end{itemize}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\zaddom
+Stalowa szyna o przekroju poprzecznym $S = 10\,$cm$^2$ i długości $L = 10\,$m zmieniła temperaturę
+z $20^\circ$C do $40^\circ$C.
+\begin{enumerate}
+\item Oszacuj o ile wzrosła długość szyny
+\item Jakie siły powinny działać na końce szyny, aby przywrócić jej początkową długość? \\
+      Czy wartość tych sił zależy od długości szyny?
+\end{enumerate}
+Przyjmij, że dla stali: współczynnik liniowej rozszerzalności cieplnej wynosi $\alpha = 1.2\cdot 10^{-5}\,$K$^{-1}$,
+zaś moduł Younga wynosi $\displaystyle E = \frac{\Delta p}{\Delta L/L} = 200\,$GPa.
 
+\vskip 10pt
+\textbf{Rozwiązanie:}
 
+Z definicji:
+\begin{enumerate}
+\item $\Delta L = L \alpha \Delta T = 2.4 \cdot 10^{-3}\, {\rm m}$,
+\item $F = S \Delta p = S E \alpha \Delta T = 4.8 \cdot 10^4\, {\rm N}$.
+\end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\zaddom
+Jeden mol gazu van der Waalsa ($a=0.138\,\rm{Jm}^3/\rm{mol}^2$, $b=31.8\,\rm{cm^3/mol}$)
+utrzymywany jest pod stałym ciśnieniem normalnym w pojemniku o ściankach adiabatycznych, zamkniętym tłokiem,
+wypełniając początkowo objętość $V_0=22,4\,\rm{dm}^3$.
+W wyniku przesunięcia tłoka objętość jego wzrosła dwukrotnie. Podaj temperturę początkową i końcową.  
+Jaki byłby wynik tego typu ekspansji w przypadku gazu doskonałego?
+
+\vskip 10pt
+\textbf{Rozwiązanie:}
+Z równania stanu możemy policzyć początkową temperaturę
+\begin{equation}
+	T_0 = \frac{V_0-nb}{nR}\left(p_0 + \frac{n^2 a}{V_0^2} \right), \qquad T_0 = \frac{V_0 p_0}{nR}.
+\end{equation}
+Z równania przemiany adiabatycznej możemy wyznaczyć końcową temperaturę
+\begin{equation}
+	T_1 = T_0 \left(\frac{V_1 - nb}{V_0 - nb} \right)^{nR/C_v}, \qquad T_1 = T_0 \left(\frac{V_1}{V_0} \right)^{nR/C_v}.
+\end{equation}
+Reszta to podstawienie wielkości.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \end{document}
