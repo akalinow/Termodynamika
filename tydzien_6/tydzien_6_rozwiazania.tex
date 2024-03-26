@@ -53,7 +53,7 @@
 
 \begin{centering}
 \bf{\Large{Termodynamika z elementami fizyki statystycznej}}\\
-Tydzień 6  (3 kwietnia 2023)\\[3mm]
+Tydzień 6  (3 kwietnia 2024)\\[3mm]
 energia wewnętrzna, ciepło, I zasada termodynamiki \\ 
 \end{centering} 
 \vspace{5mm}
@@ -68,7 +68,7 @@ $C_V = \frac{1}{n}\left( \frac{\rm{\dbar}Q}{\rm{d}T}\right)_V$.
 \textbf{Wskazówki:}
 \begin{itemize}
   \item korzystając z faktu, że
-    $dU = \left(\frac{\partial U}{\partial_T}\right)_V dT + \left(\frac{\partial U}{\partial_V}\right)_T dV$
+    $dU = \left(\frac{\partial U}{\partial T}\right)_V dT + \left(\frac{\partial U}{\partial V}\right)_T dV$
     pokaż, że $dU = n C_V dT$.
   \item w celu znalezienia równania adiabaty, skorzystaj z pierwszej zasady termodynamiki,
     oraz postaci $d(pV)$ dla gazu doskonałego\\
@@ -153,7 +153,7 @@ W wielu omawianych dotąd procesach dla gazu doskonałego ciepło molowe jest st
 \end{enumerate}
 Wyprowadź wzór na ciepło molowe $C_X$ przy stałym $X$ dla gazu doskonałego.
 $X$ jest dowolną funkcją zmiennych stanu. Następnie wyprowadź ogólne takiej 
-przemiany (równanie politropy gazu doskonałego).
+przemiany (równanie politropy gazu doskonałego), zakładając $C_X=const$.
 
 \textbf{Wskazówki:}
 \begin{itemize}
@@ -231,6 +231,7 @@ Znajdź wykonaną nad układem pracę, zmianę energii wewnętrznej i ciepło wy
 Jakie jest ciepło molowe w tej przemianie?
 \vspace{5mm}
 \rozwiazanie 
+
 Z równania rozważanej przemiany mamy:
 \begin{align}
 p^2 V = p_0^2 V_0 \implies \quad p = p_0 \sqrt{\frac{V_0}{V}},
@@ -250,6 +251,15 @@ Zatem ciepło wymienione w tym procesie jest równe:
 Ciepło molowe tej przemiany:
 \begin{align}
 C_X = \frac{\Delta Q}{\Delta T } = \frac{ \frac{p_0 V_0}{R}(\sqrt{2}-1) \left[ C_V + 2 R\right]}{\frac{p_0 V_0}{R}(\sqrt{2}-1)}= C_V + 2 R = C_p + R.
+\end{align}
+
+Ciepło molowe można też wyznaczyć korzystając bazując na wynikach zadania 2. Teraz rozpatrujemy przemianę
+\begin{align}
+pV^{\frac{1}{2}}=const,
+\end{align}
+zatem mamy do czynienia z przemianą politropową o wykładniku politropy równym $$\kappa = \frac{1}{2}$$. Stąd:
+\begin{align}
+C_X = C_V\frac{\kappa - \frac{C_p}{C_V}}{\kappa-1}=C_V\frac{\frac{1}{2}-\frac{C_V+R}{C_V}}{-\frac{1}{2}}=-2C_V(\frac{1}{2}-1-\frac{R}{C_V})=2C_V(\frac{1}{2}+\frac{R}{C_V})=C_V+2R=C_p+R
 \end{align}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
