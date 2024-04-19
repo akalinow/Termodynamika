@@ -126,13 +126,14 @@ S_1 = n_a C_v \ln T_a  + n_a R \ln (V_a/n_a)   +  n_b C_v \ln T_b  + n_b R \ln (
 Ponieważ gazy w obu częściach są identyczne, po zmieszaniu będziemy je traktować jako jeden gaz
 o liczbie moli $n =n_a + n_b$ zajmujący objętość $V=V_a + V_b$. Żeby wyznaczyć temperaturę gazu po zmieszaniu, skorzystamy z faktu, że nad gazem nie jest wykonywana żadna praca ani nie ma wymiany ciepła z otoczeniem. Oznacza to, że energia wewnętrzna jest zachowana, czyli:
 \begin{equation}
-  n_a C_v T_a + n_b C_v T = n C_v T
+  n_a C_v T_a + n_b C_v T_b = n C_v T
 \end{equation}
 z czego wynika, że:
 \begin{equation}
-  T = p_a T_a + p_b T_b, \quad p_a = \frac{n_a}{n_a+n_b},\  p_b = \frac{n_b}{n_a + n_b}.
+  T = f_a T_a + f_b T_b, \quad f_a = \frac{n_a}{n_a+n_b},\  f_b = \frac{n_b}{n_a + n_b}.
 \end{equation}
-Temperatura końcowa jest więc średnią ważoną temperatur gazów w poszczególnych częściach zbiornika z wagami $p_a$, $p_b$.
+Temperatura końcowa jest więc średnią ważoną temperatur gazów 
+w poszczególnych częściach zbiornika z wagami $f_a$, $f_b$.
 
 Entropia końcowa wynosi:
 \begin{equation}
@@ -140,19 +141,23 @@ S_2 = n C_v \ln T  + n R \ln (V/n)  + \t{const}
 \end{equation}
 a stąd możemy obliczyć różnicę entropii:
 \begin{equation}
-\Delta S  =S_2 - S_1 = (n_a + n_b) C_v \ln (p_a T_a + p_b T_b) + (n_a + n_b) R\ln (p_aY_a + p_bY_b) - n_a C_v \ln T_a  -n_b C_v \ln T_b
+\Delta S  =S_2 - S_1 = (n_a + n_b) C_v \ln (p_a T_a + p_b T_b) + 
+(n_a + n_b) R\ln (p_aY_a + p_bY_b) - n_a C_v \ln T_a  -n_b C_v \ln T_b
 - n_a R \ln Y_a - n_b R \ln Y_b
 \end{equation}
 gdzie oznaczyliśmy $Y_{a/b}=V_{a/b}/n_{a/b}$
 . Możemy więc napisać:
 \begin{equation}
-\Delta S   =(n_a + n_b)[ C_v (\ln (p_a T_a + p_b T_b)  - p_a\ln T_a - p_b\ln T_b)+R(\ln (p_a Y_a + p_b Y_b)  - p_a\ln Y_a - p_b\ln Y_b)
+\Delta S   =(n_a + n_b)[ C_v (\ln (f_a T_a + f_b T_b)  - f_a\ln T_a - f_b\ln T_b) + 
+           R(\ln (f_a Y_a + f_b Y_b)  - f_a\ln Y_a - f_b\ln Y_b)]
 \end{equation}
-Skorzystamy teraz z wklęsłości funkcji $\ln$. Wklęsłość oznacza, że dla $p_1 \geq 0, p_2 \geq 0, p_1+p_2 =1$ mamy:
+Skorzystamy teraz z wklęsłości funkcji logarytm. 
+Wklęsłość oznacza, że dla $f_1 \geq 0, f_2 \geq 0, f_1+f_2 =1$ mamy:
 \begin{equation}
-\ln(p_a x_a + p_b x_b) \geq p_a \ln(x_a) + p_b \ln (x_b).
+\ln(f_a x_a + f_b x_b) \geq f_a \ln(x_a) + f_b \ln (x_b).
 \end{equation}
-Stosując powyższa nierówność dla $x=T,Y$ i  dostajemy:
+Czyli wartość funkcji od średniej argumentów jest większa niż średnia wartość funkcji.
+Stosując powyższą nierówność dla $x=T,Y$ i  dostajemy:
 \begin{equation}
 \Delta S  \geq  0,
 \end{equation}
@@ -189,6 +194,12 @@ W związku z tym, że temperatura kostki zmienia się w trakcie procesów, aby  
 =m c_l \ln \left(\frac{T_1}{T_0} \right) + \frac{m L}{T_1} + m c_w \ln \left(\frac{T_2}{T_1}\right) = 15.3 \u{J/K}
 \end{equation}
 
+Zmiana entropii układu wynosi:
+\begin{equation}
+\Delta S = \Delta S_{\t{jezioro}} + \Delta S_{\t{kostka}} = -14.6 \u{J/K} + 15.3 \u{J/K} = 0.7 \u{J/K}.
+\end{equation}
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -210,7 +221,7 @@ $dQ = m c \dd T$. Dla obu kawałków odpowiednie zmiany entropii są następują
 \end{equation}
 Sumaryczna zmiana entropii wynosi:
 \begin{equation}
-\Delta S = \Delta S_1+\Delta S_2 = m c \left( \ln T_k/T_1  + \ln T_k/T_1   \right) = m c \ln \left(\frac{T_k^2}{T_1 T_2}\right) =
+\Delta S = \Delta S_1+\Delta S_2 = m c \left( \ln T_k/T_1  + \ln T_k/T_2   \right) = m c \ln \left(\frac{T_k^2}{T_1 T_2}\right) =
 2 m c \ln \left(\frac{\frac{T_1 + T_2}{2}}{\sqrt{T_1 T_2}}\right) \geq 0,
 \end{equation}
 gdzie zapisaliśmy to w sposób, gdzie dodatniość wynika z faktu, że średnia arytmetyczna jest większa niż średnia geometryczna.
