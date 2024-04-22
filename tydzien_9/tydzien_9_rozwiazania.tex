@@ -9,7 +9,7 @@
 
 \frenchspacing
 
-%\usepackage{amsmath}
+\usepackage{amsmath}
 %\usepackage{physics}
 %\usepackage{bm}
 \usepackage{gensymb}
@@ -107,61 +107,108 @@ W przypadku rozprężania do próżni nie ma wymiany ciepła z otoczeniem. Oznac
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \zadanie
-Cienka przegroda dzieli zbiornik na 2 części o objętościach $V_a$ i $V_b$.
+Cienka, ruchoma przegroda diatermiczna dzieli zbiornik na 2 części o objętościach $V_a$ i $V_b$.
 W obydwu częściach zbiornika znajduje się taki sam gaz doskonały.
 W pierwszej części mamy $n_a$ moli gazu o temperaturze $T_a$, a w drugiej części $n_b$ moli
 gazu o temperaturze $T_b$, $T_a >  T_b$.
 Zakładamy, że gaz jest izolowany od otoczenia (nie ma wymiany ciepła).
-W pewnym momencie usunięto ściankę oddzielającą części zbiornika.
-Oblicz zmianę entropii po zmieszaniu się
-gazów i wyrównaniu się temperatury. Pokaż, że jest większa od zera.
+W pewnym momencie zwolniono przegrodę pozwalając na jej przemieszczenie.
+Oblicz zmianę entropii po ustaleniu się stanu równowagi i wyrównaniu się temperatury. 
+Pokaż, że jest większa od zera.
 
 \vskip 10pt
 \noindent
 \textbf{Rozwiązanie:}
 Entropia początkowa, będzie sumą entropii gazów w poszczególnych częściach zbiornika:
 \begin{equation}
-S_1 = n_a C_v \ln T_a  + n_a R \ln (V_a/n_a)   +  n_b C_v \ln T_b  + n_b R \ln (V_b/n_b)  + \t{const}
+S_1 = n_a C_v \ln T_a  + n_a R \ln (V_a/n_a)  +  
+      n_b C_v \ln T_b  + n_b R \ln (V_b/n_b)  + 
+      S_{a} + S_{b}
 \end{equation}
-Ponieważ gazy w obu częściach są identyczne, po zmieszaniu będziemy je traktować jako jeden gaz
-o liczbie moli $n =n_a + n_b$ zajmujący objętość $V=V_a + V_b$. Żeby wyznaczyć temperaturę gazu po zmieszaniu, skorzystamy z faktu, że nad gazem nie jest wykonywana żadna praca ani nie ma wymiany ciepła z otoczeniem. Oznacza to, że energia wewnętrzna jest zachowana, czyli:
+
+Po zwolnieniu przegrody ciśnienie i temperatura w obu częściach zbiornika będą równe:
 \begin{equation}
-  n_a C_v T_a + n_b C_v T_b = n C_v T
+p'_a = p'_b = p, \quad T'_a = T'_b = T.
 \end{equation}
-z czego wynika, że:
+
+Energia przepływa z jednej części do drugiej w postaci pracy i ciepła, ale 
+całkowita energia wewnętrzna gazu w obu częściach się nie zmienia. Korzystamy z tego
+faktu, by obliczyć końcową temperaturę:
+\begin{equation}
+U_{a} + U_{b} = U'_{a} + U'_{b} \quad \Rightarrow \quad  
+n_a C_v T_a + n_b C_v T_b = n_a C_v T + n_b C_v T = (n_a + n_b) C_v T
+\end{equation}
 \begin{equation}
   T = f_a T_a + f_b T_b, \quad f_a = \frac{n_a}{n_a+n_b},\  f_b = \frac{n_b}{n_a + n_b}.
 \end{equation}
-Temperatura końcowa jest więc średnią ważoną temperatur gazów 
-w poszczególnych częściach zbiornika z wagami $f_a$, $f_b$.
+
+Ciśnienie w obu częściach zbiornika jest równe, więc:
+\begin{equation}
+  pV'_a = n_a R T \quad \Rightarrow \quad \frac{V'_a}{n_a} = \frac{R T}{p}, \quad
+  pV'_b = n_b R T \quad \Rightarrow \quad \frac{V'_b}{n_b} = \frac{R T}{p}
+\end{equation}
+
+Ponieważ gazy w obu częściach są identyczne możemy je traktować jako jeden gaz
+o liczbie moli $n =n_a + n_b$ zajmujący objętość $V=V_a + V_b$. 
+(Można też dodać stronami równania dla obu części zbiornika.)
+
+\begin{align*}
+p(V'_a + V'_b) = (n_a + n_b) R T \quad \Rightarrow \quad \frac{V'_a + V'_b}{n_a + n_b} = \frac{R T}{p} \\
+\frac{V'_a + V'_b}{n_a + n_b} = \frac{n_a}{n_a + n_b} \frac{V'_a}{n_a} + \frac{n_b}{n_a + n_b} \frac{V'_b}{n_b} = f_a \frac{V'_a}{n_{a}} + f_b \frac{V'_b}{n_{b}}
+\end{align*}
+
 
 Entropia końcowa wynosi:
+\begin{align*}
+S_2 = n_a C_v \ln T  + n_a R \ln (V'_a/n_a)  + S_{a} + n_b C_v \ln T  + n_b R \ln (V'_b/n_b)  + S_{b} = \\
+= (n_a + n_b) C_v \ln T + n_a R \ln \left(\frac{V'_a}{n_a}\right) + n_b R \ln \left(\frac{V'_b}{n_b}\right) + S_{a} + S_{b} = \\
+|| \frac{V'_a}{n_a} = \frac{V'_b}{n_b}  = 
+    \frac{V'_a + V'_b}{n_a + n_b} = 
+    \frac{V_a + V_b}{n_a + n_b} = 
+    f_a\frac{V_a}{n_a} + f_b\frac{V_b}{n_b}
+    || \\
+= (n_a + n_b) \left[C_v \ln (f_a T_a + f_b T_b) + 
+                    R \ln \left( f_a\frac{V_a}{n_a} + f_b\frac{V_b}{n_b}  \right)
+ \right]  + S_{a} + S_{b}
+\end{align*}
+
+
+Różnica entropii:
+\begin{align*}
+\Delta S  =S_2 - S_1 = 
+(n_a + n_b) \left[C_v \ln (f_a T_a + f_b T_b) + 
+R \ln \left( f_a\frac{V_a}{n_a} + f_b\frac{V_b}{n_b}  \right)
+ \right]  + S_{a} + S_{b} - \\ 
+ \left(
+      n_a C_v \ln T_a  + n_a R \ln (V_a/n_a)  +  
+      n_b C_v \ln T_b  + n_b R \ln (V_b/n_b)  + 
+      S_{a} + S_{b} 
+      \right) = \\
+            (n_a + n_b)C_v \left[\ln (f_a T_a + f_b T_b) -
+            f_a \ln T_a  - f_b \ln T_b \right] + \\
+            (n_a + n_b)R \left[\ln \left( f_a\frac{V_a}{n_a} + f_b\frac{V_b}{n_b}  \right) -
+                          f_a\ln (\frac{V_a}{n_a})  - f_b \ln (\frac{V_b}{n_b}) \right]
+\end{align*}
+
+Człony z temperaturą i objętością molową mają taką samą postać:
 \begin{equation}
-S_2 = n C_v \ln T  + n R \ln (V/n)  + \t{const}
+\ln(f_a x_a + f_b x_b) - f_a \ln(x_a) + f_b \ln (x_b).
 \end{equation}
-a stąd możemy obliczyć różnicę entropii:
-\begin{equation}
-\Delta S  =S_2 - S_1 = (n_a + n_b) C_v \ln (p_a T_a + p_b T_b) + 
-(n_a + n_b) R\ln (p_aY_a + p_bY_b) - n_a C_v \ln T_a  -n_b C_v \ln T_b
-- n_a R \ln Y_a - n_b R \ln Y_b
-\end{equation}
-gdzie oznaczyliśmy $Y_{a/b}=V_{a/b}/n_{a/b}$
-. Możemy więc napisać:
-\begin{equation}
-\Delta S   =(n_a + n_b)[ C_v (\ln (f_a T_a + f_b T_b)  - f_a\ln T_a - f_b\ln T_b) + 
-           R(\ln (f_a Y_a + f_b Y_b)  - f_a\ln Y_a - f_b\ln Y_b)]
-\end{equation}
-Skorzystamy teraz z wklęsłości funkcji logarytm. 
-Wklęsłość oznacza, że dla $f_1 \geq 0, f_2 \geq 0, f_1+f_2 =1$ mamy:
-\begin{equation}
-\ln(f_a x_a + f_b x_b) \geq f_a \ln(x_a) + f_b \ln (x_b).
-\end{equation}
-Czyli wartość funkcji od średniej argumentów jest większa niż średnia wartość funkcji.
-Stosując powyższą nierówność dla $x=T,Y$ i  dostajemy:
+gdzie $f_1 \geq 0, f_2 \geq 0, f_1+f_2 =1$.
+Mamy tu więc różnicę wartości funkcji od średniej ważonej argumentów:
+$\ln(f_a x_a + f_b x_b)$ średniej ważonej wartości funkcji: $f_a \ln(x_a) + f_b \ln(x_b)$.
+
+\begin{center}
+\resizebox{0.6\linewidth}{!}{\includegraphics{wkleslosc_log.png}}
+\end{center}
+
+Dla funkcji logarytmicznej ta różnica jest dodatni - ta własność ta nazywana 
+jest \emph{wklęsłością funkcji logarytmicznej}.
+
+Podsumowując:
 \begin{equation}
 \Delta S  \geq  0,
 \end{equation}
-Dowodzi to dodatniości zmiany entropii.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
