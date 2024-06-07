@@ -67,7 +67,7 @@
 \begin{document}           % End of preamble and beginning of text.
 \begin{centering}
 \bf{\Large{Termodynamika z elementami fizyki statystycznej}}\\
-Tydzień 12 (25 maja 2023)\\[5mm]
+Tydzień 12 (23 maja 2024)\\[5mm]
 Rozkład Boltzmanna, entropia \\
 \end{centering} 
 \vspace{5mm}
@@ -304,4 +304,40 @@ ponieważ $\beta \epsilon$ jest małą liczbą więc jej odwrotność jest duż
 	\langle E \rangle = - \frac{1}{Z} \partial_{\beta} Z = \beta \epsilon \frac{1}{\beta^2\epsilon} = k_B T.
 \end{equation}
 
+\newpage
+
+\zadanie
+Jako przykład rozkładu ciągłego zmiennej losowej rozważmy
+rozkład prędkości cząsteczek gazu\linebreak doskonałego w temperaturze $T$
+(tzw. rozkład Maxwella):
+\[ D(v) = \left(\frac{m}{2\pi k T}\right)^{\frac{3}{2}}
+          \cdot 4 \pi v^2 \cdot\exp\left[ -\frac{m v^2}{2 k T} \right],\]
+gdzie: $m$ jest masą cząsteczki, $k$ – stałą Boltzmanna, $T$ – temperaturą bezwzględną, zaś $v$ – wartością prędkości cząsteczki.
+$D(v)$ jest gęstością prawdopodobieństwa, tzn. $D(v)\cdot dv = P(v, v+dv)$ jest prawdopodobieństwem tego, że prędkość cząsteczki ma wartość zawartą między
+$v$ a $v+dv$. Policzyć najbardziej prawdopodobną oraz średnią wartość prędkości. Wykonać obliczenia dla cząsteczki azotu o masie $m = 28\,$u ($1\,{\rm u} = 1.66\cdot 10^{-27}\,$kg) w temperaturze $T = 300\,$K.
+Stała Boltzmanna wynosi $k = 1.38\cdot 10^{-23}\,$J/K.
+\newline
+
+\emph{Rozwiązanie:}
+Wartość najbardziej prawdopodobną znajdujemy przyrównując pochodną $D(v)$ do zera:
+
+$$
+0=\frac{d D(v)}{d v}
+$$
+
+$$
+0= \frac{d D(v)}{d v}  \propto 2 v e^{- \alpha v^2} - 2 \alpha v^3 e^{-\alpha v^2}  \longrightarrow v_{max} = \sqrt{\frac{1}{\alpha}} = \sqrt{\frac{2 k T}{m}} = 429\, \textrm{m}/\textrm{s}.
+$$
+
+
+gdzie wprowadziliśmy oznaczenie $\alpha = m/(2k T)$.
+
+Wartość średnią znajdujemy całkując:
+
+\begin{multline*}
+\langle v \rangle = \int_{0}^\infty d v \, D(v) v = \frac{4}{\sqrt{\pi}} \alpha^{3/2} \int_0^\infty dv\, v^3 e^{-\alpha v^2} =
+- \frac{4}{\sqrt{\pi}} \alpha^{3/2} \frac{d}{d \alpha} \int_0^\infty dv\, v e^{-\alpha v^2} =\\ - \frac{4}{\sqrt{\pi}} \alpha^{3/2} \frac{d}{d\alpha} \left(
+\frac{1}{2\alpha}\right) = \frac{2 }{\sqrt{ \pi \alpha}} =  \frac{2}{\sqrt{\pi}} v_{\textrm{max}} = 485\, \textrm{m}/\textrm{s}.
+\end{multline*}
 \end{document}
+

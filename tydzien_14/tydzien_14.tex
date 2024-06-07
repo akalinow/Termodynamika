@@ -17,6 +17,7 @@
 \usepackage{epsfig}
 \usepackage{graphics}
 \usepackage[shortlabels]{enumitem}
+\usepackage{hyperref}
 %\usepackage{xspace}
 %\xspaceaddexceptions{[]\{\}}
 
@@ -70,7 +71,7 @@
 \vspace*{-1cm}
 
 \bf{\Large{Termodynamika z elementami fizyki statystycznej}}\\
-Tydzień 14 (8 czerwca 2023)\\[5mm]
+Tydzień 14 (10 czerwca 2024)\\[5mm]
 napięcie powierzchniowe, transport ciepła\\
 \end{centering} 
 
@@ -104,28 +105,35 @@ gdzie $\alpha$ jest współczynnikiem przylegania wody do szkła),
 stała napięcia powierzchniowego wody $\sigma = 0.073$\,J/m$^2$,
 oraz powietrze można traktować jako gaz doskonały.
 
-\zadanie
-Rozwiązać jednowymiarowe równanie transportu ciepła:
-\[ \frac{\partial T}{\partial t} = \frac{\lambda}{\rho c}\cdot
-                                   \frac{\partial^2 T}{\partial x^2} \]
-metodą rozdzielania zmiennych, czyli zakładając, że rozwiązania
-bazowe mają postać iloczynu:
-\[ T(x,t) = X(x)\cdot{\displaystyle \tau}(t).\]
 
 \zadanie
-Pręt styka się na obu końcach z ciałami o temperaturze $T_1$.
-W chwili początkowej rozkład temperatury w pręcie dany jest funkcją:
-\[ T(x,t=0) \,=\, T_1 + A \cos^3 \left(\frac{\pi x}{L}\right), \]
-gdzie $-L/2 < x < L/2$.
-Jak zależy od czasu rozkład temperatury w pręcie?\\[1mm]
-{\em Wskazówka: Skorzystać z równości
-~$\cos{\alpha} = {1\over 2} (e^{i\alpha}+e^{-i\alpha})$.}
 
-\zadanie
-Znaleźć rozkład temperatury w gruncie w stanie ustalonym przy założeniu,
-że grunt jest ośrodkiem jednorodnym o poziomej powierzchni oraz że
-temperatura na powierzchni gruntu zmienia się zgodnie ze wzorem:
-\[ T(x=0, y,z,t) \,=\, A \cos(\omega t) + T_\circ. \]
+Przyjmij, że suche powietrze składa się z następującej mieszaniny gazów: 
+$N_2$ (78\%), $O_2$ (22\%). Rozważ powietrze w warunkach normalnych:
+$T$ = 300\,K, $p$ = 101325~Pa. Oblicz:
+\begin{enumerate}[a)]
+      \item ciśnienia parcjalne tlenu i azotu: $p_{O_2}$, $p_{N_2}$,
+      \item objętość jednego mola powietrza: $V$
+\end{enumerate}      
+
+\vspace{1cm}
+
+\begin{wrapfigure}[13]{r}{0.2\linewidth}\hspace{5mm}
+      \href{https://pl.wikipedia.org/wiki/Wykres_fazowy#/media/Plik:Phase_diagram_of_water.svg}{
+      \resizebox{1\linewidth}{!}{\includegraphics{diagram_fazowy_wody_qr_code.png}}
+      }
+\end{wrapfigure}
+Następnie oblicz wkład do ciśnienia powietrza od pary wodnej 
+w następujących sytuacjach:
+\begin{enumerate}[a)]
+      \item powietrze wydychane zimą z ust człowieka po wyrównaniu temperatury
+            z otoczeniem. Temperatura otoczenia: -20$^\circ$C
+      \item powietrze w mieszkaniu: wilgotność względna 50\% w temperatura 20$^\circ$C.       
+\end{enumerate}
+\vspace{0.2cm}
+Przyjmij, że wszystkie gazy są doskonałe.
+Stała gazowa wynosi $R = 8.31\,$J/(mol$\cdot$K)
+Brakujące dane odczytać z diagramu fazowego wody, podanego pod linkiem QR.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage
@@ -139,6 +147,8 @@ Gęstość rtęci $\rho = 13.56\,{\rm g/cm^3}$, przyspieszenie ziemksie $g = 9.8
 Współczynnik napięcia powierzchniowego $\sigma = 0.47\,$N/m.
 
 {\it Odpowiedź:} $(p-gh\rho) d/4=\sigma$ czyli $p=4\sigma/d+gh\rho\simeq 1009.8$hPa
+
+\end{document}
 
 \zaddom
 Energia płynie od ciała o temperaturze $T_1 = 500\,$K do ciała o temperaturze
@@ -167,7 +177,29 @@ $T(x,t) = T_1 + Ae^{-\lambda t/\rho c}\cdot \sin(x)+\frac{A}{2}e^{-4\lambda t/\r
 %\end{wrapfigure}
 %\zaddom
 
-\end{document}
+
+\zadanie
+Rozwiązać jednowymiarowe równanie transportu ciepła:
+\[ \frac{\partial T}{\partial t} = \frac{\lambda}{\rho c}\cdot
+                                   \frac{\partial^2 T}{\partial x^2} \]
+metodą rozdzielania zmiennych, czyli zakładając, że rozwiązania
+bazowe mają postać iloczynu:
+\[ T(x,t) = X(x)\cdot{\displaystyle \tau}(t).\]
+
+\zadanie
+Pręt styka się na obu końcach z ciałami o temperaturze $T_1$.
+W chwili początkowej rozkład temperatury w pręcie dany jest funkcją:
+\[ T(x,t=0) \,=\, T_1 + A \cos^3 \left(\frac{\pi x}{L}\right), \]
+gdzie $-L/2 < x < L/2$.
+Jak zależy od czasu rozkład temperatury w pręcie?\\[1mm]
+{\em Wskazówka: Skorzystać z równości
+~$\cos{\alpha} = {1\over 2} (e^{i\alpha}+e^{-i\alpha})$.}
+
+\zadanie
+Znaleźć rozkład temperatury w gruncie w stanie ustalonym przy założeniu,
+że grunt jest ośrodkiem jednorodnym o poziomej powierzchni oraz że
+temperatura na powierzchni gruntu zmienia się zgodnie ze wzorem:
+\[ T(x=0, y,z,t) \,=\, A \cos(\omega t) + T_\circ. \]
 
 \zaddom
 Do cieczy w szerokim poziomym naczyniu włożono pionowo cienką rurkę o wewnętrznym promieniu równym $r$.
