@@ -1,3 +1,4 @@
+
 \documentclass[11pt,a4paper]{article}
 
 \usepackage[polish]{babel}
@@ -278,11 +279,53 @@ Między te płyty wstawiamy równolegle do nich $n$ dużych, cienkich, doskonale
 Jaka jest temperatura $i$-tej płyty? 
 Ile razy, w wyniku wstawienia płytek, zmniejszy się strumień energii pomiędzy płaszczyznami? 
 
-\resizebox{0.93\linewidth}{!}{\includegraphics[width=6cm]{termos_2_page1.png}}
+\vskip 10pt
+\textbf{Rozwiązanie:}\\
 
-\resizebox{\linewidth}{!}{\includegraphics[width=6cm]{termos_2_page2.png}}
+Wprowadźmy następujące oznaczenia: $I_1$: strumień energii emitowanej przez pierwszą płytkę, $I_2$: strumień energii emitowanej przez drugą płytkę, \ldots, $I_{n+2}$: strumień energii emitowanej przez ostatnią płytkę. Poza tym zakładamy, że ustawione płyty są równowadze. To oznacza, że strumień energii pomiędzy każdymi sąsiednimi płytami jest dokładnie taki sam, czyli możemy zapisać, że:
 
-\resizebox{\linewidth}{!}{\includegraphics[width=6cm]{termos_2_page3.png}}
+\begin{equation}
+I_{1}-I_{2} = I_{2}-I_{3} = \ldots = I_{n+1} - I_{n+2}
+\end{equation}
+
+Zapiszmy teraz jak wygląda strumień energii dla jakiejś $k$-tej płyty:
+
+\begin{equation}
+I_{k-1} - I_{k} = I_{k} - I_{k+1} \implies 2I_{k} = I_{k-1}+I_{k+1}.
+\end{equation}
+
+Ostatnia równość jest spełniona jeżeli $I_{k}$ to elementy ciągu artmetycznego. A zatem możemy zapisać, że:
+
+\begin{equation}
+\label{ciag-artmetyczny}
+I_{k} = I_{1} + (k-1) \cdot r,
+\end{equation}
+
+gdzie stałe $I_1$ oraz $r$ wyznaczymy wykorzystując znajomość temperatur skrajnych płytek. Wiemy, że: $I_1 = \sigma T_{1}^4$ oraz $I_{n+2} = \sigma T_{2}^{4}$, a to oznacza, że:
+
+\begin{equation}
+\sigma T_{2}^{4} = \sigma T^{4}_{1} + (n+2-1) \cdot r \implies r = \frac{\sigma (T_{2}^{4} - T_{1}^{4})}{n+1}.
+\end{equation}
+
+Zatem wracając do równania \eqref{ciag-artmetyczny} dostajemy, że:
+
+\begin{equation}
+I_{k} = \sigma T^{4}_{1} + \frac{\sigma \cdot (k-1)}{n+1}(T_{2}^{4}-T_{1}^{4}).
+\end{equation}
+
+Wiedząc, że $I_{k} = \sigma T_{p_{k}}^{4}$ otrzymujemy, że
+
+\begin{equation}
+T_{p_{k}}^{4} = T_{1}^{4} + \frac{k-1}{n+1}(T_{2}^{4}-T_{1}^{4}). 
+\end{equation}
+
+Możemy teraz policzyć strumień enrgii pomiędzy płytami:
+
+\begin{equation}
+I_{1} - I_{2} = -r = \frac{\sigma(T_{1}^{4}-T_{2}^{4})}{n+1}.
+\end{equation}
+
+A to oznacza, że w wyniku wstawiniu wstawineiu płytek, strumień energii zmniejszy się $(n+1)$ razy.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage
@@ -325,70 +368,88 @@ Otrzymaliśmy prawo Stefana-Boltzmanna ze stałą $\sigma = 2 \pi \frac{k_B^4}{ 
 \vspace{1mm}
 
 \zaddom
-Zale"rno"s"c ci"snienia r"ownowagi fazy ciek"lej i lotnej opisuje 
-w przybli"reniu wz"or: $ p \,=\, A e^{-\alpha/T} $.\\
+Zależność ciśnienia równowagi fazy ciekłej i lotnej opisuje 
+w przybliżeniu wzór: $ p \,=\, A e^{-\alpha /T} $.\\
 Dla wody: $p_3 = 612\,$Pa, $T_3 = 273.16\,$K, 
 $p_{\rm wrzenia} = 1.013\cdot 10^5\,$Pa, 
 $T_{\rm wrzenia} = 373.2\,$K.\\ 
-Wyznacz sta"le $A$ i $\alpha$.
-Oblicz w jakiej temperaturze woda wrze na wysoko"sciach:
+Wyznacz stałe $A$ i $\alpha$.
+Oblicz w jakiej temperaturze woda wrze na wysokościach:
 \begin{enumerate}[a)] 
 \item 2500\,m -- Rysy ($p = 0.75\,$bar)
 \item 4800\,m -- Mont Blanc ($p = 0.55\,$bar)
 \item 8850\,m -- Mont Everest ($p = 0.33\,$bar).
 \end{enumerate}
-Przy jakim ci"snieniu woda wrze w temperaturze $20^\circ$C\,? $-3^\circ$C\,?
+Przy jakim ciśnieniu woda wrze w temperaturze $20^\circ$C\,? $-3^\circ$C\,?
+\vskip 10pt
+
 
 \zaddom
-Do budowy termoregulator"ow, ogranicznik"ow temperatury i tym
-podobnych urz"adze"n stosuje si"e cz"esto urz"adzenie zwane bimetalem.
-Jest to pasek z"lo"rony z dw"och spojonych ze sob"a warstw metali
-o r"o"rnych wsp"o"lczynnikach rozszerzalno"sci.
-Pasek taki przy ogrzewaniu b"edzie si"e wygina"l i mo"re
-w ten spos"ob zamyka"c lub otwiera"c obw"od elektryczny.
-Dany jest bimetal o grubo"sci $d$, z"lo"rony z metali
-o wsp"o"lczynnikach rozszerzalno"sci liniowej $\alpha_1$ i $\alpha_2$
+Do budowy termoregulatorów, ograniczników temperatury i tym
+podobnych urządzeń stosuje się często urządzenie zwane bimetalem.
+Jest to pasek złożony z dwóch spojonych ze sobą warstw metali
+o różnych współczynnikach rozszerzalności.
+Pasek taki przy ogrzewaniu będzie się wyginał i może
+w ten sposób zamykać lub otwierać obwód elektryczny.
+Dany jest bimetal o grubości $d$, złożony z metali
+o współczynnikach rozszerzalności liniowej $\alpha_1$ i $\alpha_2$
 ($\alpha_1 > \alpha_2$).
 W temperaturze $T_0$ bimetal jest prosty.
-Znajd"z promie"n krzywizny bimetalu po ogrzaniu go o $\Delta T$.
-Wykonaj obliczenia dla: $\alpha_1=1.8\cdot 10^{-5}\,{\rm K}^{-1}$ (mosi"adz),
-$\alpha_2=1.2\cdot 10^{-5}\,{\rm K}^{-1}$ (stal), grubo"s"c $d=1\,$mm,
-d"lugo"s"c $l_0=5\,$cm, $\Delta T=100\,$K.
+Znajdź promień krzywizny bimetalu po ogrzaniu go o $\Delta T$.
+Wykonaj obliczenia dla: $\alpha_1=1.8\cdot 10^{-5}\,{\rm K}^{-1}$ (mosiądz),
+$\alpha_2=1.2\cdot 10^{-5}\,{\rm K}^{-1}$ (stal), grubość $d=1\,$mm,
+długość $l_0=5\,$cm, $\Delta T=100\,$K.
+\vskip 10pt
+\textbf{Odpowiedź:}
+$R = \frac{d}{2} \frac{2+(\alpha_1+\alpha_2)\Delta T}{(\alpha_1-\alpha_2)\Delta T} \approx 167 cm$
 
 \zaddom
-Op"or w"la"sciwy miedzi zależy od temperatury jak:
+Opór właściwy miedzi zależy od temperatury jak:
 $ \rho(T) = 
   A \left(\frac{T}{T_0}\right) \tanh^3 \left(\frac{T}{T_0}\right);
   ~~ T_0 = 87\,\rm{K}. 
 $
-W temperaturze 290\,K miedziany czujnik ma op"or 10\,$\Omega$. 
+W temperaturze 290\,K miedziany czujnik ma opór 10\,$\Omega$. 
 \begin{enumerate}
-\item Jaki op"or ma ten czujnik w temperaturze 700\,K? 
-\item Jak zmieni si"e op"or dla temperatury 701\,K? Ile wynosi $\Delta R/R$? 
-\item Jaki jest op"or w temperaturze 20\,K?
-\item Jak zmieni si"e op"or dla temperatury 21\,K? Ile wynosi  $\Delta R/R$?
+\item Jaki opór ma ten czujnik w temperaturze 700\,K? 
+\item Jak zmieni się opór dla temperatury 701\,K? Ile wynosi $\Delta R/R$? 
+\item Jaki jest opór w temperaturze 20\,K?
+\item Jak zmieni się opór dla temperatury 21\,K? Ile wynosi  $\Delta R/R$?
 \end{enumerate}
 Zadanie rozwiąż rachunkiem bezpośrednim oraz korzystając z odpowiednich rozwinięć.
+
+\vskip 10pt
 
 \zaddom
 Oszacuj całkowitą moc jaką wypromieniowujesz. Opisz przyjęte założenia i zastosowane przybliżenia. Oszacuj
 wydatek energetyczny organizmu na utrzymanie temperatury ciała (różnicę pomiędzy mocą wypromieniowywaną
 i otrzymywaną) jeżeli znajdujesz się w otoczeniu o temperaturze $20\degree$C.
-Jakiej długości fali odpowiada maksimum rozkładu energii?
+\vskip 10pt
 
 \zaddom
 Sonda kosmiczna o kształcie kuli i doskonale czarnej powierzchni ma zbadać okolice Merkurego. Aby uniknąć
-przegrzania sondy wyposażono ją w “ekran termiczny” - cienką osłonkę o kształcie półsfery zrobioną z metalu
-o współczynniku odbicia r. Osłona założona jest bardzo blisko powierzcni sondy, ale nie styka się z nią. Sonda
+przegrzania sondy wyposażono ją w ekran termiczny - cienką osłonkę o kształcie półsfery zrobioną z metalu
+o współczynniku odbicia $r$. Osłona założona jest bardzo blisko powierzchni sondy, ale nie styka się z nią. Sonda
 zwrócona jest osłoniętą stroną do Słońca.
 \begin{enumerate}
 \item Znajdź wyrażenie na temperaturę sondy w funkcji jej odległości od Słońca i porównaj z temperaturą sondy
 pozbawionej osłony
-\item Dobierz współczynnik odbicia r tak aby w pobliżu Merkurego sonda miała temperaturę $T_{\rm sondy}= 300$\,K. 
+\item Dobierz współczynnik odbicia $r$ tak aby w pobliżu Merkurego sonda miała temperaturę $T_{\rm sondy}= 300$\,K. 
 Jaka jest wtedy temperatura osłony?
 \end{enumerate}
 Temperatura Słońca wynosi $T_\odot= 5800$\,K, promień Słońca $R_\odot = 7 \cdot 10^8$\,m, 
 odległość Merkurego od Słońca $d = 5.8 \cdot 10^{10}$\,m. 
 Zakładamy, że cała powierzchnia sondy ma tę samą temperaturę.
+\vskip 10pt
+
 
 \end{document}
+
+\zadanie
+Opór właściwy półprzewodnika zależy od temperatury jak:
+$ \rho(T) = A \exp{(\alpha / T)}, $ 
+gdzie $\alpha = 0.01$eV/k$_B$.
+Jakie zmiany temperatury  w okolicy 290\,K można mierzyć takim termometrem
+zakładając, że potrafimy mierzyć opór z dokładnością do 0.01\%.
+Przyjmij k$_B = 8.62 \cdot 10^{-5}$ eV/K.
+
