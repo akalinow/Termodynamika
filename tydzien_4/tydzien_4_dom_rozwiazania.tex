@@ -1,0 +1,274 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[polish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{polski}
+\usepackage[T1]{fontenc}
+\usepackage{indentfirst}
+\usepackage{wrapfig}    % for wrapping figures, tables
+
+\frenchspacing
+
+\usepackage{amsmath}
+%\usepackage{physics}
+%\usepackage{bm}
+\usepackage{gensymb}
+%\usepackage{hepnames}
+\usepackage{epsfig}
+\usepackage{graphics}
+\usepackage[shortlabels]{enumitem}
+%\usepackage{xspace}
+%\xspaceaddexceptions{[]\{\}}
+
+%
+%
+%fixpagesize
+\pagestyle{empty}
+\addtolength{\textwidth}{6cm}
+\addtolength{\textheight}{4cm}
+\addtolength{\evensidemargin}{-3cm}
+\addtolength{\oddsidemargin}{-3cm}
+\addtolength{\topmargin}{-2cm}
+\parindent=0cm
+
+
+%
+%
+%small distance in list/item/enum for enumitem package
+\setlist[itemize,enumerate]{topsep=0em}
+\setlist{noitemsep}
+
+%print zadanie #
+\newcounter{zadanie}\newcommand{\zadanie}[1][]{\addtocounter{zadanie}{1} ~\\  {\bf \emph{Zadanie \arabic{zadanie} #1 }} \\}
+\newcounter{zaddom}\newcommand{\zaddom}[1][]{\addtocounter{zaddom}{1} ~\\  {\bf \emph{Zadanie domowe \arabic{zaddom} #1 }} \\}
+%\renewcommand{\zadanie}[1][]{\pagebreak  ~\\  {\bf \emph{Zadanie }} \\} \addtolength{\topmargin}{-2cm}
+
+\newcommand{\dbar}{{\mkern3mu\mathchar'26\mkern-12mu d}}
+\newcommand{\Partial}[3]{\left( \frac{\partial #1}{\partial #2} \right)_{#3}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}           % End of preamble and beginning of text.
+
+\begin{centering}
+\bf{\Large{Termodynamika z elementami fizyki statystycznej}}\\
+Tydzień 4  (17 marca 2025)\\[3mm]
+Zadania domowe \\ 
+\end{centering} 
+\vspace{5mm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\zadanie
+Znając dla gazu doskonałego $\gamma$, $\beta$, $\kappa$, odtwórz r. stanu.\\
+\\
+\textbf{Rozwiązanie:}
+\\
+Dla gazu doskonałego mamy:
+\begin{equation*}
+    \gamma = \frac{1}{V}\Partial{V}{T}{p} = \frac{1}{T},\;\;\; \beta = \frac{1}{p}\Partial{p}{T}{V} = \frac{1}{T},\;\;\; \kappa = -\frac{1}{V}\Partial{V}{p}{T} = \frac{1}{p}.
+\end{equation*}
+Korzystając z $\gamma:$
+\begin{equation*}
+    \frac{1}{V}\Partial{V}{T}{p} = \frac{1}{T} \implies \frac{\partial V}{V} = \frac{\partial T}{T} \implies \ln V = \ln T +C(p).
+\end{equation*}
+Zatem
+\begin{equation*}
+        V = T C(p).
+\end{equation*}
+Korzystając z $\kappa:$
+\begin{equation*}
+   -\frac{1}{V}\Partial{V}{p}{T} = \frac{1}{p} \implies -\frac{\partial V}{V} = \frac{\partial p}{p} \implies \ln V = -\ln p +D(T).
+\end{equation*}
+Zatem
+\begin{equation*}
+        V = D(T)\frac{1}{p}.
+\end{equation*}
+Porównujemy wyrażenia na V:
+\begin{equation*}
+    T C(p) = D(T)\frac{1}{p} \implies C(p) = A \frac{1}{p}, \;\;\; D(T) = BT
+\end{equation*}
+Ostatecznie mamy:
+\begin{align*}
+    V = T \frac{1}{p} A \implies pV = A T,\; A = \text{const}\\
+    V = B T \frac{1}{p}  \implies pV = B T,\; B = A = nR
+\end{align*}
+Z tego wynika:
+\begin{equation*}
+    pV = nRT.
+\end{equation*}
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\zadanie
+Dany jest gaz, którego zachowanie w pewnym zakresie parametrów opisuje równanie stanu:
+\[  p^3 \cdot T^{-1/2} \cdot \exp( \alpha V ) = c = const.\]
+Znajdź współczynniki izobarycznej rozszerzalności temperaturowej oraz izotermicznej ściśliwości poprzez:
+\begin{enumerate}[a)]
+\item znalezienie odpowiednich pochodnych cząstkowych po wyznaczeniu $V$ z równania stanu
+\item licząc różniczkę równania stanu, a następnie wyrażając $dV$ przez $dT$ i $dp$.
+\end{enumerate}
+
+{\it Odpowiedź:}
+\[
+  \begin{array}{c}
+    \gamma = \left(2T \ln\left( \frac{c \sqrt{T}}{p^3} \right) \right)^{-1}\\
+    \\
+    \kappa = \frac{3}{p} \left( \ln\left( \frac{c \sqrt{T}}{p^3} \right) \right)^{-1}
+  \end{array}
+\] 
+
+\textbf{Rozwiązanie:}
+\\
+W naszym przypadku funkcja $f(p, V, T)$ ma następującą postać:
+\begin{equation*}
+    f(p, V, T) = \frac{p^3}{\sqrt{T}} e^{ \alpha V } - c\;.
+\end{equation*}
+Stąd 
+\[
+V = \frac{1}{\alpha} \ln\left( \frac{c \sqrt{T}}{p^3} \right)\;.
+\]
+Liczymy pochodne  $V(p,T)$:
+
+\begin{align*}
+\Partial{V}{p}{} &= \frac{1}{\alpha} \frac{p^3}{c\sqrt{T}} (-3) c \frac{\sqrt{T}}{p^4} = -\frac{3}{\alpha}\frac{1}{p}\;,\\
+\Partial{V}{T}{} &= \frac{1}{\alpha} \frac{p^3}{c\sqrt{T}} \frac{c}{2 \sqrt{T} p^3} = \frac{1}{ 2 \alpha T}\;.
+\end{align*}
+Liczymy $\gamma$:
+\[
+\gamma = \frac{1}{V}\Partial{V}{T}{} = \alpha \ln^{-1}\left( \frac{c \sqrt{T}}{p^3} \right)\frac{1}{ 2 \alpha T} = \frac{1}{ 2 T} \ln^{-1}\left( \frac{c \sqrt{T}}{p^3} \right) \; .
+\]
+Liczymy $\kappa$:
+\[
+\kappa = - \frac{1}{V} \Partial{V}{p}{} = \alpha \ln^{-1}\left( \frac{c \sqrt{T}}{p^3} \right) \left(-\frac{3}{\alpha}\frac{1}{p} \right) = \frac{3}{p} \ln^{-1}\left( \frac{c \sqrt{T}}{p^3} \right) \; .
+\]
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\zadanie
+Znaleźć dwa pierwsze wyrazy rozwinięcia wirialnego w $1/v$ dla gazu Dietericiego: 
+$\displaystyle p(T,v) = \frac{R T}{v-b}\cdot\exp\left[-\frac{a}{R T v}\right]$.\\
+
+{\em Uwaga: Aby zapisać te równania dla $n$ moli, trzeba podstawić $v\mapsto V/n$}.\\
+
+{\it Odpowiedź:}
+\[
+  \frac{pv}{RT} = 1 + \left(b - \frac{a}{RT} \right) \frac{1}{v} + \left( b^2 - \frac{b a}{R T} + \frac{a^2}{2 R^2 T^2} \right) \left( \frac{1}{v} \right)^2 + ...
+\]
+\textbf{Rozwiązanie:}
+\\
+\[
+\frac{p(v,T)}{RT} = \frac{1}{v-b}e^{-\frac{a}{RTv}}
+\]
+Rozwijamy poszczególne człony. Najpierw człon $\frac{1}{v-b}$:
+\[
+\frac{1}{v-b} = \frac{1}{v}\frac{1}{1-\frac{b}{v}} \approx \frac{1}{v}\left[ 1 + \frac{b}{v} +\left( \frac{b}{v} \right)^2 + \mathcal{O}\left( \left( \frac{b}{v} \right)^3 \right) \right] \; .
+\]
+Teraz wyraz $e^{-\frac{a}{RTv}}$:
+\[
+e^{-\frac{a}{RTv}} \approx 1 - \frac{a}{RTv} + \frac{1}{2} \left( \frac{a}{RTv} \right)^2 + \mathcal{O}\left( \left( \frac{a}{RTv} \right)^3 \right) \; .
+\]
+Mnożymy części i zachowujemy człony do rzędu $\frac{1}{v^2}$
+\begin{align*}
+    \frac{p(v,T) v }{RT} &\approx \left( 1 + \frac{b}{v} +  \frac{b^2}{v^2} \right ) \left( 1 - \frac{a}{RTv} + \frac{1}{2} \left( \frac{a}{RTv} \right)^2 \right) \\
+    &\approx 1 + \frac{1}{v}\left( b - \frac{a}{RT} \right) + \frac{1}{v^2} \left( b^2 - \frac{ab}{RT} + \frac{a^2}{2R^2 T^2}\right) + \mathcal{O}\left( \frac{1}{v^3} \right) \; .
+\end{align*}
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\zadanie
+Wiadomo, że równanie van der Waalsa daje współczynnik krytyczny $K$
+(gdzie $K\equiv 1/z_k$), mniejszy od wartości doświadczalnej.
+Jaki współczynnik krytyczny dawałoby zmodyfikowane równanie
+postaci
+\linebreak
+\mbox{$\displaystyle p(T,V) = \frac{R T}{V-b} - \frac{a}{T V^n}$}? \\
+Ile powinien wynosić parametr $n$, aby otrzymać  wartość
+$K = 3.8$ ?
+Ile razy objętość krytyczna $V_k$
+byłaby większa od parametru $b$? \\
+
+{\em Uwaga: Dla $n=2$ powyższe równanie nosi nazwę równania Berthelota.}\\
+
+{\it Odpowiedź:} $n=1.656$; $V_k \approx 4b$\\
+
+\textbf{Rozwiązanie:}
+\\
+Punkt krytyczny jest dany przez warunki:
+\[
+\Partial{p}{V}{} = 0,\;\;\; \Partial{^2p}{V^2}{} = 0\;.
+\]
+W naszym przypadku dostajemy
+
+\begin{equation*}
+\begin{cases}
+    \Partial{p}{V}{} = - \frac{R T}{(V-b)^2} + \frac{na}{T V^{n+1}} \; , \\
+    \Partial{^2 p }{ V^2}{} = \frac{2 R T}{(V-b)^3} - \frac{n (n+1) a}{T V^{n+2}} \;.
+\end{cases}
+\end{equation*}
+
+Stąd dostajemy
+
+\begin{equation*}
+\begin{cases}
+    RT_k^2 V_k^{n+1} = na (V_k-b)^2\;, \\
+    2RT_k^2 V_k^{n+2} =  n (n+1) a (V_k-b)^3\; .
+\end{cases}
+\end{equation*}
+
+Dzieląc drugie równanie przez pierwsze, możemy wyznaczyć $V_k$
+\[
+2V_k = (n+1) (V_k-b) \implies (n-1) V_k = (n+1)b \; .
+\]
+Ostatecznie $V_{k}$ wynosi:
+\[
+V_k = \frac{n + 1 }{ n-1} b \; .
+\]
+Wracamy do pierwszego równania w celu wyznaczenia $T_k$
+\[
+RT_{k}^2 V_k^{n+1} = na (V_k-b)^2 \implies T_k^2 = \frac{ n a}{R } \frac{(V_k - b)^2}{V_k^{n+1}} \; .
+\]
+Wstawiając wyznaczoną wartość $V_k$ otrzymujemy:
+\[
+T_k^2 = \frac{na}{R}\frac{ \left(\frac{n+1-n+1}{n-1}b \right)^2 }{\left( \frac{n+1}{n-1} b \right)^{n+1}} = \frac{na}{R} \frac{4}{(n -1)^2} b^2 \left( \frac{n-1}{n+1} \right)^{n+1} b^{-n -1} = 4\frac{na}{R} b^{-n +1} \frac{\left(n-1\right)^{n-1}}{\left(n+1\right)^{n+1}}  \; .
+\]
+Teraz możemy policzyć $z_k$
+\[
+    z_k = \frac{p_k V_k}{R T_k} = \left(\frac{R T_k}{V_k-b} - \frac{a}{T_k V_k^n} \right) \frac{V_k}{R T_k} = \frac{V_k}{V_k-b} - \frac{a}{R T_k^2 V_k^{(n-1)}} = \frac{V_k}{V_k-b} - \frac{a V_k^2}{n a (V_k - b)^2} \; ,
+\]
+gdzie w ostatnim przejściu wykorzystaliśmy równość $RT_k^2 V_k^{n+1} = na (V_k-b)^2 $ \; . 
+
+Liczymy pierwszy wraz 
+\[
+\frac{V_k}{V_k-b} = \frac{n + 1 }{ n-1} b \frac{n-1}{2b} = \frac{n+1}{2} \; .
+\]
+Liczymy drugi wyraz
+\[
+\frac{a V_k^2}{n a (V_k - b)^2} = \frac{1}{4n} (n+1)^2 \; .
+\]
+Wracając do $z_k$
+\[
+z_k = \frac{n+1}{2} - \frac{1}{4n} (n+1)^2 = \frac{2 n^2 + 2n - n^2 -2n -1}{4n} = \frac{n^2 -1}{4n} \; .
+\]
+Otrzymujemy
+\[
+K = \frac{1}{z_k} = \frac{4n}{n^2 -1} = 3.8 \; .
+\]
+Otrzymujemy równanie kwadratowe na $n$
+\[
+3.8 n^2 - 4n - 3.8 = 0 \; ,
+\]
+którego dodatnie rozwiązanie dane jest wzorem
+\[
+n_1 = \frac{2 + \sqrt{4 + (3.8)^2}}{3.8} \approx 1.66 \; .
+\]
+Na koniec liczymy stosunek objętości krytycznej do parametru $b$.
+\[
+\frac{V_k}{b} = \frac{n+1}{n-1}\approx \frac{2.66}{0.66} \approx 4 \; .
+\]
+\end{document}
