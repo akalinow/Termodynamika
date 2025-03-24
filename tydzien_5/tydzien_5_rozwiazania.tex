@@ -64,7 +64,7 @@ Współczynnik rozszerzalności liniowej stali wynosi $\alpha = 1.2\cdot 10^{-5}
 \vskip 10pt
 
 \textbf{Rozwiązanie:}
-Lina wisi pionowo, pomijamy jej masę. Znająć współczynnik rozszerzalności liniowej stali wiemy, że
+Lina wisi pionowo, pomijamy jej masę. Znając współczynnik rozszerzalności liniowej stali wiemy, że
 zmiana długości liny wyniesie:
 $$
 \Delta L \approx L \alpha \Delta T,
@@ -135,8 +135,8 @@ $$
 %$$
 Po podstawieniu wartości liczbowych:
 $$
-W = \frac{10^{-3}~\t{m}^{3}}{130 \cdot 10^{9}~\t{Pa}}(25 - 1)\cdot 101325^{3}~\t{Pa}^{2} 
-=  1.9 \cdot 10^{-3}\,\t{m}^{3}\t{Pa} =  1.9 \cdot 10^{-3}\,\t{J}
+W = \frac{10^{-3}~\t{m}^{3}}{2 \cdot 130 \cdot 10^{9}~\t{Pa}}(25 - 1)\cdot 101325^{3}~\t{Pa}^{2} 
+=  0.95 \cdot 10^{-3}\,\t{m}^{3}\t{Pa} =  0.95 \cdot 10^{-3}\,\t{J}
 $$
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -190,9 +190,23 @@ Następnie gaz poddano przemianom izochorycznej i izotermicznej, w ten sposób, 
 początkowe parametry stanu. \\
 Znajdź: pracę wykonaną nad gazem w każdej z przemian oraz całkowitą.
 
-
 \vskip 10pt
 \textbf{Rozwiązanie:}
+\vskip 10pt
+
+
+Znajdujemy ciśnienie na końcu przemiamy $p^2 V = const$:
+\begin{equation}
+p^2 V = p_0^2 V_0 = p_1^2 V_1 = p_1^2 2 V_0 \rightarrow p_1 = \frac{p_0}{\sqrt{2}}.
+\end{equation}
+
+Znajdujemy ciśnienie na końcu przemiamy izochorycznej:
+\begin{equation}
+p_A V_A = p_C V_C \rightarrow p_C = \frac{p_A V_A}{V_C} = p_0 \frac{V_0}{2 V_0} = \frac{p_0}{2}.
+\end{equation}
+
+
+
 Schemat przemiany jest pokazany poniżej.
 \begin{center}
 \includegraphics[width=0.4\textwidth]{rys_zad_4.png}
@@ -244,7 +258,7 @@ W = \int_{V_0}^{2 V_0} p \,\t{d}V =
 \int_{V_0}^{2V_0}\left(\frac{R T}{V}\right) =  
 RT \ln 2 =  1573\, \t{J},
 $$
-czyli nieznaczeni więcej. Z góry nie było oczywiste która praca będzie większa. Z jednej strony poprawka $b>0$ zwiększa ciśnienie w stosunku do gazu doskonałego a poprawka związana z $a>0$ zmniejsza.
+czyli nieznacznie więcej. Z góry nie było oczywiste która praca będzie większa. Z jednej strony poprawka $b>0$ zwiększa ciśnienie w stosunku do gazu doskonałego a poprawka związana z $a>0$ zmniejsza.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -308,7 +322,7 @@ $H_i$ możemy wyrazić przez $T_i$ jako $H_i = (M/C) T_i$ więc
 Proszę podać parametry stanu dla drutu i przytoczyć 
 uproszczone równanie stanu dla T = const.
 Następnie proszę obliczyć pracę potrzebną do izotermicznego rozciągnięcia 
-stalowej linki hamulcowej o długości 1 m i średnicy 1.6 mm
+o 1 mm stalowej linki hamulcowej o długości 1 m i średnicy 1.6 mm
 Moduł Younga stali wynosi 200 GPa.
 
 \vskip 10pt
@@ -319,7 +333,7 @@ Moduł Younga stali wynosi 200 GPa.
 Parametery stanu dla drutu to:
 \begin{itemize}
 	\item L -- długość drutu [m],
-	\item H -- naprężenie [Pa],
+	\item $\sigma$ -- naprężenie [Pa],
 	\item T -- temperatura [K],
 \end{itemize} 
 
@@ -345,7 +359,7 @@ Wstawiamy dane liczbowe. Najpierw współczynnik sprężystości:
 
 Teraz praca:
 \begin{equation}
-	W = \frac{402 \cdot 10^{3} \t{N/m} }{2} \cdot (0.001~\t{m})^{2} = 201~\t{J}.
+	W = \frac{402 \cdot 10^{3} \t{N/m} }{2} \cdot (0.001~\t{m})^{2} = 0.2~\t{J}.
 \end{equation}
 
 
