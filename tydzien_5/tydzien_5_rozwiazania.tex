@@ -195,7 +195,7 @@ Znajdź: pracę wykonaną nad gazem w każdej z przemian oraz całkowitą.
 \textbf{Rozwiązanie:}
 Schemat przemiany jest pokazany poniżej.
 \begin{center}
-\includegraphics[width=0.4\textwidth]{zad4.PNG}
+\includegraphics[width=0.4\textwidth]{rys_zad_4.png}
 \end{center}
 
 W procesie $A\rightarrow B$ stan gazu podąża wzdłuż krzywej zadanej równaniem $p^2 V = c$, gdzie $c$ pewna stała.
@@ -249,14 +249,12 @@ czyli nieznaczeni więcej. Z góry nie było oczywiste która praca będzie wię
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \zadanie
-Równanie stanu paramagnetyka (np. w polu solenoidu) zapisać można jako:
-\[  {\rm M}= C \frac{H}{T}, \]
-gdzie $C$ - stała Curie, $H$ - natężenia pola magnetycznego, $T$- temperatura,
-$\rm M$ - magnetyzacja, tj. moment magnetyczny $M$ w jednostce objętości (${\rm M}=M/V$).
-Praca wykonana nad paramagnetykiem w polu magnetycznym
- (z wyłączeniem energii wzajemnej paramegantyk-solenoid) może być zapisana jako
+Proszę podać parametry stanu dla   paramagnetyka (np. w polu solenoidu)
+i przytoczyć równanie stanu. Przyjmując, że praca wykonana 
+nad paramagnetykiem w polu magnetycznym
+(z wyłączeniem energii wzajemnej paramegantyk-solenoid) może być zapisana jako
  $\dbar W = -\mu_0 M dH$.
-Znajdź pracę: 
+Proszę znaleźć pracę wykonaną nad paramagnetykiem:
 \begin{itemize}
 \item w przemianie izotermicznej przy zmianie momentu magnetycznego od $M_1$ do $M_2$
 \item w przemianie dla której $H/T={\rm const}$, od $T_1$ do $T_2$. 
@@ -264,13 +262,31 @@ Znajdź pracę:
 
 \vskip 10pt
 \textbf{Rozwiązanie:}
+\vskip 10pt
 
+Parametery stanu dla paramagnetyka to:
 \begin{itemize}
-\item Z równania stanu mamy, 
+	\item M -- moment magnetyczny na jednostkę objętości (magnetyzacja) [A/m],
+	\item H -- natężenie pola magnetycznego [A/m],
+	\item T -- temperatura [K],
+\end{itemize} 
+
+Równanie stanu dla paramagnetyka to:
+\begin{equation}
+	M = C_{C} \frac{H}{T},
+\end{equation}
+gdzie $C_C$ -- stała Curie [K] (zależy od materiału). \\
+Obliczmy teraz pracę wykonaną w przemianach
+
+
+Korzystając z równania stanu wyrażamy całkę pracy jako całkę po 
+polu magnetycznym:
 \begin{equation}
 	W = \int_{M_1}^{M_2} dW = - \mu_0 \int_{M_1}^{M_2} M dH.
 \end{equation}	
-Dla $T={\rm const}$, $dH = (T/C) dM$ więc 
+
+\begin{itemize}
+\item dla $T={\rm const}$, $dH = (T/C) dM$ więc 
 \begin{equation}
 	W = - \frac{1}{2} \frac{\mu_0 T}{C} \left(M_2^2 - M_1^2 \right).
 \end{equation} 
@@ -284,6 +300,96 @@ $H_i$ możemy wyrazić przez $T_i$ jako $H_i = (M/C) T_i$ więc
 \end{equation}
 
 \end{itemize}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\zadanie
+
+Proszę podać parametry stanu dla drutu i przytoczyć 
+uproszczone równanie stanu dla T = const.
+Następnie proszę obliczyć pracę potrzebną do izotermicznego rozciągnięcia 
+stalowej linki hamulcowej o długości 1 m i średnicy 1.6 mm
+Moduł Younga stali wynosi 200 GPa.
+
+\vskip 10pt
+\textbf{Rozwiązanie:}
+\vskip 10pt
+
+
+Parametery stanu dla drutu to:
+\begin{itemize}
+	\item L -- długość drutu [m],
+	\item H -- naprężenie [Pa],
+	\item T -- temperatura [K],
+\end{itemize} 
+
+Równanie stanu w ustalonej temperaturze to po prostu prawo Hooke'a:
+\begin{equation}
+	F = k (L - L_0),
+\end{equation}
+gdzie $k$ -- stała sprężystości [N/m] materiału z którego wykonany jest drut.
+Pod wpływem siły naciągu F, infinitezymalnie większej niż
+warunek równowagi (inaczej nie mamy przemiany odwracalnej) 
+drut wydłuża się o $dL$, a {\bf my} wykonujemy {\bf nad drutem pracę}:
+\begin{equation}
+	W =  \int_{L_0}^{L} F dL = 
+	     \int_{L_0}^{L} k (L - L_0) dL = 
+		 \frac{k}{2} (L - L_0)^2
+\end{equation}
+
+Wstawiamy dane liczbowe. Najpierw współczynnik sprężystości:
+\begin{equation}
+	k = Y \frac{S}{L_0} = 200 \cdot 10^9 \t{N/m}^{2} \cdot 
+	    \frac{\pi (0.0016/2~\t{m})^{2}}{1~\t{m}} = 402.1\cdot 10^{3}~\t{N/m},
+\end{equation}
+
+Teraz praca:
+\begin{equation}
+	W = \frac{402 \cdot 10^{3} \t{N/m} }{2} \cdot (0.001~\t{m})^{2} = 201~\t{J}.
+\end{equation}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\zadanie
+
+Proszę podać parametry stanu dla powierzchni (błony) i przytoczyć
+uproszczone równanie stanu dla błony na granicy ciecz-para.
+Proszę obliczyć pracę potrzebną do izotermicznego rozciągnięcia błony mydlanej 
+rozpiętej na prostokątnej ramce o wymiarach 10x10 cm
+do rozmiaru 10x20 cm. Napięcie powierzchniowe błony z 
+mieszaniny mydła i wody, na styku z powietrzem, wynosi 0.03 N/m.
+
+\vskip 10pt
+\textbf{Rozwiązanie:}
+\vskip 10pt
+
+
+Parametery stanu dla błony to:
+\begin{itemize}
+	\item S -- powierzchnia [m$^{2}$],
+	\item $\sigma$ -- napięcie powierzchniowe [N/m],
+	\item T -- temperatura [K],
+\end{itemize} 
+
+Przybliżone, empiryczne równanie stanu dla granicy ciecz-para:
+\begin{equation}
+	\sigma = \sigma_0 \left(1 - \frac{T}{T_0}\right)^{n},
+\end{equation}
+
+Praca wykonana przy zmianie powierzchni błony:
+\begin{equation}
+	W = \int_{S_0}^{S} \sigma dS = \sigma_0 (S - S_0)
+\end{equation}
+
+Podstawiamy wartości liczbowe:
+\begin{equation}
+	W = 0.03~\t{N/m} \cdot (0.1 \cdot 0.1)~\t{m}^{2} = 3 \cdot 10^{-4}~\t{J}.
+\end{equation}
+
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
